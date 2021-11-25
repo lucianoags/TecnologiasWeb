@@ -40,7 +40,7 @@ class UserController extends BaseController
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
-		
+
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
@@ -50,9 +50,26 @@ class UserController extends BaseController
 
     public function getTarjetas()
     {
-        $model = new ModuloModel();
-        $users = $model->getModulosDeAlumno(1);
-        echo json_encode($users);
+		if($this-> request -> getMethod() == 'get') {
+            $rules = [
+                'id' => 'required|min_length[2]|max_length[99]',
+
+            ];
+            $errors = [
+				'id' => [
+                    'required' => 'No se ha definido una id de estudiante'
+                ],
+            ];
+            if(!$this->validate($rules, $errors)){
+                $data['validation'] = $this->validator;
+            } else {
+				$id = $this->request->getVar('id');
+
+				$model = new ModuloModel();
+				$users = $model->getModulosDeAlumno($id);
+				echo json_encode($users);
+            }
+        }
     }
 
 }
