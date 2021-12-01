@@ -377,7 +377,7 @@
                       <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
                     </li>
                     <li>
-                      <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                      <a href="<?= base_url("public/logout");?>"> <i class="lni lni-exit"></i> Sign Out </a>
                     </li>
                   </ul>
                 </div>
