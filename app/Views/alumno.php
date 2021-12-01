@@ -24,7 +24,7 @@
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="index.html">
+        <a href="alumno">
           <img src="assets/images/logo/logo1.png" alt="logo" />
         </a>
       </div>
@@ -361,23 +361,23 @@
                     aria-labelledby="profile"
                   >
                     <li>
-                      <a href="#0">
-                        <i class="lni lni-user"></i> View Profile
+                      <a href="perfil">
+                        <i class="lni lni-user"></i> Ver perfil
                       </a>
                     </li>
                     <li>
                       <a href="#0">
-                        <i class="lni lni-alarm"></i> Notifications
+                        <i class="lni lni-alarm"></i> Notificaciones
                       </a>
                     </li>
                     <li>
-                      <a href="#0"> <i class="lni lni-inbox"></i> Messages </a>
+                      <a href="#0"> <i class="lni lni-inbox"></i> Mensajes </a>
                     </li>
                     <li>
-                      <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
+                      <a href="#0"> <i class="lni lni-cog"></i> Configuración </a>
                     </li>
                     <li>
-                      <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                      <a href="#0"> <i class="lni lni-exit"></i> Cerrar Sesión </a>
                     </li>
                   </ul>
                 </div>

@@ -32,7 +32,7 @@
 <!-- ======== sidebar-nav start =========== -->
 <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="ask">
+        <a href="">
           <img src="assets/images/logo/logo1.png" alt="logo" />
         </a>
       </div>
