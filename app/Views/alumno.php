@@ -139,7 +139,7 @@
             </a>
             <ul id="ddmenu_3" class="collapse dropdown-nav">
               <li>
-                <a href="signin.html"> Perfil </a>
+                <a href="perfil"> Perfil </a>
               </li>
               <li>
                 <a href="signup.html"> Propiedades </a>

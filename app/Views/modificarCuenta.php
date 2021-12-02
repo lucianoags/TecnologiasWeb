@@ -399,36 +399,44 @@
 
 
 
-      <!--   Aqui va la tarjeta del perfil               -->
+      <!--   Aqui va la tarjeta de modificar el perfil       -->
 
-      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
         <div class="container" style="margin-right: auto; margin-left: 500px">
             <div class="row">
                 <div class="col-lg-3 col-lg-6">
                     <div class="card hovercard">
                         <div class="cardheader">
-
+                            <a style="font-size: 30px; font-weight: bold"> Modificar datos de cuenta</a>
                         </div>
-                        <div class="avatar">
-                            <img alt="" src="assets/images/profile/profile-1.png">
-                        </div>
-                        <div class="info">
-                            <div class="title">
-                                <a target="_blank">Javier Calderón</a>
+                        <form action="" method="post">
+                            <div class="cardbody">
+                                <div style="margin-bottom: 20px">
+                                    <label>Nombre completo</label>
+                                    <input type="name" placeholder="Ingrese su nuevo nombre completo" style="margin-left: 30px; width: 400px">
+                                </div>
+                                <div style="margin-bottom: 20px">
+                                    <label>Correo Electrónico</label>
+                                    <input type="name" placeholder="Ingrese su nuevo correo electrónico" style="margin-left: 26px; width: 400px">
+                                </div>
+                                <div style="margin-bottom: 20px">
+                                    <label>Contraseña</label>
+                                    <input type="name" placeholder="Ingrese su nueva contraseña" style="margin-left: 80px; width: 400px">
+                                </div>
+                                
                             </div>
-                            <a href="modificar" style="margin-bottom: 10px; font-weight: bold; font-size: 14px">Modificar datos de cuenta</a>
-                            <div class="desc">jcalderon2020@alumnos.utalca.cl</div>
-                            <div class="desc">Alumno</div>
-                            <div class="desc">Ingeniería Civil en Computación</div>
-                        </div>
-                    </div>
+                            <div class="cardfooter">
+                                <button class="btn btn-lg btn-primary" style="width: 200px; height: 45px; margin-bottom: 20px; border-radius: 12px" type="submit">Entrar</button>
 
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
             </div>
         </div>
 
-    <!-- Termina la vista del perfil  -->
+    <!-- Termina la vista de modificar el perfil  -->
 
 
       <!-- ========== footer start =========== -->

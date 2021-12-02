@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('alumno', 'Router::alumno');
 $routes->get('perfil', 'Example::pfp');
+$routes->get('modificar', 'Example::modificar');
 $routes->get('profesor', 'Router::profesor');
 $routes->post('login', 'Login::login');
 $routes->get('logout', 'Login::logout');

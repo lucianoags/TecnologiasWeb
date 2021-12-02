@@ -13,4 +13,9 @@ class Example extends BaseController
 
         return view ('perfil');
     }
+
+    public function modificar() {
+
+        return view ('modificarCuenta');
+    }
 }
