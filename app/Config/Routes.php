@@ -42,7 +42,7 @@ $routes->post('login', 'Login::login');
  * --------------------------------------------------------------------
  */
 
- $routes->get('getTarjeta','ModuloController::GetTarjeta');
+ $routes->get('getTarjetas','ModuloController::getTarjetas');
  
 /*
  * --------------------------------------------------------------------
