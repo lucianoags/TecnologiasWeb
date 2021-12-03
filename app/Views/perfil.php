@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+
     <link
       rel="shortcut icon"
       href="assets/images/favicon.svg"
       type="image/x-icon"
     />
-    <title>PlainAdmin Demo | Bootstrap 5 Admin Template</title>
 
-    <!-- ========== All CSS files linkup ========= -->
+    <link rel="stylesheet" href="<?= base_url("assets/css/custom/perfil.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/login/css/bootstrap.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/LineIcons.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/materialdesignicons.min.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
-  </head>
-  <body>
+<!------ Include the above in your HEAD tag ---------->
 
-    <!-- ======== sidebar-nav start =========== -->
-    <aside class="sidebar-nav-wrapper">
+    <title>Perfil</title>
+</head>
+<body>
+
+
+
+
+
+<!-- ======== sidebar-nav start =========== -->
+<aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="alumno">
+        <a href="">
           <img src="assets/images/logo/logo1.png" alt="logo" />
         </a>
       </div>
@@ -139,7 +147,7 @@
             </a>
             <ul id="ddmenu_3" class="collapse dropdown-nav">
               <li>
-                <a href="perfil"> Perfil </a>
+                <a href="signin.html"> Perfil </a>
               </li>
               <li>
                 <a href="signup.html"> Propiedades </a>
@@ -193,7 +201,7 @@
     <div class="overlay"></div>
     <!-- ======== sidebar-nav end =========== -->
 
-    <!-- ======== main-wrapper start =========== -->
+      <!-- ======== main-wrapper start =========== -->
     <main class="main-wrapper">
       <!-- ========== header start ========== -->
       <header class="header">
@@ -344,10 +352,10 @@
                   >
                     <div class="profile-info">
                       <div class="info">
-                        <h6><?php echo session('nombre')." ".session('apellido') ?></h6>
+                        <h6><?php echo session('nombre')." ".session('apellido')." ".session('id') ?></h6>
                         <div class="image">
                           <img
-                            src="assets/images/profile/profile-image.png"
+                            src="assets/images/profile/profile.png"
                             alt=""
                           />
                           <span class="status"></span>
@@ -362,7 +370,7 @@
                   >
                     <li>
                       <a href="perfil">
-                        <i class="lni lni-user"></i> Ver perfil
+                        <i class="lni lni-user"></i> Ver Perfil
                       </a>
                     </li>
                     <li>
@@ -389,386 +397,39 @@
       </header>
       <!-- ========== header end ========== -->
 
-      <!-- ========== section start ========== -->
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
-        <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <div class="title mb-30">
-                  <h2>Módulos</h2>
-                </div>
-              </div>
-              <!-- end col -->
-              <div class="col-md-6">
-                <div class="breadcrumb-wrapper mb-30">
-                  <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item">
-                        <a href="#0">Dashboard</a>
-                      </li>
-                      <li class="breadcrumb-item active" aria-current="page">
-                        Gestor de clases
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
-              </div>
-              <!-- end col -->
-            </div>
-            <!-- end row -->
-          </div>
-          <!-- ========== title-wrapper end ========== -->
-          <div class="row" >
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon purple">
-                  <i class="lni lni-cart-full"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Web</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon success">
-                  <i class="lni lni-dollar"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Sistemas Distribuidos</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon primary">
-                  <i class="lni lni-credit-cards"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Formulación Proyecto de Titulación</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Renzo Angles
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon orange">
-                  <i class="lni lni-user"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Móviles</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-          <div class="row">
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-          <div class="row">
-            <div class="col-lg-5">
-              <div class="card-style calendar-card mb-30">
-                <div id="calendar-mini"></div>
-              </div>
-            </div>
-            <!-- End Col -->
-            <div class="col-lg-7">
-              <div class="card-style mb-30">
-                <div
-                  class="
-                    title
-                    d-flex
-                    flex-wrap
-                    align-items-center
-                    justify-content-between
-                  "
-                >
-                  <div class="left">
-                    <h6 class="text-medium mb-30">Clases</h6>
-                  </div>
-                  <div class="right">
-                    <div class="select-style-1">
-                      <div class="select-position select-sm">
-                        <select class="light-bg">
-                          <option value="">Todos</option>
-                          <option value="">Plan común</option>
-                          <option value="">Escuela</option>
-                        </select>
-                      </div>
-                    </div>
-                    <!-- end select -->
-                  </div>
-                </div>
-                <!-- End Title -->
-                <div class="table-responsive">
-                  <table class="table top-selling-table">
-                    <thead>
-                      <tr>
-                        <th>
-                          <h6 class="text-sm text-medium">Módulos</h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Fecha <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Hora <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Sala <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Estado <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th>
-                          <h6 class="text-sm text-medium text-end">
-                            Acciones <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Tecnologías Web</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Inscrito</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Formulación Proyecto de Titulación</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">19-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">08:30</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">32c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Inscrito</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
 
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
+
+      <!--   Aqui va la tarjeta del perfil               -->
+
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="container" style="margin-right: auto; margin-left: 500px">
+            <div class="row">
+                <div class="col-lg-3 col-lg-6">
+                    <div class="card hovercard">
+                        <div class="cardheader">
+
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="assets/images/profile/profile-1.png">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a target="_blank">Javier Calderón</a>
                             </div>
-                            <p class="text-sm">Sistemas Distribuidos</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">15:30</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Por inscribir</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Inscribir</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Tecnologías Web</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Por inscribir</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Inscribir</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- End Table -->
+                            <a href="modificar" style="margin-bottom: 10px; font-weight: bold; font-size: 14px">Modificar datos de cuenta</a>
+                            <div class="desc">jcalderon2020@alumnos.utalca.cl</div>
+                            <div class="desc">Alumno</div>
+                            <div class="desc">Ingeniería Civil en Computación</div>
+                        </div>
+                    </div>
+
                 </div>
-              </div>
+
             </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
         </div>
-        <!-- end container -->
-      </section>
-      <!-- ========== section end ========== -->
+
+    <!-- Termina la vista del perfil  -->
+
 
       <!-- ========== footer start =========== -->
       <footer class="footer">
@@ -776,14 +437,13 @@
           <div class="row">
             <div class="col-md-6 order-last order-md-first">
               <div class="copyright text-center text-md-start">
-                <p class="text-sm">
-                  Designed and Developed by
+                <p class="text-sm">             
                   <a
-                    href="https://plainadmin.com"
+                    href="https://www.utalca.cl/"
                     rel="nofollow"
                     target="_blank"
                   >
-                    PlainAdmin
+                    Universidad de Talca
                   </a>
                 </p>
               </div>
@@ -1350,3 +1010,4 @@
     </script>
   </body>
 </html>
+

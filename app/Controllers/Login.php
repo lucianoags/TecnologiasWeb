@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\AlumnoModel;
+use App\Models\ProfesorModel;
 
 class Login extends BaseController{
 	protected $helpers = [];
@@ -39,7 +40,7 @@ class Login extends BaseController{
 					];
 	
 					session()->set($ses_data);
-					return redirect()->to('http://localhost/TecnologiasWeb/public/ask'); 
+					return redirect()->to('http://localhost/TecnologiasWeb/public/alumno'); 
 
 				
 				}else{
@@ -49,14 +50,41 @@ class Login extends BaseController{
 	
 			}else{
 				session()->setFlashdata('msg', 'Email does not exist.');
-				return redirect()->to('http://localhost/TecnologiasWeb/public/ask'); 
+				return redirect()->to('http://localhost/TecnologiasWeb/public/login'); 
+			}
+
+		} elseif ($email_exploded[1] == "utalca.cl") {
+
+			$profesormodel = new ProfesorModel();
+			$data_profesor = $profesormodel->where('correo', $email)->first();
+
+			if($data_profesor){
+				$pass = $data_profesor['password'];
+				$authenticatePassword = password_verify($password, password_hash($pass, PASSWORD_DEFAULT));
+				if($authenticatePassword){
+					$ses_data = [
+						'id' => $data_profesor['id'],
+						'nombre' => $data_profesor['nombre'],
+						'apellido' => $data_profesor['apellido_1'],
+						'correo' => $data_profesor['correo'],
+						'isLoggedIn' => TRUE
+					];
+	
+					session()->set($ses_data);
+					return redirect()->to('http://localhost/TecnologiasWeb/public/profesor'); 
+
+				
+				}else{
+					session()->setFlashdata('msg', 'Password is incorrect.');
+					return redirect()->to('http://localhost/TecnologiasWeb/public/profesor'); 
+				}
+	
+			}else{
+				session()->setFlashdata('msg', 'Email does not exist.');
+				return redirect()->to('http://localhost/TecnologiasWeb/public/login'); 
 			}
 
 		}
-
-		
-		// load view
-		//return view('alumno',$data);
 
 	}
 
@@ -97,6 +125,6 @@ class Login extends BaseController{
 	public function logout(){
 		$session = session();
 		$session->destroy();
-		return redirect()->to('login');
+		return redirect()->to('public/login');
 	}
 }
