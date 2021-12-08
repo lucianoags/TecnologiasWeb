@@ -390,7 +390,7 @@
       <!-- ========== header end ========== -->
 
       <!-- ========== section start ========== -->
-      <section class="section">
+      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
         <div class="container-fluid">
           <!-- ========== title-wrapper start ========== -->
           <div class="title-wrapper pt-30">
@@ -420,7 +420,7 @@
             <!-- end row -->
           </div>
           <!-- ========== title-wrapper end ========== -->
-          <div class="row">
+          <div class="row" >
             <div class="col-xl-3 col-lg-4 col-sm-6">
               <div class="icon-card mb-30">
                 <div class="icon purple">

@@ -29,11 +29,6 @@ class UserController extends BaseController
 	 * @param LoggerInterface   $logger
 	 */
 
-	public function index()
-    {
-		echo 'prueba';
-        return view('test');
-    }
 
 
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
@@ -50,25 +45,15 @@ class UserController extends BaseController
 
     public function getTarjetas()
     {
+		echo "entro";
 		if($this-> request -> getMethod() == 'get') {
-            $rules = [
-                'id' => 'required|min_length[2]|max_length[99]',
-
-            ];
-            $errors = [
-				'id' => [
-                    'required' => 'No se ha definido una id de estudiante'
-                ],
-            ];
-            if(!$this->validate($rules, $errors)){
-                $data['validation'] = $this->validator;
-            } else {
-				$id = $this->request->getVar('id');
+				$session = session();
+				$id = $session['user_id'];
 
 				$model = new ModuloModel();
-				$users = $model->getModulosDeAlumno($id);
-				echo json_encode($users);
-            }
+				$modulos = $model->getModulosDeAlumno($id);
+				echo json_encode($modulos);
+            
         }
     }
 

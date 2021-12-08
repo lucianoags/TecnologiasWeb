@@ -46,7 +46,7 @@ $routes->get('logout', 'Login::logout');
  * --------------------------------------------------------------------
  */
 
- $routes->get('getTarjeta','ModuloController::GetTarjeta');
+ $routes->get('getTarjetas','ModuloController::getTarjetas');
  
 /*
  * --------------------------------------------------------------------
