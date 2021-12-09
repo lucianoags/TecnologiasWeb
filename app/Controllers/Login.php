@@ -3,6 +3,9 @@ namespace App\Controllers;
 
 use App\Models\AlumnoModel;
 use App\Models\ProfesorModel;
+use App\Models\AdministradorModel;
+use App\Models\EncargadoModel;
+
 
 class Login extends BaseController{
 	protected $helpers = [];
@@ -54,9 +57,15 @@ class Login extends BaseController{
 			}
 
 		} elseif ($email_exploded[1] == "utalca.cl") {
-
+			
 			$profesormodel = new ProfesorModel();
+			$administradormodel = new AdministradorModel();
+			$encargadomodel = new EncargadoModel();
+			
 			$data_profesor = $profesormodel->where('correo', $email)->first();
+			$data_administrador = $administradormodel->where('correo', $email)->first();
+			$data_encargado = $encargadomodel->where('correo', $email)->first();
+			
 
 			if($data_profesor){
 				$pass = $data_profesor['password'];
@@ -76,10 +85,51 @@ class Login extends BaseController{
 				
 				}else{
 					session()->setFlashdata('msg', 'Password is incorrect.');
-					return redirect()->to('http://localhost/TecnologiasWeb/public/profesor'); 
+					return redirect()->to('http://localhost/TecnologiasWeb/public/login'); 
 				}
 	
-			}else{
+			}elseif ($data_administrador) {
+				$pass = $data_administrador['password'];
+				$authenticatePassword = password_verify($password, password_hash($pass, PASSWORD_DEFAULT));
+				if($authenticatePassword){
+					$ses_data = [
+						'id' => $data_administrador['id'],
+						'nombre' => $data_administrador['nombre'],
+						'apellido' => $data_administrador['apellido_1'],
+						'correo' => $data_administrador['correo'],
+						'isLoggedIn' => TRUE
+					];
+	
+					session()->set($ses_data);
+					return redirect()->to('http://localhost/TecnologiasWeb/public/administrador'); 
+
+				
+				}else{
+					session()->setFlashdata('msg', 'Password is incorrect.');
+					return redirect()->to('http://localhost/TecnologiasWeb/public/login'); 
+				}
+			}elseif ($data_encargado) {
+				$pass = $data_encargado['password'];
+				$authenticatePassword = password_verify($password, password_hash($pass, PASSWORD_DEFAULT));
+				if($authenticatePassword){
+					$ses_data = [
+						'id' => $data_encargado['id'],
+						'nombre' => $data_encargado['nombre'],
+						'apellido' => $data_encargado['apellido_1'],
+						'correo' => $data_encargado['correo'],
+						'isLoggedIn' => TRUE
+					];
+	
+					session()->set($ses_data);
+					return redirect()->to('http://localhost/TecnologiasWeb/public/encargado'); 
+
+				
+				}else{
+					session()->setFlashdata('msg', 'Password is incorrect.');
+					return redirect()->to('http://localhost/TecnologiasWeb/public/login'); 
+				}
+			}
+			else{
 				session()->setFlashdata('msg', 'Email does not exist.');
 				return redirect()->to('http://localhost/TecnologiasWeb/public/login'); 
 			}

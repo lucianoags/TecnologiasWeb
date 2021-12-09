@@ -16,11 +16,11 @@ class Router extends BaseController
 
     public function administrador()
     {
-        return view('profesor');
+        return view('administrador');
     }
 
     public function encargado()
     {
-        return view('profesor');
+        return view('encargado');
     }
 }
