@@ -36,6 +36,8 @@ $routes->get('alumno', 'Router::alumno');
 $routes->get('perfil', 'Example::pfp');
 $routes->get('modificar', 'Example::modificar');
 $routes->get('profesor', 'Router::profesor');
+$routes->get('administrador', 'Router::administrador');
+$routes->get('encargado', 'Router::encargado');
 $routes->post('login', 'Login::login');
 $routes->get('logout', 'Login::logout');
 

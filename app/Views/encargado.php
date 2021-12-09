@@ -54,46 +54,6 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item nav-item-has-children">
-            <a
-              href="#0"
-              class="collapsed"
-              data-bs-toggle="collapse"
-              data-bs-target="#ddmenu_2"
-              aria-controls="ddmenu_2"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="icon">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.8334 1.83325H5.50008C5.01385 1.83325 4.54754 2.02641 4.20372 2.37022C3.8599 2.71404 3.66675 3.18036 3.66675 3.66659V18.3333C3.66675 18.8195 3.8599 19.2858 4.20372 19.6296C4.54754 19.9734 5.01385 20.1666 5.50008 20.1666H16.5001C16.9863 20.1666 17.4526 19.9734 17.7964 19.6296C18.1403 19.2858 18.3334 18.8195 18.3334 18.3333V7.33325L12.8334 1.83325ZM16.5001 18.3333H5.50008V3.66659H11.9167V8.24992H16.5001V18.3333Z"
-                  />
-                </svg>
-              </span>
-              <span class="text">Módulos</span>
-            </a>
-            <ul id="ddmenu_2" class="collapse dropdown-nav">
-              <li>
-                <a href="settings.html"> Tecnologías Web </a>
-              </li>
-              <li>
-                <a href="blank-page.html"> Sistemas Distribuidos </a>
-              </li>
-              <li>
-                <a href="blank-page.html"> Formulación Proyecto de Titulación </a>
-              </li>
-              <li>
-                <a href="blank-page.html"> Tecnologías Móviles </a>
-              </li>
-            </ul>
-          </li>
           <li class="nav-item">
             <a href="invoice.html">
               <span class="icon">
@@ -147,7 +107,7 @@
             </ul>
           </li>
           <span class="divider"><hr /></span>
-
+          
           <li class="nav-item">
             <a href="notification.html">
               <span class="icon">
@@ -400,95 +360,13 @@
           </div>
           <!-- ========== title-wrapper end ========== -->
           <div class="row" >
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon purple">
-                  <i class="lni lni-cart-full"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Web</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon success">
-                  <i class="lni lni-dollar"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Sistemas Distribuidos</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon primary">
-                  <i class="lni lni-credit-cards"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Formulación Proyecto de Titulación</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Renzo Angles
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon orange">
-                  <i class="lni lni-user"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Móviles</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
           </div>
           <!-- End Row -->
           <div class="row">
-            <!-- End Col -->
           </div>
           <!-- End Row -->
           <div class="row">
-            <div class="col-lg-5">
-              <div class="card-style calendar-card mb-30">
-                <div id="calendar-mini"></div>
-              </div>
-            </div>
-            <!-- End Col -->
+
             <div class="col-lg-7">
               <div class="card-style mb-30">
                 <div
@@ -503,18 +381,7 @@
                   <div class="left">
                     <h6 class="text-medium mb-30">Clases</h6>
                   </div>
-                  <div class="right">
-                    <div class="select-style-1">
-                      <div class="select-position select-sm">
-                        <select class="light-bg">
-                          <option value="">Todos</option>
-                          <option value="">Plan común</option>
-                          <option value="">Escuela</option>
-                        </select>
-                      </div>
-                    </div>
-                    <!-- end select -->
-                  </div>
+        
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
@@ -536,7 +403,12 @@
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
-                            Sala <i class="lni lni-arrows-vertical"></i>
+                            ID Dependencia <i class="lni lni-arrows-vertical"></i>
+                          </h6>
+                        </th>
+                        <th class="min-width">
+                          <h6 class="text-sm text-medium">
+                            Cupo <i class="lni lni-arrows-vertical"></i>
                           </h6>
                         </th>
                         <th class="min-width">
@@ -571,10 +443,13 @@
                           <span class="status-btn ">16:40</span>
                         </td>
                         <td>
-                          <span class="status-btn">34c</span>
+                          <span class="status-btn">16</span>
                         </td>
                         <td>
-                          <span class="status-btn success-btn">Inscrito</span>
+                          <span class="status-btn">15</span>
+                        </td>
+                        <td>
+                          <span class="status-btn success-btn">Aprobado</span>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -617,10 +492,13 @@
                           <span class="status-btn ">08:30</span>
                         </td>
                         <td>
-                          <span class="status-btn">32c</span>
+                          <span class="status-btn">332</span>
                         </td>
                         <td>
-                          <span class="status-btn success-btn">Inscrito</span>
+                          <span class="status-btn">20</span>
+                        </td>
+                        <td>
+                          <span class="status-btn warning-btn">Pendiente</span>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -643,7 +521,81 @@
                           </div>
                         </td>
                       </tr>
+                    </tbody>
+                  </table>
+                  <!-- End Table -->
+                </div>
+              </div>
+            </div>
+            <!-- End Col -->
+          </div>
+          
+          <!-- End Row -->
+        </div>
+        <!-- end container -->
+      </section>
+      <!-- ========== section end ========== -->
 
+
+      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
+        <div class="container-fluid">
+          <!-- ========== title-wrapper start ========== -->
+          <div class="title-wrapper pt-30">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="title mb-30">
+                  <h2>Dependencias</h2>
+                </div>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- ========== title-wrapper end ========== -->
+          <div class="row" >
+          </div>
+          <!-- End Row -->
+          <div class="row">
+          </div>
+          <!-- End Row -->
+          <div class="row">
+
+            <div class="col-lg-7">
+              <div class="card-style mb-30">
+                <div
+                  class="
+                    title
+                    d-flex
+                    flex-wrap
+                    align-items-center
+                    justify-content-between
+                  "
+                >
+                  <div style="margin-left: auto">
+                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Dependencia </button>    
+                  </div>
+                </div>
+                <!-- End Title -->
+                <div class="table-responsive">
+                  <table class="table top-selling-table">
+                    <thead>
+                      <tr>
+                        <th>
+                          <h6 class="text-sm text-medium">ID</h6>
+                        </th>
+                        <th class="min-width">
+                          <h6 class="text-sm text-medium">
+                            Aforo <i class="lni lni-arrows-vertical"></i>
+                          </h6>
+                        </th>
+                        <th>
+                          <h6 class="text-sm text-medium text-end">
+                            Acciones <i class="lni lni-arrows-vertical"></i>
+                          </h6>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
                       <tr>
                         <td>
                           <div class="product">
@@ -653,20 +605,11 @@
                                 alt=""
                               />
                             </div>
-                            <p class="text-sm">Sistemas Distribuidos</p>
+                            <p class="text-sm">445</p>
                           </div>
                         </td>
                         <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">15:30</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Por inscribir</span>
+                          <p class="text-sm">40</p>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -683,7 +626,10 @@
                               aria-labelledby="moreAction1"
                             >
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Inscribir</a>
+                                <a href="#0" class="text-gray">Modificar</a>
+                              </li>
+                              <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Eliminar</a>
                               </li>
                             </ul>
                           </div>
@@ -699,20 +645,11 @@
                                 alt=""
                               />
                             </div>
-                            <p class="text-sm">Tecnologías Web</p>
+                            <p class="text-sm">332</p>
                           </div>
                         </td>
                         <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Por inscribir</span>
+                          <p class="text-sm">25</p>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -728,8 +665,91 @@
                               class="dropdown-menu dropdown-menu-end"
                               aria-labelledby="moreAction1"
                             >
+                            <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Modificar</a>
+                              </li>
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Inscribir</a>
+                                <a href="#0" class="text-gray">Eliminar</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <div class="product">
+                            <div class="image">
+                              <img
+                                src="assets/images/products/product-mini-1.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <p class="text-sm">16</p>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-sm">35</p>
+                        </td>
+                        <td>
+                          <div class="action justify-content-end">
+                            <button
+                              class="more-btn ml-10 dropdown-toggle"
+                              id="moreAction1"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="lni lni-more-alt"></i>
+                            </button>
+                            <ul
+                              class="dropdown-menu dropdown-menu-end"
+                              aria-labelledby="moreAction1"
+                            >
+                            <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Modificar</a>
+                              </li>
+                              <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Eliminar</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      
+					  <tr>
+                        <td>
+                          <div class="product">
+                            <div class="image">
+                              <img
+                                src="assets/images/products/product-mini-1.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <p class="text-sm">34</p>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-sm">40</p>
+                        </td>
+                        <td>
+                          <div class="action justify-content-end">
+                            <button
+                              class="more-btn ml-10 dropdown-toggle"
+                              id="moreAction1"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="lni lni-more-alt"></i>
+                            </button>
+                            <ul
+                              class="dropdown-menu dropdown-menu-end"
+                              aria-labelledby="moreAction1"
+                            >
+                            <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Modificar</a>
+                              </li>
+                              <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Eliminar</a>
                               </li>
                             </ul>
                           </div>
@@ -743,11 +763,11 @@
             </div>
             <!-- End Col -->
           </div>
+          
           <!-- End Row -->
         </div>
         <!-- end container -->
       </section>
-      <!-- ========== section end ========== -->
 
       <!-- ========== footer start =========== -->
       <footer class="footer">
