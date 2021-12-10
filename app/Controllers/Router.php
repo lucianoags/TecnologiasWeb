@@ -13,4 +13,14 @@ class Router extends BaseController
     {
         return view('profesor');
     }
+
+    public function administrador()
+    {
+        return view('administrador');
+    }
+
+    public function encargado()
+    {
+        return view('encargado');
+    }
 }
