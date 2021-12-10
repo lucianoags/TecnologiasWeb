@@ -18,6 +18,24 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
+
+    <style>
+      .row-eq-height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+      }
+
+      .box {
+        transition: box-shadow .3s;        
+      }
+      .box:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2); 
+      }
+
+    </style>
+
   </head>
   <body>
 
@@ -340,8 +358,8 @@
                     aria-labelledby="profile"
                   >
                     <li>
-                      <a href="perfil">
-                        <i class="lni lni-user"></i> Ver perfil
+                      <a href="#0">
+                        <i class="lni lni-user"></i> Perfil
                       </a>
                     </li>
                     <li>
@@ -356,7 +374,7 @@
                       <a href="#0"> <i class="lni lni-cog"></i> Configuración </a>
                     </li>
                     <li>
-                      <a href="logout"> <i class="lni lni-exit"></i> Cerrar Sesión </a>
+                      <a href="<?= base_url("public/logout");?>"> <i class="lni lni-exit"></i> Salir </a>
                     </li>
                   </ul>
                 </div>
@@ -399,83 +417,63 @@
             <!-- end row -->
           </div>
           <!-- ========== title-wrapper end ========== -->
-          <div class="row" >
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon purple">
-                  <i class="lni lni-cart-full"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Web</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
+          <div class="container">
+            <div class="row row-eq-height">
+              
+
+
+                  <?php
+                    
+                    if (isset($modulos)){
+                      
+                      foreach ($modulos as $key => $value) {
+
+                      ?>
+                      
+                      <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30 box">
+                          <div class="icon purple">
+                            <i class="lni lni-cart-full"></i>
+                          </div>
+                              <div class="content">
+                                <h6 class="mb-10"><?php echo $value['area']; ?></h6>
+                                <h3 class="text-bold mb-10"><?php echo $value['nombre']; ?></h3>
+                                <p class="text-sm text-success">
+                                  Profesor:
+                                </p>
+                                <p class="text-sm">
+                                  Rodrigo Pavez
+                                </p>
+                                </div>
+                              </div>
+                          <!-- End Icon Cart ESTE -->
+                        </div>
+                        
+                        <?php //echo $value['seccion']; ?>
+                        
+                      <?php
+
+                      }
+
+                    }
+                    
+                  ?>
+
+
+
+                  <!-- <div class="content">
+                    <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
+                    <h3 class="text-bold mb-10">Tecnologías Web</h3>
+                    <p class="text-sm text-success">
+                      Profesor:
+                    </p>
+                    <p class="text-sm">
+                      Rodrigo Pavez
+                    </p>
+                  </div> -->
+                
+              <!-- End Col -->
             </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon success">
-                  <i class="lni lni-dollar"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Sistemas Distribuidos</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon primary">
-                  <i class="lni lni-credit-cards"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Formulación Proyecto de Titulación</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Renzo Angles
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon orange">
-                  <i class="lni lni-user"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Móviles</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
           </div>
           <!-- End Row -->
           <div class="row">
@@ -755,16 +753,6 @@
           <div class="row">
             <div class="col-md-6 order-last order-md-first">
               <div class="copyright text-center text-md-start">
-                <p class="text-sm">
-                  Designed and Developed by
-                  <a
-                    href="https://plainadmin.com"
-                    rel="nofollow"
-                    target="_blank"
-                  >
-                    PlainAdmin
-                  </a>
-                </p>
               </div>
             </div>
             <!-- end col-->

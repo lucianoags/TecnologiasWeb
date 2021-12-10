@@ -6,19 +6,43 @@ use CodeIgniter\Model;
 
 class ModuloModel extends Model
 {
-    protected $table      = 'modulo';
-    protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre', 'carrera','plan_comun', 'correo', 'sede'];
+    protected $table = 'modulo';
+    protected $primarykey = 'id';
+    protected $allowedFields = ['nombre','plan_comun','sede','carrera','seccion','profesor'];
 
-    public function getNombre(){
-        $query = $this->db->query("Select nombre from carrera");
-        $result = $query->getResult();
+    public function getModulosAlumno($id){
+
+        $string_query = "";
+
+        if (count($id) == 1){
+            
+            $string_query = "Select * from modulo where id = ".$id[0];
+        
+        } elseif (count($id) > 1) {
+            
+            $string_query = "Select * from modulo where id = ".$id[0];
+            
+            for ($c = 0; $c < count($id); $c++) {
+                if ($c == 0) {
+
+                } else {
+                    $string_query .= " or id =".$id[$c];
+                }
+            }
+        
+        } else {
+
+        }
+
+        $query = $this->db->query($string_query);
+        $result = $query->getResult('array');
         return $result;
+
     }
 
-    public function getModulosDeAlumno($id){
-        $query = $this->db->query("Select * from modulo INNER JOIN modulo_estudiante ON modulo_estudiante.modulo = modulo.id WHERE modulo_estudiante.estudiante = ".$id."");
-        $result = $query->getResult();
+    public function getModuloAlumno($id){
+        $query = $this->db->query("Select * from modulo where id = ".$id);
+        $result = $query->getResult('array');
         return $result;
     }
 }
