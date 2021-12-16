@@ -256,7 +256,9 @@ class Login extends BaseController{
 	public function administrador(){
 		
 		$moduloModel = new ModuloModel();
+		$tablaProfesor = new ProfesorModel();
 		$data['modulos'] = $moduloModel->getModulosAdministrador();
+		$data['profesores'] = $tablaProfesor->getProfesoresAdministrador();
 		return view('administrador', $data);
 	}
 
