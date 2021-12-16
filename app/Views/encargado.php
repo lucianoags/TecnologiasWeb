@@ -389,7 +389,7 @@
                     <thead>
                       <tr>
                         <th>
-                          <h6 class="text-sm text-medium">Módulos</h6>
+                          <h6 class="text-sm text-medium">Eventos</h6>
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
@@ -403,12 +403,12 @@
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
-                            ID Dependencia <i class="lni lni-arrows-vertical"></i>
+                            Sala <i class="lni lni-arrows-vertical"></i>
                           </h6>
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
-                            Cupo <i class="lni lni-arrows-vertical"></i>
+                            Aforo <i class="lni lni-arrows-vertical"></i>
                           </h6>
                         </th>
                         <th class="min-width">
@@ -473,54 +473,7 @@
                         </td>
                       </tr>
                       
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Formulación Proyecto de Titulación</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">19-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">08:30</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">332</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">20</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Pendiente</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+					  
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -572,7 +525,7 @@
                   "
                 >
                   <div style="margin-left: auto">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Dependencia </button>    
+                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalDependencias"> Añadir Dependencia </button>    
                   </div>
                 </div>
                 <!-- End Title -->
@@ -582,6 +535,11 @@
                       <tr>
                         <th>
                           <h6 class="text-sm text-medium">ID</h6>
+                        </th>
+                        <th class="min-width">
+                          <h6 class="text-sm text-medium">
+                            Nombre Sala <i class="lni lni-arrows-vertical"></i>
+                          </h6>
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
@@ -597,16 +555,11 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
+                        <td>               
                             <p class="text-sm">445</p>
-                          </div>
+                        </td>
+                        <td>
+                          <p class="text-sm">C2</p>
                         </td>
                         <td>
                           <p class="text-sm">40</p>
@@ -636,125 +589,6 @@
                         </td>
                       </tr>
                       
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">332</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">25</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">16</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">35</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">34</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">40</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -806,6 +640,38 @@
         <!-- end container -->
       </footer>
       <!-- ========== footer end =========== -->
+
+
+
+      <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="nombre_sala" class="col-form-label">Nombre Sala</label>
+                  <input type="text" class="form-control" id="nombre_sala">
+                </div>
+                <div class="mb-3">
+                  <label for="aforo" class="col-form-label">Aforo permitido</label>
+                  <input type="text" class="form-control" id="aforo" style="width: 100px">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
     </main>
     <!-- ======== main-wrapper end =========== -->
 
@@ -821,6 +687,15 @@
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
 
     <script>
+
+      var ModalDependencias = document.getElementById('ModalDependencias')
+        ModalDependencias.addEventListener('show.bs.modal', function (event) {
+          // Button that triggered the modal
+          var button = event.relatedTarget
+          // Extract info from data-bs-* attributes
+          var recipient = button.getAttribute('data-bs-whatever')
+
+      })
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },

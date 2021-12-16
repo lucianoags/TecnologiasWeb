@@ -382,7 +382,7 @@
                     <h6 class="text-medium mb-30">Clases</h6>
                   </div>
                   <div style="right">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Módulo </button>    
+                    <button type="button" class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalModulos"> Añadir Módulo </button>    
                   </div>
         
                 </div>
@@ -533,7 +533,7 @@
                   "
                 >
                   <div style="margin-left: auto">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Profesor </button>    
+                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalProfesores"> Añadir Profesor </button>    
                   </div>
                 </div>
                 <!-- End Title -->
@@ -685,6 +685,103 @@
         <!-- end container -->
       </footer>
       <!-- ========== footer end =========== -->
+
+     <!-- Modal -->
+      <div class="modal fade" id="ModalModulos" tabindex="-1" aria-labelledby="ModalModulosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalModulosLabel">Añadir Módulo</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="nombre_modulo" class="col-form-label">Nombre del Módulo</label>
+                  <input type="text" class="form-control" id="nombre_modulo">
+                </div>
+                <div class="mb-3">
+                  <label for="seccion" class="col-form-label">Seccion</label>
+                  <input type="text" class="form-control" id="seccion">
+                </div>
+                <div class="mb-3">
+                  <label class="col-form-label">Sede</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="1" selected>Curicó</option>
+                    <option value="2">Talca</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="col-form-label">Carrera</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="1" selected>Ingeniería Civil en Computación</option>
+                    <option value="2">Carrera 2</option>
+                    <option value="3">Carrera 3</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="col-form-label">Area</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="Plan Común" selected>Plan Común</option>
+                    <option value="Ciencias de la Computación">Ciencias de la Computación</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="ModalProfesores" tabindex="-1" aria-labelledby="ModalProfesoresLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalProfesoresLabel">Añadir Profesor</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="nombre_profesor" class="col-form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre_profesor">
+                </div>
+                <div class="mb-3">
+                  <label for="apellidop_profesor" class="col-form-label">Apellido Paterno</label>
+                  <input type="text" class="form-control" id="apellidop_profesor">
+                </div>
+                <div class="mb-3">
+                  <label for="apellidom_profesor" class="col-form-label">Apellido Materno</label>
+                  <input type="text" class="form-control" id="apellidom_profesor">
+                </div>
+                <div class="mb-3">
+                  <label for="correo_profesor" class="col-form-label">Correo</label>
+                  <input type="text" class="form-control" id="correo_profesor">
+                </div>
+                <div class="mb-3">
+                  <label for="password_profesor" class="col-form-label">Contraseña</label>
+                  <input type="text" class="form-control" id="password_profesor">
+                </div>
+                <div class="mb-3">
+                  <label class="col-form-label">Carrera</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="1" selected>Ingeniería Civil en Computación</option>
+                    <option value="2">Carrera 2</option>
+                    <option value="3">Carrera 3</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- ======== main-wrapper end =========== -->
 
@@ -700,6 +797,26 @@
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
 
     <script>
+
+
+      var ModalModulos = document.getElementById('ModalModulos')
+      ModalModulos.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-whatever')
+
+      })
+
+      var ModalProfesores = document.getElementById('ModalProfesores')
+      ModalProfesores.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-whatever')
+
+      })
+
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },
@@ -1225,6 +1342,7 @@
         },
       });
       // =========== chart four end
+      
     </script>
   </body>
 </html>
