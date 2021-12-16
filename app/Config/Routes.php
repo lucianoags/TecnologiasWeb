@@ -36,7 +36,7 @@ $routes->get('perfil', 'Example::pfp');
 $routes->get('modificar', 'Example::modificar');
 $routes->get('alumno', 'Login::alumno');
 $routes->get('profesor', 'Router::profesor');
-$routes->get('administrador', 'Router::administrador');
+$routes->get('administrador', 'Login::administrador');
 $routes->get('encargado', 'Router::encargado');
 $routes->post('login', 'Login::login');
 $routes->get('logout', 'Login::logout');
@@ -49,7 +49,6 @@ $routes->get('test', 'Login::test');
  * --------------------------------------------------------------------
  */
 
- $routes->get('getTarjetas','ModuloController::getTarjetas');
  
 /*
  * --------------------------------------------------------------------

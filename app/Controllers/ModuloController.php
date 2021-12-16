@@ -43,18 +43,8 @@ class UserController extends BaseController
 
 
 
-    public function getTarjetas()
-    {
-		echo "entro";
-		if($this-> request -> getMethod() == 'get') {
-				$session = session();
-				$id = $session['user_id'];
 
-				$model = new ModuloModel();
-				$modulos = $model->getModulosDeAlumno($id);
-				echo json_encode($modulos);
-            
-        }
-    }
+
+
 
 }

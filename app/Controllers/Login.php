@@ -58,6 +58,7 @@ class Login extends BaseController{
 					}
 
 					$data['modulos'] = $moduloModel->getModulosAlumno($id_modulos);
+					
 
 					session()->set($ses_data);
 					return view('alumno', $data);
@@ -196,7 +197,6 @@ class Login extends BaseController{
 						'isLoggedIn' => TRUE
 					];
 	
-					session()->set($ses_data);
 					return redirect()->to('http://localhost/TecnologiasWeb/public/administrador'); 
 
 				
@@ -251,6 +251,13 @@ class Login extends BaseController{
 		$data['modulos'] = $moduloModel->getModulosAlumno($id_modulos);
 
 		return view('alumno', $data);
+	}
+
+	public function administrador(){
+		
+		$moduloModel = new ModuloModel();
+		$data['modulos'] = $moduloModel->getModulosAdministrador();
+		return view('administrador', $data);
 	}
 
 	public function index(){
