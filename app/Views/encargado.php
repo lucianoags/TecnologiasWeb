@@ -477,7 +477,8 @@
                                         aria-labelledby="moreAction1"
                                       >
                                         <li class="dropdown-item">
-                                          <a href="#0" class="text-gray">Anular</a>
+                                         <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                         <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
                                         </li>
                                       </ul>
                                     </div>
@@ -710,8 +711,21 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
-
+    <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
     <script>
+
+      $(document).ready(function(){
+        $(document).on('click','.evento-anular', function (){
+          $.ajax({
+            method: "POST",
+            url: "anularEvento",
+            data: {id: this.id}
+          }).done(function (data){
+            window.location.reload();
+            alert(data);
+          });
+        });
+      });
 
       var ModalDependencias = document.getElementById('ModalDependencias')
         ModalDependencias.addEventListener('show.bs.modal', function (event) {

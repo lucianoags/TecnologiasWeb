@@ -70,7 +70,7 @@ class ModuloModel extends Model
 
     public function getModulosEventos(){ #Modulos de encargado
         $query = $this->db->query("
-        SELECT m.nombre as nombre_modulo, e.fecha as fecha, e.bloque as bloque, d.nombre as sala,  d.aforo as aforo, e.estado as estado
+        SELECT e.id as id, m.nombre as nombre_modulo, e.fecha as fecha, e.bloque as bloque, d.nombre as sala,  d.aforo as aforo, e.estado as estado
         FROM evento as e
         LEFT JOIN
         dependencia as d

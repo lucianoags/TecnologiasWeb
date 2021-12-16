@@ -53,6 +53,15 @@ $routes->get('alumno', 'Login::alumno');
 $routes->get('administrador', 'Login::administrador');
 $routes->get('encargado', 'Login::encargado');
  
+/* --------------------------------------------------------------------
+ * Rutas de EventoController
+ * --------------------------------------------------------------------
+ */
+
+$routes->post('anularEvento', 'EventoController::anularEvento');
+//$routes->get('encargado/{id}', 'EventoController::anularEvento');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
