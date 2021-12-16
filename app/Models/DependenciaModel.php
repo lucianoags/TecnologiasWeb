@@ -13,7 +13,7 @@ class DependenciaModel extends Model
 
     public function getDependencias(){
         $query = $this->db->query("Select * from dependencia");
-        $result = $query->getResult();
+        $result = $query->getResult('array');
         return $result;
     }
 

@@ -6,6 +6,7 @@ use App\Models\ProfesorModel;
 use App\Models\AdministradorModel;
 use App\Models\EncargadoModel;
 use App\Models\ModuloModel;
+use App\Models\DependenciaModel;
 use App\Models\ModuloEstudianteModel;
 
 
@@ -268,7 +269,7 @@ class Login extends BaseController{
 		$tablaProfesor = new ProfesorModel();
 		$data['modulos'] = $moduloModel->getModulosAdministrador();
 		$data['profesores'] = $tablaProfesor->getProfesoresAdministrador();
-		return view('encargado', $data);
+		return view('administrador', $data);
 	}
 
 	public function index(){

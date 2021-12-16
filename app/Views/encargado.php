@@ -554,40 +554,52 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>               
-                            <p class="text-sm">445</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">C2</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">40</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                        <?php                        
+                          if (isset($dependencias)){
+                            
+                            foreach ($dependencias as $key => $value) {
+
+                              ?>
+                                <tr>
+                                  <td>
+                                      <p class="text-sm"><?php echo $value['id'];?></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['nombre'];?></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['aforo'];?></p>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray">Modificar</a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray">Eliminar</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                        
+                      ?>
+
                       
                     </tbody>
                   </table>
