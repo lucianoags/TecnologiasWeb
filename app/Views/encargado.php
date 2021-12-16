@@ -572,7 +572,7 @@
                   "
                 >
                   <div style="margin-left: auto">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Dependencia </button>    
+                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalDependencias"> Añadir Dependencia </button>    
                   </div>
                 </div>
                 <!-- End Title -->
@@ -806,6 +806,34 @@
         <!-- end container -->
       </footer>
       <!-- ========== footer end =========== -->
+
+
+
+      <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 250px">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="aforo" class="col-form-label">Aforo permitido</label>
+                  <input type="text" class="form-control" id="aforo">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  
+
     </main>
     <!-- ======== main-wrapper end =========== -->
 
@@ -821,6 +849,15 @@
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
 
     <script>
+
+      var ModalDependencias = document.getElementById('ModalDependencias')
+        ModalDependencias.addEventListener('show.bs.modal', function (event) {
+          // Button that triggered the modal
+          var button = event.relatedTarget
+          // Extract info from data-bs-* attributes
+          var recipient = button.getAttribute('data-bs-whatever')
+
+      })
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },
