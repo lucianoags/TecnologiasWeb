@@ -424,56 +424,69 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Tecnologías Web</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">16</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">15</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Aprobado</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  
+                    <?php                        
+                          if (isset($modulos)){
+                            
+                            foreach ($modulos as $key => $value) {
+                              ?>
+                                <tr>
+                                  <td>
+                                    <div class="product">
+                                      <div class="image">
+                                        <img
+                                          src="assets/images/products/product-mini-1.jpg"
+                                          alt=""
+                                        />
+                                      </div>
+                                      <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['fecha'];?></p>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn "><?php echo $value['bloque'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['sala'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['aforo'];?></span>
+                                  </td>
+                                  <td>
+                                  <?php if ($value['estado']==1){ ?>
+                                    <span class="status-btn success-btn"><?php
+                                      echo "Aprobado";
+                                    }else {?>
+                                      <span class="status-btn danger-btn"><?php
+                                      echo "Rechazado";
+                                    }?></span>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray">Anular</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                      ?>
                     </tbody>
                   </table>
                   <!-- End Table -->
