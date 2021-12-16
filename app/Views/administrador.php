@@ -24,7 +24,7 @@
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="alumno">
+        <a href="administrador">
           <img src="assets/images/logo/logo1.png" alt="logo" />
         </a>
       </div>
@@ -417,56 +417,37 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>                      
-                            <p class="text-sm">Tecnologías Web</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Ingeniería Civil en Computación</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">Curicó</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">No</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                    <?php
+                    
+                    if (isset($modulos)){
                       
-					  <tr>
-                        <td>                      
-                            <p class="text-sm">Formulación Proyecto de Titulación</p>
+                      foreach ($modulos as $key => $value) {
+
+                      ?>
+
+
+                      <tr>
+                        <td>
+                            <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
                         </td>
                         <td>
-                          <p class="text-sm">Ingeniería Civil en Computación1</p>
+                          <p class="text-sm"><?php if ($value['nombre_carrera']==NULL) {
+                            echo 'Plan Común';
+                          }
+                          else {
+                            echo $value['nombre_carrera'];
+                          }?></p>
                         </td>
                         <td>
-                          <span class="status-btn ">Curicó</span>
+                          <span class="status-btn "><?php echo $value['nombre_sede'];?></span>
                         </td>
                         <td>
-                          <span class="status-btn">No</span>
+                          <span class="status-btn"><?php if ($value['plan_comun']=='1') {
+                            echo 'Si';
+                          }
+                          else {
+                            echo 'No';
+                          }?></span>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -492,6 +473,15 @@
                           </div>
                         </td>
                       </tr>
+
+
+                      <?php
+
+                      }
+
+                    }
+                    
+                  ?>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -586,94 +576,64 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <p class="text-sm">Magdalena</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Rodriguez</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">mrodriguez@utalca.c</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Psicología</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">2</p>
-                        </td>
-                        <td>
-                          <p class="text-sm"></p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                     <tbody>
+                        <?php
                       
-					          <tr>
-                        <td>               
-                            <p class="text-sm">Sergio</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Navarro</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">snavarro@utalca.cl</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Ingeniería Civil en Computación</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">2</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">1234</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                          if (isset($profesores)){
+                          
+                            foreach ($profesores as $key => $value) {
+
+                            ?>
+                              <tr>
+                                <td>
+                                    <p class="text-sm"><?php echo $value['nombre_profesor'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"><?php echo $value['apellido_1'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"><?php echo $value['correo'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"><?php echo $value['nombre_carrera'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm">2</p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"></p>
+                                </td>
+                                <td>
+                                  <div class="action justify-content-end">
+                                    <button
+                                      class="more-btn ml-10 dropdown-toggle"
+                                      id="moreAction1"
+                                      data-bs-toggle="dropdown"
+                                      aria-expanded="false"
+                                    >
+                                      <i class="lni lni-more-alt"></i>
+                                    </button>
+                                    <ul
+                                      class="dropdown-menu dropdown-menu-end"
+                                      aria-labelledby="moreAction1"
+                                    >
+                                    <li class="dropdown-item">
+                                        <a href="#0" class="text-gray">Modificar</a>
+                                      </li>
+                                      <li class="dropdown-item">
+                                        <a href="#0" class="text-gray">Eliminar</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                            <?php
+
+                          }
+
+                        }
+                        
+                      ?>
                     </tbody>
                   </table>
                   <!-- End Table -->

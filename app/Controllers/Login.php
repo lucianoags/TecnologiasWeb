@@ -3,6 +3,8 @@ namespace App\Controllers;
 
 use App\Models\AlumnoModel;
 use App\Models\ProfesorModel;
+use App\Models\AdministradorModel;
+use App\Models\EncargadoModel;
 use App\Models\ModuloModel;
 use App\Models\ModuloEstudianteModel;
 
@@ -56,6 +58,7 @@ class Login extends BaseController{
 					}
 
 					$data['modulos'] = $moduloModel->getModulosAlumno($id_modulos);
+					
 
 					session()->set($ses_data);
 					return view('alumno', $data);
@@ -194,7 +197,6 @@ class Login extends BaseController{
 						'isLoggedIn' => TRUE
 					];
 	
-					session()->set($ses_data);
 					return redirect()->to('http://localhost/TecnologiasWeb/public/administrador'); 
 
 				
@@ -251,12 +253,30 @@ class Login extends BaseController{
 		return view('alumno', $data);
 	}
 
+	public function encargado(){
+
+	//	$tablaModulo = new ModuloModel();
+		$tablaDependencia = new DependenciaModel();
+	//	$data['modulos'] = $tablaModulo->getModulosEncargado();
+		$data['dependencias'] = $tablaDependencia->getDependencias();
+		return view('encargado', $data);
+	}
+
+	public function administrador(){
+
+		$moduloModel = new ModuloModel();
+		$tablaProfesor = new ProfesorModel();
+		$data['modulos'] = $moduloModel->getModulosAdministrador();
+		$data['profesores'] = $tablaProfesor->getProfesoresAdministrador();
+		return view('encargado', $data);
+	}
+
 	public function index(){
 		helper(['form']);
 		$data['title'] = 'Login';
 		return view('login', $data);
-	} 
- 
+	}
+
 	public function auth(){
 		$session 	= session();
 		$model 		= new AlumnoModel();

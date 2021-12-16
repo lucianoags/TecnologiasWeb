@@ -33,21 +33,26 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('alumno', 'Login::alumno');
+$routes->get('perfil', 'Example::pfp');
+$routes->get('modificar', 'Example::modificar');
 $routes->get('profesor', 'Router::profesor');
-$routes->get('administrador', 'Router::administrador');
-$routes->get('encargado', 'Router::encargado');
-$routes->post('login', 'Login::login');
-$routes->get('logout', 'Login::logout');
 $routes->get('test', 'Login::test');
 
 
 
 /* --------------------------------------------------------------------
- * Rutas de ModuloController
+ * Rutas de Login
  * --------------------------------------------------------------------
  */
 
- $routes->get('getTarjetas','ModuloController::getTarjetas');
+$routes->post('login', 'Login::login');
+$routes->get('logout', 'Login::logout');
+
+                //-xXx_Redirects_xXx-//
+
+$routes->get('alumno', 'Login::alumno');
+$routes->get('administrador', 'Login::administrador');
+$routes->get('encargado', 'Login::encargado');
  
 /*
  * --------------------------------------------------------------------
