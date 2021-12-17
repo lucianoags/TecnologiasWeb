@@ -6,6 +6,7 @@ use App\Models\ProfesorModel;
 use App\Models\AdministradorModel;
 use App\Models\EncargadoModel;
 use App\Models\ModuloModel;
+use App\Models\DependenciaModel;
 use App\Models\ModuloEstudianteModel;
 
 
