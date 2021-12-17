@@ -449,17 +449,27 @@
               
                                           <a href=#0 class="text-gray cambiar" onclick="cambiarSalaID(<?php echo $value['id'];?>)">Cambiar sala</a>
                                         </li>
-                                      <?php if ($value['estado']==1){ ?>
+                                      <?php if ($value['estado']=="Aprobado"){ ?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
                                         </li>
-                                      <?php  } else {?>
+                                      <?php  } elseif ($value['estado'] == "Rechazado") {?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
                                         </li>
-                                      <?php }?>
+                                      <?php } 
+                                      else { ?>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
+                                        </li>
+                                      <?php } ?>
                                       </ul>
                                     </div>
                                   </td>
