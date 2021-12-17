@@ -17,5 +17,11 @@ class DependenciaModel extends Model
         return $result;
     }
 
+    public function eliminarDependencia($id){
+        $query = $this->db->query("DELETE FROM dependencia WHERE id=".$id);
+        //$result = $query->getResult('array');
+        //return $result;
+    }
+
 }
 ?>
