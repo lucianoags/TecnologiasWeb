@@ -34,5 +34,19 @@ class AlumnoModel extends Model
         return $result;
     }
        
+    public function getAlumnosEncargado(){
+        $query = $this->db->query("
+        SELECT a.id as id, a.nombre as nombre, a.apellido_1 as apellido, s.nombre as sede, c.nombre as carrera
+        FROM alumno as a
+        LEFT JOIN
+        carrera as c
+        ON a.carrera = c.id
+        LEFT JOIN 
+        sede as s
+        ON c.sede = s.id
+        ");
+        $result = $query->getResult('array');
+        return $result;
+    }
 }
 ?>

@@ -27,7 +27,7 @@
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
         <a href="alumno">
-          <img src="assets/images/logo/logo1.png" alt="logo" />
+        <img src="<?= base_url("assets/images/logo/meanoto.png");?>" style="width: 90%;" alt="logo" />
         </a>
       </div>
       <nav class="sidebar-nav">
@@ -396,9 +396,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php                        
+                    <?php
                           if (isset($modulos)){
-                            
                             foreach ($modulos as $key => $value) {
                               ?>
                                 <tr>
@@ -417,16 +416,16 @@
                                     <?php echo $value['aforo'];?>
                                   </td>
                                   <td>
-                                  <?php if ($value['estado']=="Aprobado"){ ?>
+                                  <?php if ($value['estado']==1){ ?>
                                     <span class="status-btn btn-success"><?php
                                       echo "Aprobado";
-                                    }elseif ($value['estado']=="Pendiente") {?>
+                                    }elseif ($value['estado']==0) {?>
                                       <span class="status-btn btn-warning"><?php
                                       echo "Pendiente";
-                                    }elseif ($value['estado']=="Rechazado") {?>
+                                    }elseif ($value['estado']==2) {?>
                                       <span class="status-btn danger-btn"><?php
                                       echo "Rechazado";
-                                    }elseif ($value['estado']=="Cursado") {?>
+                                    }elseif ($value['estado']==3) {?>
                                       <span class="status-btn danger-btn"><?php
                                       echo "Cursado";
                                     }?></span>
@@ -449,12 +448,12 @@
               
                                           <a href=#0 class="text-gray cambiar" onclick="cambiarSalaID(<?php echo $value['id'];?>)">Cambiar sala</a>
                                         </li>
-                                      <?php if ($value['estado']=="Aprobado"){ ?>
+                                      <?php if ($value['estado']==1){ ?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
                                         </li>
-                                      <?php  } elseif ($value['estado'] == "Rechazado") {?>
+                                      <?php  } elseif ($value['estado'] == 2) {?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
@@ -667,7 +666,7 @@
                         <th class="min-width">
                             Sede 
                         </th>
-                        <th class="min-width">                        
+                        <th class="min-width">
                             Carrera <i class="lni lni-arrows-vertical"></i>
                         </th>
                         <th>
@@ -678,10 +677,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <?php                        
-                          if (isset($dependencias)){
-                            
-                            foreach ($dependencias as $key => $value) {
+                        <?php
+                          if (isset($alumnos)){
+                            foreach ($alumnos as $key => $value) {
 
                               ?>
                                 <tr>
@@ -692,13 +690,13 @@
                                     <?php echo $value['nombre'];?>
                                   </td>
                                   <td>
-                                    <?php echo $value['aforo'];?>
+                                    <?php echo $value['apellido'];?>
                                   </td>
                                   <td>
-                                    <?php echo $value['aforo'];?>
+                                    <?php echo $value['sede'];?>
                                   </td>
                                   <td>
-                                    <?php echo $value['aforo'];?>
+                                    <?php echo $value['carrera'];?>
                                   </td>
                                   <td>
                                     <div class="action justify-content-end">
@@ -715,10 +713,7 @@
                                         aria-labelledby="moreAction1"
                                       >
                                         <li class="dropdown-item">
-                                          <a href="#0" class="text-gray edit">Modificar</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                          <a href="#0" class="text-gray delete">Eliminar</a>
+                                          <a href="#0" class="text-gray edit_estudiante">Modificar</a>
                                         </li>
                                       </ul>
                                     </div>
@@ -779,6 +774,8 @@
 
 
 
+
+      <!--Cambiar Sala de Evento -->
       <div class="modal fade" id="ModalEvento" tabindex="-1" aria-labelledby="ModalEventoLabel" aria-hidden="true">
         <div class="modal-dialog">
           
@@ -816,6 +813,8 @@
       </div>
 
 
+       <!--Crear dependencia -->
+
       <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
           <!-- <form action="" method="POST" id="createDependencia"> -->
@@ -843,6 +842,7 @@
         </div>
       </div>
 
+       <!--Editar dependencia -->
       <div class="modal fade" id="EditDependencias" tabindex="-1" aria-labelledby="EditDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
           <form action="/encargado" method="post" id="editDependencia">
@@ -871,6 +871,7 @@
         </div>
       </div>
 
+       <!--Borrar dependencia-->
       <div class="modal fade" id="DelDependencias" tabindex="-1" aria-labelledby="DelDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
           <form action="/encargado/" method="post" id="delDependencia">
@@ -891,6 +892,69 @@
           </form>
         </div>
       </div>
+
+
+       <!--Estudiante -->
+       <div class="modal fade" id="ModalEstudiante" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="/encargado" method="post" id="editarEstudiante">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="">Modificar datos de Estudiante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_sala" class="col-form-label">Asignar Sede</label>
+
+                    <select class="form-select" aria-label="Default select example" id="cambiar_sede">
+                    <?php                        
+                          if (isset($sedes)){
+                            
+                            foreach ($sedes as $key => $value) {
+
+                    ?>
+                      <option value=" <?php echo $value['id'];?>"><?php echo $value['nombre'];?></option>
+                    <?php
+                            }
+                          }
+                        
+                    ?>
+                    </select>
+                    <input type="text" id="cambiar-sede-input" hidden>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="aforo" class="col-form-label">Asignar Carrera</label>
+                    <select class="form-select" aria-label="Default select example" id="cambiar_carrera">
+                    <?php                        
+                          if (isset($carreras)){
+                            
+                            foreach ($carreras as $key => $value) {
+
+                    ?>
+                      <option value=" <?php echo $value['id'];?>"><?php echo $value['nombre'];?></option>
+                    <?php
+                            }
+                          }
+                        
+                    ?>
+                    </select>
+                    <input type="text" id="cambiar-carrera-input" hidden>
+
+                  </div>
+                  <input type="text" class="form-control" id="id-seleccionado" style="width: 100px" hidden>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" onclick="">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
     
   
 
@@ -1012,6 +1076,30 @@
           });
 
       } );
+
+      $(document).ready(function() {
+          var table= $('#estudiantes').DataTable();
+
+
+          //modificar
+          table.on('click', '.edit_estudiante', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+
+
+            var data = table.row($tr).data();
+
+
+            $('#ModalEstudiante').modal('show');
+
+          });
+
+      } );
+
 
       function modificarDependencia() {
           let nombre = $('#nombre_sala_mod').val();
