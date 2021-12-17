@@ -338,7 +338,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Módulos</h2>
+                  <h2>Eventos</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -478,10 +478,17 @@
                                         class="dropdown-menu dropdown-menu-end"
                                         aria-labelledby="moreAction1"
                                       >
+                                      <?php if ($value['estado']==1){ ?>
                                         <li class="dropdown-item">
-                                         <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                         <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
                                         </li>
+                                      <?php  } else {?>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Aprobar</a>
+                                        </li>
+                                      <?php }?>
                                       </ul>
                                     </div>
                                   </td>
@@ -578,13 +585,13 @@
                               ?>
                                 <tr>
                                   <td>
-                                      <p class="text-sm"><?php echo $value['id'];?></p>
+                                      <?php echo $value['id'];?>
                                   </td>
                                   <td>
-                                    <p class="text-sm"><?php echo $value['nombre'];?></p>
+                                    <?php echo $value['nombre'];?>
                                   </td>
                                   <td>
-                                    <p class="text-sm"><?php echo $value['aforo'];?></p>
+                                    <?php echo $value['aforo'];?>
                                   </td>
                                   <td>
                                     <div class="action justify-content-end">
@@ -601,10 +608,10 @@
                                         aria-labelledby="moreAction1"
                                       >
                                         <li class="dropdown-item">
-                                          <a href="#0" class="text-gray">Modificar</a>
+                                          <a href="#0" class="text-gray edit">Modificar</a>
                                         </li>
                                         <li class="dropdown-item">
-                                          <a href="#0" class="text-gray">Eliminar</a>
+                                          <a href="#0" class="text-gray delete">Eliminar</a>
                                         </li>
                                       </ul>
                                     </div>
@@ -673,7 +680,7 @@
 
       <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="createDependencia">
+          <form action="" method="POST" id="createDependencia">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
@@ -738,7 +745,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background: red; color: white">Eliminar</button>
+                <button type="button" class="btn btn-danger">Eliminar</button>
               </div>
             </div>
           </form>
