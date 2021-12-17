@@ -258,8 +258,10 @@ class Login extends BaseController{
 
 		$tablaModulo = new ModuloModel();
 		$tablaDependencia = new DependenciaModel();
+		$tablaAlumnos = new AlumnoModel();
 		$data['modulos'] = $tablaModulo->getModulosEventos();
 		$data['dependencias'] = $tablaDependencia->getDependencias();
+		$data['alumnos'] = $tablaAlumnos->getAlumnosEncargado();
 		return view('encargado', $data);
 	}
 
