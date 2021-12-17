@@ -713,10 +713,7 @@
                                         aria-labelledby="moreAction1"
                                       >
                                         <li class="dropdown-item">
-                                          <a href="#0" class="text-gray edit">Modificar</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                          <a href="#0" class="text-gray delete">Eliminar</a>
+                                          <a href="#0" class="text-gray edit_estudiante">Modificar</a>
                                         </li>
                                       </ul>
                                     </div>
@@ -777,6 +774,8 @@
 
 
 
+
+      <!--Cambiar Sala de Evento -->
       <div class="modal fade" id="ModalEvento" tabindex="-1" aria-labelledby="ModalEventoLabel" aria-hidden="true">
         <div class="modal-dialog">
           
@@ -814,6 +813,8 @@
       </div>
 
 
+       <!--Crear dependencia -->
+
       <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
           <!-- <form action="" method="POST" id="createDependencia"> -->
@@ -841,6 +842,7 @@
         </div>
       </div>
 
+       <!--Editar dependencia -->
       <div class="modal fade" id="EditDependencias" tabindex="-1" aria-labelledby="EditDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
           <form action="/encargado" method="post" id="editDependencia">
@@ -869,6 +871,7 @@
         </div>
       </div>
 
+       <!--Borrar dependencia-->
       <div class="modal fade" id="DelDependencias" tabindex="-1" aria-labelledby="DelDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
           <form action="/encargado/" method="post" id="delDependencia">
@@ -889,6 +892,69 @@
           </form>
         </div>
       </div>
+
+
+       <!--Estudiante -->
+       <div class="modal fade" id="ModalEstudiante" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="/encargado" method="post" id="editarEstudiante">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="">Modificar datos de Estudiante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_sala" class="col-form-label">Asignar Sede</label>
+
+                    <select class="form-select" aria-label="Default select example" id="cambiar_sede">
+                    <?php                        
+                          if (isset($sedes)){
+                            
+                            foreach ($sedes as $key => $value) {
+
+                    ?>
+                      <option value=" <?php echo $value['id'];?>"><?php echo $value['nombre'];?></option>
+                    <?php
+                            }
+                          }
+                        
+                    ?>
+                    </select>
+                    <input type="text" id="cambiar-sede-input" hidden>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="aforo" class="col-form-label">Asignar Carrera</label>
+                    <select class="form-select" aria-label="Default select example" id="cambiar_carrera">
+                    <?php                        
+                          if (isset($carreras)){
+                            
+                            foreach ($carreras as $key => $value) {
+
+                    ?>
+                      <option value=" <?php echo $value['id'];?>"><?php echo $value['nombre'];?></option>
+                    <?php
+                            }
+                          }
+                        
+                    ?>
+                    </select>
+                    <input type="text" id="cambiar-carrera-input" hidden>
+
+                  </div>
+                  <input type="text" class="form-control" id="id-seleccionado" style="width: 100px" hidden>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" onclick="">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
     
   
 
@@ -1010,6 +1076,30 @@
           });
 
       } );
+
+      $(document).ready(function() {
+          var table= $('#estudiantes').DataTable();
+
+
+          //modificar
+          table.on('click', '.edit_estudiante', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+
+
+            var data = table.row($tr).data();
+
+
+            $('#ModalEstudiante').modal('show');
+
+          });
+
+      } );
+
 
       function modificarDependencia() {
           let nombre = $('#nombre_sala_mod').val();
