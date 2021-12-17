@@ -21,5 +21,15 @@ class EventoModel extends Model
         //return $result;
     }
 
+    public function aprobarEvento($id){
+        $query = $this->db->query("
+        UPDATE evento
+        SET estado = 1
+        WHERE id = ".$id
+        );
+        //$result = $query->geResult();
+        //return $result;
+    }
+
 }
 ?>

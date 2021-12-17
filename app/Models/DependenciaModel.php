@@ -20,7 +20,7 @@ class DependenciaModel extends Model
     public function eliminarDependencia($id){
         $query = $this->db->query("DELETE FROM dependencia WHERE id=".$id);
         //$result = $query->getResult('array');
-        //return $result;
+        return redirect('encargado');
     }
 
     public function modificarDependencia($id, $nombre, $aforo){
