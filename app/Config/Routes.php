@@ -67,7 +67,8 @@ $routes->post('aprobarEvento', 'EventoController::aprobarEvento');
  * Rutas de DependenciaController
  * --------------------------------------------------------------------
  */
-$routes->post('encargado', 'DependenciaController::eliminarDependencia');
+$routes->post('eliminarDependencia', 'DependenciaController::eliminarDependencia');
+$routes->post('modificarDependencia', 'DependenciaController::modificarDependencia');
 
 /*
  * --------------------------------------------------------------------

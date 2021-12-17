@@ -23,5 +23,14 @@ class DependenciaModel extends Model
         return redirect('encargado');
     }
 
+    public function modificarDependencia($id, $nombre, $aforo){
+        $query = $this->db->query("
+        UPDATE dependencia
+        SET aforo ='".$aforo."', nombre='".$nombre."'
+        WHERE id= ".$id);
+        //$result = $query->getResult('array');
+        //return $result;
+    }
+
 }
 ?>
