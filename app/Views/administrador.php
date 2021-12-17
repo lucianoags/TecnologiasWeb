@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
   </head>
   <body>
 
@@ -108,24 +110,6 @@
           </li>
           <span class="divider"><hr /></span>
           
-          <li class="nav-item">
-            <a href="notification.html">
-              <span class="icon">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.16667 19.25H12.8333C12.8333 20.2584 12.0083 21.0834 11 21.0834C9.99167 21.0834 9.16667 20.2584 9.16667 19.25ZM19.25 17.4167V18.3334H2.75V17.4167L4.58333 15.5834V10.0834C4.58333 7.24171 6.41667 4.76671 9.16667 3.94171V3.66671C9.16667 2.65837 9.99167 1.83337 11 1.83337C12.0083 1.83337 12.8333 2.65837 12.8333 3.66671V3.94171C15.5833 4.76671 17.4167 7.24171 17.4167 10.0834V15.5834L19.25 17.4167ZM15.5833 10.0834C15.5833 7.51671 13.5667 5.50004 11 5.50004C8.43333 5.50004 6.41667 7.51671 6.41667 10.0834V16.5H15.5833V10.0834Z"
-                  />
-                </svg>
-              </span>
-              <span class="text">Notificaciones</span>
-            </a>
-          </li>
         </ul>
       </nav>
     </aside>
@@ -305,14 +289,6 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#0">
-                        <i class="lni lni-alarm"></i> Notificaciones
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0"> <i class="lni lni-inbox"></i> Mensajes </a>
-                    </li>
-                    <li>
                       <a href="#0"> <i class="lni lni-cog"></i> Configuración </a>
                     </li>
                     <li>
@@ -382,13 +358,13 @@
                     <h6 class="text-medium mb-30">Clases</h6>
                   </div>
                   <div style="right">
-                    <button type="button" class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalModulos"> Añadir Módulo </button>    
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalModulos"> Añadir Módulo </button>    
                   </div>
         
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table" id="eventos_tabla">
+                  <table class="table top-selling-table" id="modulos_tabla">
                     <thead>
                       <tr>
                         <th>
@@ -428,26 +404,26 @@
 
                       <tr>
                         <td>
-                            <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
+                            <?php echo $value['nombre_modulo'];?>
                         </td>
                         <td>
-                          <p class="text-sm"><?php if ($value['nombre_carrera']==NULL) {
+                          <?php if ($value['nombre_carrera']==NULL) {
                             echo 'Plan Común';
                           }
                           else {
                             echo $value['nombre_carrera'];
-                          }?></p>
+                          }?>
                         </td>
                         <td>
-                          <span class="status-btn "><?php echo $value['nombre_sede'];?></span>
+                          <?php echo $value['nombre_sede'];?>
                         </td>
                         <td>
-                          <span class="status-btn"><?php if ($value['plan_comun']=='1') {
+                         <?php if ($value['plan_comun']=='1') {
                             echo 'Si';
                           }
                           else {
                             echo 'No';
-                          }?></span>
+                          }?>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -464,10 +440,10 @@
                               aria-labelledby="moreAction1"
                             >
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray edit_evento">Modificar</a>
+                                <a href="#0" class="text-gray edit_modulo">Modificar</a>
                               </li>
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray delete_evento">Eliminar</a>
+                                <a href="#0" class="text-gray delete_modulo">Eliminar</a>
                               </li>
                             </ul>
                           </div>
@@ -533,7 +509,7 @@
                   "
                 >
                   <div style="margin-left: auto">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalProfesores"> Añadir Profesor </button>    
+                    <button class="btn btn-primary" style="margin-bottom: 10px" data-bs-toggle="modal" data-bs-target="#ModalProfesores"> Añadir Profesor </button>    
                   </div>
                 </div>
                 <!-- End Title -->
@@ -601,7 +577,7 @@
                                   <p class="text-sm">2</p>
                                 </td>
                                 <td>
-                                  <p class="text-sm"></p>
+                                  <p class="text-sm"><?php echo $value['password'];?></p>
                                 </td>
                                 <td>
                                   <div class="action justify-content-end">
@@ -652,14 +628,8 @@
             <div class="col-md-6 order-last order-md-first">
               <div class="copyright text-center text-md-start">
                 <p class="text-sm">
-                  Designed and Developed by
-                  <a
-                    href="https://plainadmin.com"
-                    rel="nofollow"
-                    target="_blank"
-                  >
-                    PlainAdmin
-                  </a>
+                  Desarrollado por Felipe Fuenzalida, Luciano García y Rubén Ramírez
+                  
                 </p>
               </div>
             </div>
@@ -672,8 +642,6 @@
                   justify-content-center justify-content-md-end
                 "
               >
-                <a href="#0" class="text-sm">Term & Conditions</a>
-                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
               </div>
             </div>
           </div>
@@ -782,9 +750,9 @@
         </div>
       </div>
 
-      <div class="modal fade" id="DelEventos" tabindex="-1" aria-labelledby="DelEventosLabel" aria-hidden="true">
+      <div class="modal fade" id="DelModulos" tabindex="-1" aria-labelledby="DelEventosLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="delEvento">
+          <form action="" id="delModulo">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="DelEventosLabel">Eliminar Evento</h5>
@@ -881,15 +849,17 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script>
 
 
       $(document).ready(function() {
-          var table= $('#eventos_tabla').DataTable();
+          var table= $('#modulos_tabla').DataTable();
 
           //modificar
-          table.on('click', '.edit', function() {
+          table.on('click', '.edit_modulo', function() {
 
             $tr = $(this).closest('tr');
             if ($($tr).hasClass('child')) {
@@ -900,20 +870,22 @@
             var data = table.row($tr).data();
             console.log(data);
 
-            $('#nombre_modulo_edit').val(data[1]);
-            $('#seccion_edit').val(data[2]);
-            $('#sede_edit').val(data[3]);
-            $('#carrera_edit').val(data[4]);
+           
+            $('#nombre_modulo_edit').val(data[0]);
+            $('#seccion_edit').val();
+            $('#sede_edit').val(data[2]);
+            $('#carrera_edit').val(data[1]);
             $('#area_edit').val(data[5]);
 
-            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
-            $('#EditDependencias').modal('show');
+
+            $('#editModulo').attr('action', '/aquivalaruta/'+data[0]);
+            $('#EditModulos').modal('show');
 
           });
 
 
           //eliminar
-          table.on('click', '.delete_evento', function() {
+          table.on('click', '.delete_modulo', function() {
 
             $tr = $(this).closest('tr');
             if ($($tr).hasClass('child')) {
@@ -923,8 +895,8 @@
             var data = table.row($tr).data();
 
 
-            $('#delEvento').attr('action', '/aquivalaruta/'+data[0]);
-            $('#DelEventos').modal('show');
+            $('#delModulo').attr('action', '/aquivalaruta/'+data[0]);
+            $('#DelModulos').modal('show');
 
           }  );
       } );

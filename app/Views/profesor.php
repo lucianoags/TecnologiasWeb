@@ -166,24 +166,6 @@
           </li>
           <span class="divider"><hr /></span>
           
-          <li class="nav-item">
-            <a href="notification.html">
-              <span class="icon">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.16667 19.25H12.8333C12.8333 20.2584 12.0083 21.0834 11 21.0834C9.99167 21.0834 9.16667 20.2584 9.16667 19.25ZM19.25 17.4167V18.3334H2.75V17.4167L4.58333 15.5834V10.0834C4.58333 7.24171 6.41667 4.76671 9.16667 3.94171V3.66671C9.16667 2.65837 9.99167 1.83337 11 1.83337C12.0083 1.83337 12.8333 2.65837 12.8333 3.66671V3.94171C15.5833 4.76671 17.4167 7.24171 17.4167 10.0834V15.5834L19.25 17.4167ZM15.5833 10.0834C15.5833 7.51671 13.5667 5.50004 11 5.50004C8.43333 5.50004 6.41667 7.51671 6.41667 10.0834V16.5H15.5833V10.0834Z"
-                  />
-                </svg>
-              </span>
-              <span class="text">Notificaciones</span>
-            </a>
-          </li>
         </ul>
       </nav>
     </aside>
@@ -361,14 +343,6 @@
                       <a href="#0">
                         <i class="lni lni-user"></i> Perfil
                       </a>
-                    </li>
-                    <li>
-                      <a href="#0">
-                        <i class="lni lni-alarm"></i> Notificaciones
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0"> <i class="lni lni-inbox"></i> Mensajes </a>
                     </li>
                     <li>
                       <a href="#0"> <i class="lni lni-cog"></i> Configuración </a>
@@ -749,14 +723,8 @@
             <div class="col-md-6 order-last order-md-first">
               <div class="copyright text-center text-md-start">
                 <p class="text-sm">
-                  Designed and Developed by
-                  <a
-                    href="https://plainadmin.com"
-                    rel="nofollow"
-                    target="_blank"
-                  >
-                    PlainAdmin
-                  </a>
+                  Desarrollado por Felipe Fuenzalida, Luciano García y Rubén Ramírez
+                  
                 </p>
               </div>
             </div>
@@ -769,8 +737,6 @@
                   justify-content-center justify-content-md-end
                 "
               >
-                <a href="#0" class="text-sm">Term & Conditions</a>
-                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
               </div>
             </div>
           </div>

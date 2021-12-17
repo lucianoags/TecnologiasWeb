@@ -15,4 +15,15 @@ class EventoController extends BaseController
 
         echo $id;
     }
+
+    public function aprobarEvento()
+    {
+        $request = $this->request;
+        $id = $request->getVar('id');
+
+        $eventoModel = new EventoModel();
+        $respuesta = $eventoModel->aprobarEvento($id);
+
+        echo $id;
+    }
 }

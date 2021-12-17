@@ -65,13 +65,15 @@ $routes->get('encargado', 'Login::encargado');
  */
 
 $routes->post('anularEvento', 'EventoController::anularEvento');
+$routes->post('aprobarEvento', 'EventoController::aprobarEvento');
 //$routes->get('encargado/{id}', 'EventoController::anularEvento');
 
 /* --------------------------------------------------------------------
  * Rutas de DependenciaController
  * --------------------------------------------------------------------
  */
-$routes->get('eliminarDependencia/{id}', 'DependenciaController::eliminarDependencia');
+$routes->post('eliminarDependencia', 'DependenciaController::eliminarDependencia');
+$routes->post('modificarDependencia', 'DependenciaController::modificarDependencia');
 
 /*
  * --------------------------------------------------------------------
