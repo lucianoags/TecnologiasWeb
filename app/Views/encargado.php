@@ -426,48 +426,70 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>                       
-                            Tecnologías Web
-                        </td>
-                        <td>
-                          18-10-2021
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">16</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">15</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Aprobado</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  
+                    <?php                        
+                          if (isset($modulos)){
+                            
+                            foreach ($modulos as $key => $value) {
+                              ?>
+                                <tr>
+                                  <td>
+                                    <div class="product">
+                                      <div class="image">
+                                        <img
+                                          src="assets/images/products/product-mini-1.jpg"
+                                          alt=""
+                                        />
+                                      </div>
+                                      <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['fecha'];?></p>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn "><?php echo $value['bloque'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['sala'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['aforo'];?></span>
+                                  </td>
+                                  <td>
+                                  <?php if ($value['estado']==1){ ?>
+                                    <span class="status-btn success-btn"><?php
+                                      echo "Aprobado";
+                                    }else {?>
+                                      <span class="status-btn danger-btn"><?php
+                                      echo "Rechazado";
+                                    }?></span>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                        <li class="dropdown-item">
+                                         <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                         <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                      ?>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -548,40 +570,52 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>               
-                            445
-                        </td>
-                        <td>
-                          C2
-                        </td>
-                        <td>
-                          40
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray edit">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray delete" data-bs-toggle="modal" data-bs-target="#DelDependencias">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                        <?php                        
+                          if (isset($dependencias)){
+                            
+                            foreach ($dependencias as $key => $value) {
+
+                              ?>
+                                <tr>
+                                  <td>
+                                      <p class="text-sm"><?php echo $value['id'];?></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['nombre'];?></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['aforo'];?></p>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray">Modificar</a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray">Eliminar</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                        
+                      ?>
+
                       
                     </tbody>
                   </table>
@@ -726,6 +760,7 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
+    <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
@@ -776,6 +811,19 @@
       $(document).ready(function() {
           $('#example2').DataTable();
       } );
+
+      $(document).ready(function(){
+        $(document).on('click','.evento-anular', function (){
+          $.ajax({
+            method: "POST",
+            url: "anularEvento",
+            data: {id: this.id}
+          }).done(function (data){
+            window.location.reload();
+            alert(data);
+          });
+        });
+      });
 
       var ModalDependencias = document.getElementById('ModalDependencias')
         ModalDependencias.addEventListener('show.bs.modal', function (event) {
