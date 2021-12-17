@@ -459,10 +459,13 @@
                                   <?php if ($value['estado']==1){ ?>
                                     <span class="status-btn success-btn"><?php
                                       echo "Aprobado";
-                                    }else {?>
-                                      <span class="status-btn danger-btn"><?php
+                                    }elseif  ($value['estado']==2) {?>
+                                      <span class="status-btn" style="background: #ff9f9f; color: #ff1f1f"><?php
                                       echo "Rechazado";
-                                    }?></span>
+                                    }else {?>
+                                      <span class="status-btn warning-btn"> <?php
+                                      echo "Pendiente";
+                                    } ?> </span>
                                   </td>
                                   <td>
                                     <div class="action justify-content-end">
@@ -486,7 +489,7 @@
                                       <?php  } else {?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Aprobar</a>
+                                          <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
                                         </li>
                                       <?php }?>
                                       </ul>
@@ -707,7 +710,7 @@
 
       <div class="modal fade" id="EditDependencias" tabindex="-1" aria-labelledby="EditDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="editDependencia">
+          <form action="/encargado" method="post" id="editDependencia">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="EditDependenciasLabel">Modificar Dependencia</h5>
@@ -734,7 +737,8 @@
 
       <div class="modal fade" id="DelDependencias" tabindex="-1" aria-labelledby="DelDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="delDependencia">
+          <form action="/encargado/" method="post" id="delDependencia">
+
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="DelDependenciasLabel">Eliminar Dependencia</h5>
@@ -745,7 +749,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
               </div>
             </div>
           </form>
@@ -793,7 +797,6 @@
             $('#nombre_sala_mod').val(data[1]);
             $('#aforo_mod').val(data[2]);
 
-            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
             $('#EditDependencias').modal('show');
 
           });
@@ -801,16 +804,11 @@
 
           //eliminar
           table.on('click', '.delete', function() {
-            alert("asd");
             $tr = $(this).closest('tr');
             if ($($tr).hasClass('child')) {
                 $tr = $tr.prev('.parent');
             }
 
-            var data = table.row($tr).data();
-
-
-            $('#delDependencia').attr('action', '/eliminarDependencia/'+data[0]);
             $('#DelDependencias').modal('show');
 
           }  );
@@ -829,7 +827,16 @@
             data: {id: this.id}
           }).done(function (data){
             window.location.reload();
-            alert(data);
+          });
+        });
+
+        $(document).on('click','.evento-aprobar', function (){
+          $.ajax({
+            method: "POST",
+            url: "aprobarEvento",
+            data: {id: this.id}
+          }).done(function (data){
+            window.location.reload();
           });
         });
       });
@@ -843,14 +850,6 @@
 
       })
 
-      var DelDependencias = document.getElementById('DelDependencias')
-        DelDependencias.addEventListener('show.bs.modal', function (event) {
-          // Button that triggered the modal
-          var button = event.relatedTarget
-          // Extract info from data-bs-* attributes
-          var recipient = button.getAttribute('data-bs-whatever')
-
-      })
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },

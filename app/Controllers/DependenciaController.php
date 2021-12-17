@@ -9,7 +9,6 @@ class DependenciaController extends BaseController
     {
         //$request = $this->request;
         //$id = $request->getVar('id');
-
         $dependenciaModel = new DependenciaModel();
         $respuesta = $dependenciaModel->eliminarDependencia($id);
 

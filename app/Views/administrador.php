@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
   </head>
   <body>
 
@@ -388,7 +390,7 @@
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table" id="eventos_tabla">
+                  <table class="table top-selling-table" id="modulos_tabla">
                     <thead>
                       <tr>
                         <th>
@@ -428,26 +430,26 @@
 
                       <tr>
                         <td>
-                            <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
+                            <?php echo $value['nombre_modulo'];?>
                         </td>
                         <td>
-                          <p class="text-sm"><?php if ($value['nombre_carrera']==NULL) {
+                          <?php if ($value['nombre_carrera']==NULL) {
                             echo 'Plan Común';
                           }
                           else {
                             echo $value['nombre_carrera'];
-                          }?></p>
+                          }?>
                         </td>
                         <td>
-                          <span class="status-btn "><?php echo $value['nombre_sede'];?></span>
+                          <?php echo $value['nombre_sede'];?>
                         </td>
                         <td>
-                          <span class="status-btn"><?php if ($value['plan_comun']=='1') {
+                         <?php if ($value['plan_comun']=='1') {
                             echo 'Si';
                           }
                           else {
                             echo 'No';
-                          }?></span>
+                          }?>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -464,10 +466,10 @@
                               aria-labelledby="moreAction1"
                             >
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray edit_evento">Modificar</a>
+                                <a href="#0" class="text-gray edit_modulo">Modificar</a>
                               </li>
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray delete_evento">Eliminar</a>
+                                <a href="#0" class="text-gray delete_modulo">Eliminar</a>
                               </li>
                             </ul>
                           </div>
@@ -533,7 +535,7 @@
                   "
                 >
                   <div style="margin-left: auto">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalProfesores"> Añadir Profesor </button>    
+                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px; margin-bottom: 10px" data-bs-toggle="modal" data-bs-target="#ModalProfesores"> Añadir Profesor </button>    
                   </div>
                 </div>
                 <!-- End Title -->
@@ -601,7 +603,7 @@
                                   <p class="text-sm">2</p>
                                 </td>
                                 <td>
-                                  <p class="text-sm"></p>
+                                  <p class="text-sm"><?php echo $value['password'];?></p>
                                 </td>
                                 <td>
                                   <div class="action justify-content-end">
@@ -782,9 +784,9 @@
         </div>
       </div>
 
-      <div class="modal fade" id="DelEventos" tabindex="-1" aria-labelledby="DelEventosLabel" aria-hidden="true">
+      <div class="modal fade" id="DelModulos" tabindex="-1" aria-labelledby="DelEventosLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="delEvento">
+          <form action="" id="delModulo">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="DelEventosLabel">Eliminar Evento</h5>
@@ -881,15 +883,17 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script>
 
 
       $(document).ready(function() {
-          var table= $('#eventos_tabla').DataTable();
+          var table= $('#modulos_tabla').DataTable();
 
           //modificar
-          table.on('click', '.edit', function() {
+          table.on('click', '.edit_modulo', function() {
 
             $tr = $(this).closest('tr');
             if ($($tr).hasClass('child')) {
@@ -900,20 +904,22 @@
             var data = table.row($tr).data();
             console.log(data);
 
-            $('#nombre_modulo_edit').val(data[1]);
-            $('#seccion_edit').val(data[2]);
-            $('#sede_edit').val(data[3]);
-            $('#carrera_edit').val(data[4]);
+           
+            $('#nombre_modulo_edit').val(data[0]);
+            $('#seccion_edit').val();
+            $('#sede_edit').val(data[2]);
+            $('#carrera_edit').val(data[1]);
             $('#area_edit').val(data[5]);
 
-            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
-            $('#EditDependencias').modal('show');
+
+            $('#editModulo').attr('action', '/aquivalaruta/'+data[0]);
+            $('#EditModulos').modal('show');
 
           });
 
 
           //eliminar
-          table.on('click', '.delete_evento', function() {
+          table.on('click', '.delete_modulo', function() {
 
             $tr = $(this).closest('tr');
             if ($($tr).hasClass('child')) {
@@ -923,8 +929,8 @@
             var data = table.row($tr).data();
 
 
-            $('#delEvento').attr('action', '/aquivalaruta/'+data[0]);
-            $('#DelEventos').modal('show');
+            $('#delModulo').attr('action', '/aquivalaruta/'+data[0]);
+            $('#DelModulos').modal('show');
 
           }  );
       } );
