@@ -66,7 +66,8 @@ $routes->post('anularEvento', 'EventoController::anularEvento');
  * Rutas de DependenciaController
  * --------------------------------------------------------------------
  */
-$routes->get('eliminarDependencia/{id}', 'DependenciaController::eliminarDependencia');
+$routes->post('eliminarDependencia', 'DependenciaController::eliminarDependencia');
+$routes->post('modificarDependencia', 'DependenciaController::modificarDependencia');
 
 /*
  * --------------------------------------------------------------------

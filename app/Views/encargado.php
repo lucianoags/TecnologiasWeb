@@ -570,9 +570,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <?php                        
+                        <?php
                           if (isset($dependencias)){
-                            
                             foreach ($dependencias as $key => $value) {
 
                               ?>
@@ -601,10 +600,10 @@
                                         aria-labelledby="moreAction1"
                                       >
                                         <li class="dropdown-item">
-                                          <a href="#0" class="text-gray">Modificar</a>
+                                          <a href="#0" class="text-gray edit"  id=<?php echo $value['id'];?> >Modificar</a>
                                         </li>
                                         <li class="dropdown-item">
-                                          <a href="#0" class="text-gray">Eliminar</a>
+                                          <a href="#0" class="text-gray dependencia-eliminar" id=<?php echo $value['id'];?> >Eliminar</a>
                                         </li>
                                       </ul>
                                     </div>
@@ -613,10 +612,7 @@
                               <?php
                             }
                           }
-                        
                       ?>
-
-                      
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -691,7 +687,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary" >Guardar</button>
               </div>
             </div>
           </form>
@@ -715,10 +711,11 @@
                     <label for="aforo" class="col-form-label">Aforo permitido</label>
                     <input type="text" class="form-control" id="aforo_mod" style="width: 100px">
                   </div>
+                  <input type="text" class="form-control" id="id-seleccionado" style="width: 100px" hidden>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary" onclick="modificarDependencia()">Guardar</button>
               </div>
             </div>
           </form>
@@ -779,14 +776,11 @@
                 $tr = $tr.prev('.parent');
             }
 
-
+            let id = this.id;
+            $("#id-seleccionado").val(id);
             var data = table.row($tr).data();
-            console.log(data);
 
-            $('#nombre_sala_mod').val(data[1]);
-            $('#aforo_mod').val(data[2]);
-
-            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
+            //$('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
             $('#EditDependencias').modal('show');
 
           });
@@ -803,8 +797,9 @@
             var data = table.row($tr).data();
 
 
-            $('#delDependencia').attr('action', '/eliminarDependencia/'+data[0]);
+           // $('#delDependencia').attr('action', '/eliminarDependencia/'+data[0]);
             $('#DelDependencias').modal('show');
+            
 
           }  );
       } );
@@ -813,6 +808,21 @@
       $(document).ready(function() {
           $('#example2').DataTable();
       } );
+
+      function modificarDependencia() {
+          let nombre = $('#nombre_sala_mod').val();
+          let aforo = $('#aforo_mod').val();
+          let id = $('#id-seleccionado').val();
+          console.log("Datos: " + nombre + " - " + aforo + " - " + id);
+          $.ajax({
+              method: "POST",
+              url: "modificarDependencia",
+              data: {nombre: nombre, aforo: aforo, id:id}
+          }).done(function (data){
+            $('#EditDependencias').modal('toggle');
+            window.location.reload();
+          });
+      }
 
       $(document).ready(function(){
         $(document).on('click','.evento-anular', function (){
@@ -826,6 +836,20 @@
           });
         });
       });
+
+      $(document).ready(function(){
+        $(document).on('click','.dependencia-eliminar', function (){
+          $.ajax({
+            method: "POST",
+            url: "eliminarDependencia",
+            data: {id: this.id}
+          }).done(function (data){
+            window.location.reload();
+          });
+        });
+      });
+
+
 
       var ModalDependencias = document.getElementById('ModalDependencias')
         ModalDependencias.addEventListener('show.bs.modal', function (event) {
