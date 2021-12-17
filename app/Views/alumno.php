@@ -515,9 +515,10 @@
                           if (isset($eventos)){
 
                             foreach ($eventos as $key => $value) {
+                              if ($value['id_evento']!=NULL) {
                               ?>
-                      <tr>       
-                        <td>                        
+                      <tr>
+                        <td>
                           <?php echo $value['modulo'];?>
                         </td>
                         <td>
@@ -530,7 +531,19 @@
                           <?php echo $value['sala'];?>
                         </td>
                         <td>
-                          <span class="status-btn success-btn">Inscrito</span>
+                          <?php
+                            if ($value['estado']==0 or $value['estado']==NULL) {
+                              ?>
+                                <span class="status-btn btn-danger">No inscrito</span
+                              <?php
+                            }
+                            elseif ($value['estado']==1) {
+                              ?>
+                                <span class="status-btn success-btn">Inscrito</span
+                              <?php
+                            }
+                          ?>
+                          >
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -548,19 +561,18 @@
                             >
                               <?php if ($value['estado']==1){ ?>
                                 <li class="dropdown-item">
-                                  <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                  <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                  
+                                  <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id_evento'];?>  >Anular</a>
                                 </li>
                               <?php  } else {?>
                                 <li class="dropdown-item">
-                                  <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                  <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Inscribir</a>
+                                  <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id_evento'];?>  >Inscribir</a>
                                 </li>
                               <?php }?>
                             </ul>
                           </div>
                         </td>
-                      </tr> <?php } } ?>
+                      </tr> <?php } }} ?>
                       
                     </tbody>
                   </table>

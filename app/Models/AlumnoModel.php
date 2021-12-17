@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use CodeIgniter\Model;
+use CodeIgniter\Model;  
 
 class AlumnoModel extends Model
 {
@@ -13,22 +13,20 @@ class AlumnoModel extends Model
 
     public function getEventos($id) {
         $query = $this->db->query("
-        SELECT m.nombre as modulo, e.fecha as fecha, e.bloque as bloque, d.nombre as sala, e.estado as estado
-            FROM modulo_estudiante as me
-            LEFT JOIN
-            alumno as a 
-            ON a.id = me.estudiante
-            LEFT JOIN
-            modulo as m 
-            ON me.modulo = m.id
-            LEFT JOIN 
-            evento as e 
-            ON m.id = e.modulo
-            LEFT JOIN 
-            dependencia as d
-            ON d.id = e.dependencia
-            WHERE 
-            a.id = ".$id
+        SELECT a.id as id_alumno,e.id as id_evento, ea.id as id_evento_alumno, m.nombre as modulo, e.fecha as fecha, e.bloque as bloque, d.nombre as sala, ea.estado as estado 
+        FROM 
+        modulo_estudiante as me 
+        LEFT JOIN alumno as a 
+        ON a.id = me.estudiante 
+        LEFT JOIN modulo as m 
+        ON me.modulo = m.id 
+        LEFT JOIN evento as e 
+        ON m.id = e.modulo 
+        LEFT JOIN dependencia as d 
+        ON d.id = e.dependencia 
+        LEFT JOIN evento_alumno as ea 
+        ON ea.id_evento = e.id 
+        WHERE a.id=".$id
         );
         $result = $query->getResult('array');
         return $result;
