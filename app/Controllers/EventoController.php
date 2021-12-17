@@ -26,4 +26,21 @@ class EventoController extends BaseController
 
         echo $id;
     }
+
+    public function modificarDependenciaEvento(){
+        $request = $this->request;
+        $id = $request->getVar('id');
+        $sala = $request->getVar('sala');
+        $eventoModel = new EventoModel();
+        $eventoModel->modificarSala($id, $sala);
+
+
+        // echo $id.$sala;
+
+        // $eventoModel->modificarSala($id, $sala);
+        // $eventoModel->where('id', $id);
+        // $eventoModel->update();
+        
+    }
+
 }

@@ -418,7 +418,7 @@
                                   </td>
                                   <td>
                                   <?php if ($value['estado']=="Aprobado"){ ?>
-                                    <span class="status-btn success-btn"><?php
+                                    <span class="status-btn btn-success"><?php
                                       echo "Aprobado";
                                     }elseif ($value['estado']=="Pendiente") {?>
                                       <span class="status-btn btn-warning"><?php
@@ -447,7 +447,7 @@
                                       >
                                       <li class="dropdown-item">
               
-                                          <a href=#0 class="text-gray cambiar">Cambiar sala</a>
+                                          <a href=#0 class="text-gray cambiar" onclick="cambiarSalaID(<?php echo $value['id'];?>)">Cambiar sala</a>
                                         </li>
                                       <?php if ($value['estado']=="Aprobado"){ ?>
                                         <li class="dropdown-item">
@@ -638,7 +638,7 @@
           <!-- End Row -->
           <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <div class="card-style mb-30">
                 <div
                   class="
@@ -781,7 +781,7 @@
 
       <div class="modal fade" id="ModalEvento" tabindex="-1" aria-labelledby="ModalEventoLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" method="POST" id="edit_dependencia_evento">
+          
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="ModalEventoLabel">Cambiar Sala</h5>
@@ -804,14 +804,14 @@
                         
                     ?>
                     </select>
+                    <input type="text" id="cambiar-sala-input" hidden>
                   </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary" onclick="cambiarSala()">Guardar</button>
               </div>
             </div>
-          </form>
         </div>
       </div>
 
@@ -915,6 +915,25 @@
 
     <script>
 
+      function cambiarSalaID(e){
+        let id = $('#cambiar-sala-input').val(e);
+      }
+
+      function cambiarSala(){
+        let id = $('#cambiar-sala-input').val();
+        let sala = $('#nueva_dependencia').val();
+        console.log(id+sala);
+        $.ajax({
+          method: "POST",
+          url: "modificarDependenciaEvento",
+          data: {id: id, sala: sala}
+        }).done(function (data){
+          // $('#ModalDependencias').modal('toggle');
+          console.log(data);
+          window.location.reload();
+        });
+      }
+
       function nuevaDependencia() {
         let nombre = $('#nombre_sala').val();
         let aforo = $('#aforo').val();
@@ -985,7 +1004,7 @@
             var data = table.row($tr).data();
             console.log(data);
 
-            $('#nueva_dependencia').val(data[3]);
+            // $('#nueva_dependencia').val(data[3]);
 
 
             $('#ModalEvento').modal('show');
