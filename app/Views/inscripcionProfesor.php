@@ -18,16 +18,32 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+
+    <style>
+      .row-eq-height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+      }
+
+      .box {
+        transition: box-shadow .3s;        
+      }
+      .box:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2); 
+      }
+
+    </style>
+    
   </head>
   <body>
 
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="administrador">
-          <img src="<?= base_url("assets/images/logo/meanoto.png");?>" style="width: 90%;" alt="logo" />
+        <a href="profesor">
+        <img src="<?= base_url("assets/images/logo/meanoto.png");?>" style="width: 90%;" alt="logo" />
         </a>
       </div>
       <nav class="sidebar-nav">
@@ -53,6 +69,46 @@
             <ul id="ddmenu_1" class="collapse show dropdown-nav">
               <li>
                 <a href="index.html" class="active"> Gestor de clases </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item-has-children">
+            <a
+              href="#0"
+              class="collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#ddmenu_2"
+              aria-controls="ddmenu_2"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.8334 1.83325H5.50008C5.01385 1.83325 4.54754 2.02641 4.20372 2.37022C3.8599 2.71404 3.66675 3.18036 3.66675 3.66659V18.3333C3.66675 18.8195 3.8599 19.2858 4.20372 19.6296C4.54754 19.9734 5.01385 20.1666 5.50008 20.1666H16.5001C16.9863 20.1666 17.4526 19.9734 17.7964 19.6296C18.1403 19.2858 18.3334 18.8195 18.3334 18.3333V7.33325L12.8334 1.83325ZM16.5001 18.3333H5.50008V3.66659H11.9167V8.24992H16.5001V18.3333Z"
+                  />
+                </svg>
+              </span>
+              <span class="text">Módulos</span>
+            </a>
+            <ul id="ddmenu_2" class="collapse dropdown-nav">
+              <li>
+                <a href="settings.html"> Tecnologías Web </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> Sistemas Distribuidos </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> Formulación Proyecto de Titulación </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> Tecnologías Móviles </a>
               </li>
             </ul>
           </li>
@@ -110,6 +166,24 @@
           </li>
           <span class="divider"><hr /></span>
           
+          <li class="nav-item">
+            <a href="notification.html">
+              <span class="icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.16667 19.25H12.8333C12.8333 20.2584 12.0083 21.0834 11 21.0834C9.99167 21.0834 9.16667 20.2584 9.16667 19.25ZM19.25 17.4167V18.3334H2.75V17.4167L4.58333 15.5834V10.0834C4.58333 7.24171 6.41667 4.76671 9.16667 3.94171V3.66671C9.16667 2.65837 9.99167 1.83337 11 1.83337C12.0083 1.83337 12.8333 2.65837 12.8333 3.66671V3.94171C15.5833 4.76671 17.4167 7.24171 17.4167 10.0834V15.5834L19.25 17.4167ZM15.5833 10.0834C15.5833 7.51671 13.5667 5.50004 11 5.50004C8.43333 5.50004 6.41667 7.51671 6.41667 10.0834V16.5H15.5833V10.0834Z"
+                  />
+                </svg>
+              </span>
+              <span class="text">Notificaciones</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </aside>
@@ -283,16 +357,24 @@
                     class="dropdown-menu dropdown-menu-end"
                     aria-labelledby="profile"
                   >
-                    <li>
-                      <a href="perfil">
-                        <i class="lni lni-user"></i> Ver perfil
+                  <li>
+                      <a href="#0">
+                        <i class="lni lni-user"></i> Perfil
                       </a>
+                    </li>
+                    <li>
+                      <a href="#0">
+                        <i class="lni lni-alarm"></i> Notificaciones
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#0"> <i class="lni lni-inbox"></i> Mensajes </a>
                     </li>
                     <li>
                       <a href="#0"> <i class="lni lni-cog"></i> Configuración </a>
                     </li>
                     <li>
-                      <a href="logout"> <i class="lni lni-exit"></i> Cerrar Sesión </a>
+                      <a href="<?= base_url("public/logout");?>"> <i class="lni lni-exit"></i> Salir </a>
                     </li>
                   </ul>
                 </div>
@@ -303,16 +385,20 @@
         </div>
       </header>
       <!-- ========== header end ========== -->
+      
 
       <!-- ========== section start ========== -->
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
+      <section class="section">
+        
+      <!-- ======= select style start ======= -->
+
         <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
+            
+        <div class="title-wrapper pt-30">
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Módulos</h2>
+                  <h2><?php echo $modulo['nombre']." - ".$modulo['seccion']?></h2>
                 </div>
               </div>
               <!-- end col -->
@@ -320,6 +406,9 @@
                 <div class="breadcrumb-wrapper mb-30">
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#0">Inscripción de módulo</a>
+                      </li>
                       <li class="breadcrumb-item">
                         <a href="#0">Dashboard</a>
                       </li>
@@ -334,292 +423,75 @@
             </div>
             <!-- end row -->
           </div>
-          <!-- ========== title-wrapper end ========== -->
-          <div class="row" >
-          </div>
-          <!-- End Row -->
-          <div class="row">
-          </div>
-          <!-- End Row -->
-          <div class="row">
 
-            <div class="col-lg-12">
-              <div class="card-style mb-30">
-                <div
-                  class="
-                    title
-                    d-flex
-                    flex-wrap
-                    align-items-center
-                    justify-content-between
-                  "
-                >
-                  <div class="left">
-                    <h6 class="text-medium mb-30">Clases</h6>
-                  </div>
-                  <div style="right">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalModulos"> Añadir Módulo </button>    
-                  </div>
-        
-                </div>
-                <!-- End Title -->
-                <div class="table-responsive">
-                  <table class="table top-selling-table" id="modulos_tabla">
-                    <thead>
-                      <tr>
-                        <th>
-                          <h6 class="text-sm text-medium">Módulos</h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Carrera <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Sede <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Plan Común <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th>
-                          <h6 class="text-sm text-medium text-end">
-                            Acciones <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    
-                    if (isset($modulos)){
-                      
-                      foreach ($modulos as $key => $value) {
-
-                      ?>
-
-
-                      <tr>
-                        <td>
-                            <?php echo $value['nombre_modulo'];?>
-                        </td>
-                        <td>
-                          <?php if ($value['nombre_carrera']==NULL) {
-                            echo 'Plan Común';
-                          }
-                          else {
-                            echo $value['nombre_carrera'];
-                          }?>
-                        </td>
-                        <td>
-                          <?php echo $value['nombre_sede'];?>
-                        </td>
-                        <td>
-                         <?php if ($value['plan_comun']=='1') {
-                            echo 'Si';
-                          }
-                          else {
-                            echo 'No';
-                          }?>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray edit_modulo">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray delete_modulo">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-
-
-                      <?php
-
-                      }
-
-                    }
-                    
-                  ?>
-                    </tbody>
-                  </table>
-                  <!-- End Table -->
-                </div>
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          
-          <!-- End Row -->
-        </div>
-        <!-- end container -->
-      </section>
-      <!-- ========== section end ========== -->
-
-
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
-        <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <div class="title mb-30">
-                  <h2>Profesores</h2>
-                </div>
-              </div>
-              <!-- end col -->
-            </div>
-            <!-- end row -->
-          </div>
-          <!-- ========== title-wrapper end ========== -->
-          <div class="row" >
-          </div>
-          <!-- End Row -->
-          <div class="row">
-          </div>
-          <!-- End Row -->
-          <div class="row">
-
-            <div class="col-lg-12">
-              <div class="card-style mb-30">
-                <div
-                  class="
-                    title
-                    d-flex
-                    flex-wrap
-                    align-items-center
-                    justify-content-between
-                  "
-                >
-                  <div style="margin-left: auto">
-                    <button class="btn btn-primary" style="margin-bottom: 10px" data-bs-toggle="modal" data-bs-target="#ModalProfesores"> Añadir Profesor </button>    
-                  </div>
-                </div>
-                <!-- End Title -->
-                <div class="table-responsive">
-                  <table class="table top-selling-table" id="profesores_tabla">
-                    <thead>
-                      <tr>
-                        <th>
-                          <h6 class="text-sm text-medium">Nombre</h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Apellido <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Correo <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Carrera <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Tipo <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Contraseña <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th>
-                          <h6 class="text-sm text-medium text-end">
-                            Acciones <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                      </tr>
-                    </thead>
-                     <tbody>
+            <div class="card-style mb-30">
+                  <h6 class="mb-25">Inscribir</h6>
+                  <div class="select-style-1">
+                    <label>Sala</label>
+                    <div class="select-position">
+                      <select id="sala">
+                        <option value="">Seleccionar sala</option>
                         <?php
+                        
+                        if (isset($dependencias)){
                       
-                          if (isset($profesores)){
-                          
-                            foreach ($profesores as $key => $value) {
+                          foreach ($dependencias as $dependencias) {
+                        
+                        ?>
+                        <option value="<?php echo $dependencias['id'];?>"><?php echo $dependencias['nombre'];?></option>
 
-                            ?>
-                              <tr>
-                                <td>
-                                    <p class="text-sm"><?php echo $value['nombre_profesor'];?></p>
-                                </td>
-                                <td>
-                                  <p class="text-sm"><?php echo $value['apellido_1'];?></p>
-                                </td>
-                                <td>
-                                  <p class="text-sm"><?php echo $value['correo'];?></p>
-                                </td>
-                                <td>
-                                  <p class="text-sm"><?php echo $value['nombre_carrera'];?></p>
-                                </td>
-                                <td>
-                                  <p class="text-sm">2</p>
-                                </td>
-                                <td>
-                                  <p class="text-sm"><?php echo $value['password'];?></p>
-                                </td>
-                                <td>
-                                  <div class="action justify-content-end">
-                                    <button
-                                      class="more-btn ml-10 dropdown-toggle"
-                                      id="moreAction1"
-                                      data-bs-toggle="dropdown"
-                                      aria-expanded="false"
-                                    >
-                                      <i class="lni lni-more-alt"></i>
-                                    </button>
-                                    <ul
-                                      class="dropdown-menu dropdown-menu-end"
-                                      aria-labelledby="moreAction1"
-                                    >
-                                      <li class="dropdown-item">
-                                        <a href="#0" class="text-gray delete_profesor">Eliminar</a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </td>
-                              </tr>
-                            <?php
-
+                        <?php
+                        
                           }
-
+                      
                         }
                         
-                      ?>
-                    </tbody>
-                  </table>
-                  <!-- End Table -->
-                </div>
-              </div>
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="input-style-1">
+                    <label>Fecha</label>
+                    <input type="date" id="fecha"/>
+                  </div>
+                  <div class="select-style-1">
+                    <label>Bloques</label>
+                    <div class="select-position">
+                      <select id="bloque">
+                        <option value="">Seleccionar bloque</option>
+                        <?php
+                        
+                        if (isset($bloques)){
+                      
+                          foreach ($bloques as $bloque) {
+                        
+                        ?>
+                        <option value="<?php echo $bloque->id;?>"><?php echo $bloque->nombre;?></option>
+
+                        <?php
+                        
+                          }
+                      
+                        }
+                        
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+                  <button
+                    id="menu-toggle"
+                    class="main-btn primary-btn btn-hover"
+                    type="submit"
+                    onclick="inscribir()"
+                  >
+                    Inscribir
+                  </button>
             </div>
-            <!-- End Col -->
-          </div>
-          
-          <!-- End Row -->
+
         </div>
-        <!-- end container -->
+
       </section>
+      <!-- ========== section end ========== -->
 
       <!-- ========== footer start =========== -->
       <footer class="footer">
@@ -628,8 +500,14 @@
             <div class="col-md-6 order-last order-md-first">
               <div class="copyright text-center text-md-start">
                 <p class="text-sm">
-                  Desarrollado por Felipe Fuenzalida, Luciano García y Rubén Ramírez
-                  
+                  Designed and Developed by
+                  <a
+                    href="https://plainadmin.com"
+                    rel="nofollow"
+                    target="_blank"
+                  >
+                    PlainAdmin
+                  </a>
                 </p>
               </div>
             </div>
@@ -642,6 +520,8 @@
                   justify-content-center justify-content-md-end
                 "
               >
+                <a href="#0" class="text-sm">Term & Conditions</a>
+                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
               </div>
             </div>
           </div>
@@ -650,192 +530,6 @@
         <!-- end container -->
       </footer>
       <!-- ========== footer end =========== -->
-
-     <!-- Modal -->
-      <div class="modal fade" id="ModalModulos" tabindex="-1" aria-labelledby="ModalModulosLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <form action="">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="ModalModulosLabel">Añadir Módulo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="mb-3">
-                    <label for="nombre_modulo" class="col-form-label">Nombre del Módulo</label>
-                    <input type="text" class="form-control" id="nombre_modulo">
-                  </div>
-                  <div class="mb-3">
-                    <label for="seccion" class="col-form-label">Seccion</label>
-                    <input type="text" class="form-control" id="seccion">
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Sede</label>
-                    <select class="form-select" aria-label="Default select example" id="sede">
-                      <option value="1" selected>Curicó</option>
-                      <option value="2">Talca</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Carrera</label>
-                    <select class="form-select" aria-label="Default select example" id="carrera">
-                      <option value="1" selected>Ingeniería Civil en Computación</option>
-                      <option value="2">Carrera 2</option>
-                      <option value="3">Carrera 3</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Area</label>
-                    <select class="form-select" aria-label="Default select example" id="area">
-                      <option value="Plan Común" selected>Plan Común</option>
-                      <option value="Ciencias de la Computación">Ciencias de la Computación</option>
-                    </select>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="modal fade" id="EditModulos" tabindex="-1" aria-labelledby="EditModulosLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <form action="">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="EditModulosLabel">Modificar Módulo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="mb-3">
-                    <label for="nombre_modulo_edit" class="col-form-label">Nombre del Módulo</label>
-                    <input type="text" class="form-control" id="nombre_modulo_edit">
-                  </div>
-                  <div class="mb-3">
-                    <label for="seccion_edit" class="col-form-label">Seccion</label>
-                    <input type="text" class="form-control" id="seccion_edit">
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Sede</label>
-                    <select class="form-select" aria-label="Default select example" id="sede_edit">
-                      <option value="1" selected>Curicó</option>
-                      <option value="2">Talca</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Carrera</label>
-                    <select class="form-select" aria-label="Default select example" id="carrera_edit">
-                      <option value="1" selected>Ingeniería Civil en Computación</option>
-                      <option value="2">Carrera 2</option>
-                      <option value="3">Carrera 3</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Area</label>
-                    <select class="form-select" aria-label="Default select example" id="area_edit">
-                      <option value="Plan Común" selected>Plan Común</option>
-                      <option value="Ciencias de la Computación">Ciencias de la Computación</option>
-                    </select>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="modal fade" id="DelModulos" tabindex="-1" aria-labelledby="DelEventosLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <form action="" id="delModulo">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="DelEventosLabel">Eliminar Evento</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  ¿Está seguro de que desea eliminar a éste evento?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn" style="background: red; color: white">Eliminar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="modal fade" id="ModalProfesores" tabindex="-1" aria-labelledby="ModalProfesoresLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <form action="">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="ModalProfesoresLabel">Añadir Profesor</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="mb-3">
-                    <label for="nombre_profesor" class="col-form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre_profesor">
-                  </div>
-                  <div class="mb-3">
-                    <label for="apellidop_profesor" class="col-form-label">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="apellidop_profesor">
-                  </div>
-                  <div class="mb-3">
-                    <label for="apellidom_profesor" class="col-form-label">Apellido Materno</label>
-                    <input type="text" class="form-control" id="apellidom_profesor">
-                  </div>
-                  <div class="mb-3">
-                    <label for="correo_profesor" class="col-form-label">Correo</label>
-                    <input type="text" class="form-control" id="correo_profesor">
-                  </div>
-                  <div class="mb-3">
-                    <label for="password_profesor" class="col-form-label">Contraseña</label>
-                    <input type="text" class="form-control" id="password_profesor">
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Carrera</label>
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1" selected>Ingeniería Civil en Computación</option>
-                      <option value="2">Carrera 2</option>
-                      <option value="3">Carrera 3</option>
-                    </select>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="modal fade" id="DelProfesores" tabindex="-1" aria-labelledby="DelProfesoresLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <form action="" id="delProfesor">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="DelProfesoresLabel">Eliminar Profesor</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  ¿Está seguro de que desea eliminar a éste profesor del sistema?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background: red; color: white">Eliminar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
     </main>
     <!-- ======== main-wrapper end =========== -->
 
@@ -849,95 +543,25 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
+
     <script>
 
+    
 
-      $(document).ready(function() {
-          var table= $('#modulos_tabla').DataTable();
-
-          //modificar
-          table.on('click', '.edit_modulo', function() {
-
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-
-            var data = table.row($tr).data();
-            console.log(data);
-
-           
-            $('#nombre_modulo_edit').val(data[0]);
-            $('#seccion_edit').val();
-            $('#sede_edit').val(data[2]);
-            $('#carrera_edit').val(data[1]);
-            $('#area_edit').val(data[5]);
-
-
-            $('#editModulo').attr('action', '/aquivalaruta/'+data[0]);
-            $('#EditModulos').modal('show');
-
-          });
-
-
-          //eliminar
-          table.on('click', '.delete_modulo', function() {
-
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-            var data = table.row($tr).data();
-
-
-            $('#delModulo').attr('action', '/aquivalaruta/'+data[0]);
-            $('#DelModulos').modal('show');
-
-          }  );
-      } );
-      $(document).ready(function() {
-          var table= $('#profesores_tabla').DataTable();
-
-          //eliminar
-          table.on('click', '.delete_profesor', function() {
-
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-            var data = table.row($tr).data();
-
-
-            $('#delProfesor').attr('action', '/aquivalaruta/'+data[0]);
-            $('#DelProfesores').modal('show');
-
-          }  );
-      } );
-
-
-      var ModalModulos = document.getElementById('ModalModulos')
-      ModalModulos.addEventListener('show.bs.modal', function (event) {
-        // Button that triggered the modal
-        var button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        var recipient = button.getAttribute('data-bs-whatever')
-
-      })
-
-      var ModalProfesores = document.getElementById('ModalProfesores')
-      ModalProfesores.addEventListener('show.bs.modal', function (event) {
-        // Button that triggered the modal
-        var button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        var recipient = button.getAttribute('data-bs-whatever')
-
-      })
+  function inscribir() {
+    let modulo = <?php echo $modulo['id']?>;
+    let fecha = $("#fecha").val();
+    let sala = $("#sala").val();
+    let bloque = $("#bloque").val();
+        $.ajax({
+          method: "POST",
+          url: "inscribirEvento",
+          data: {modulo: modulo, sala: sala, fecha: fecha, bloque: bloque}
+        }).done(function (data){
+          alert(data);
+        });
+  }
 
       // ======== jvectormap activation
       var markers = [
@@ -1464,7 +1088,6 @@
         },
       });
       // =========== chart four end
-      
     </script>
   </body>
 </html>

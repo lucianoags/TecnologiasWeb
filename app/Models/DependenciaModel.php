@@ -10,7 +10,6 @@ class DependenciaModel extends Model
     protected $primarykey = 'id';
     protected $allowedFields = ['aforo','nombre'];
        
-
     public function getDependencias(){
         $query = $this->db->query("Select * from dependencia");
         $result = $query->getResult('array');
@@ -34,3 +33,4 @@ class DependenciaModel extends Model
 
 }
 ?>
+    

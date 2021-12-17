@@ -27,7 +27,7 @@
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
         <a href="alumno">
-          <img src="assets/images/logo/logo1.png" alt="logo" />
+        <img src="<?= base_url("assets/images/logo/meanoto.png");?>" style="width: 90%;" alt="logo" />
         </a>
       </div>
       <nav class="sidebar-nav">
@@ -343,7 +343,7 @@
           <!-- End Row -->
           <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <div class="card-style mb-30">
                 <div
                   class="
@@ -416,16 +416,19 @@
                                     <?php echo $value['aforo'];?>
                                   </td>
                                   <td>
-                                  <?php if ($value['estado']==1){ ?>
-                                    <span class="status-btn success-btn"><?php
+                                  <?php if ($value['estado']=="Aprobado"){ ?>
+                                    <span class="status-btn btn-success"><?php
                                       echo "Aprobado";
-                                    }elseif  ($value['estado']==2) {?>
-                                      <span class="status-btn" style="background: #ff9f9f; color: #ff1f1f"><?php
-                                      echo "Rechazado";
-                                    }else {?>
-                                      <span class="status-btn warning-btn"> <?php
+                                    }elseif ($value['estado']=="Pendiente") {?>
+                                      <span class="status-btn btn-warning"><?php
                                       echo "Pendiente";
-                                    } ?> </span>
+                                    }elseif ($value['estado']=="Rechazado") {?>
+                                      <span class="status-btn danger-btn"><?php
+                                      echo "Rechazado";
+                                    }elseif ($value['estado']=="Cursado") {?>
+                                      <span class="status-btn danger-btn"><?php
+                                      echo "Cursado";
+                                    }?></span>
                                   </td>
                                   <td>
                                     <div class="action justify-content-end">
@@ -442,19 +445,30 @@
                                         aria-labelledby="moreAction1"
                                       >
                                       <li class="dropdown-item">
-                                          <a href=#0 class="text-gray cambiar">Cambiar sala</a>
+              
+                                          <a href=#0 class="text-gray cambiar" onclick="cambiarSalaID(<?php echo $value['id'];?>)">Cambiar sala</a>
                                         </li>
-                                      <?php if ($value['estado']==1){ ?>
+                                      <?php if ($value['estado']=="Aprobado"){ ?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
                                         </li>
-                                      <?php  } else {?>
+                                      <?php  } elseif ($value['estado'] == "Rechazado") {?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
                                         </li>
-                                      <?php }?>
+                                      <?php } 
+                                      else { ?>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
+                                        </li>
+                                      <?php } ?>
                                       </ul>
                                     </div>
                                   </td>
@@ -502,7 +516,7 @@
           <!-- End Row -->
           <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <div class="card-style mb-30">
                 <div
                   class="
@@ -623,7 +637,7 @@
           <!-- End Row -->
           <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <div class="card-style mb-30">
                 <div
                   class="
@@ -765,7 +779,7 @@
 
       <div class="modal fade" id="ModalEvento" tabindex="-1" aria-labelledby="ModalEventoLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" method="POST" id="edit_dependencia_evento">
+          
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="ModalEventoLabel">Cambiar Sala</h5>
@@ -788,21 +802,21 @@
                         
                     ?>
                     </select>
+                    <input type="text" id="cambiar-sala-input" hidden>
                   </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary" onclick="cambiarSala()">Guardar</button>
               </div>
             </div>
-          </form>
         </div>
       </div>
 
 
       <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" method="POST" id="createDependencia">
+          <!-- <form action="" method="POST" id="createDependencia"> -->
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
@@ -820,10 +834,10 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary" >Guardar</button>
+                <button type="submit" class="btn btn-primary" onclick="nuevaDependencia()" >Guardar</button>
               </div>
             </div>
-          </form>
+          <!-- </form> -->
         </div>
       </div>
 
@@ -899,6 +913,39 @@
 
     <script>
 
+      function cambiarSalaID(e){
+        let id = $('#cambiar-sala-input').val(e);
+      }
+
+      function cambiarSala(){
+        let id = $('#cambiar-sala-input').val();
+        let sala = $('#nueva_dependencia').val();
+        console.log(id+sala);
+        $.ajax({
+          method: "POST",
+          url: "modificarDependenciaEvento",
+          data: {id: id, sala: sala}
+        }).done(function (data){
+          // $('#ModalDependencias').modal('toggle');
+          console.log(data);
+          window.location.reload();
+        });
+      }
+
+      function nuevaDependencia() {
+        let nombre = $('#nombre_sala').val();
+        let aforo = $('#aforo').val();
+        console.log("Datos: " + nombre + " - " + aforo);
+        $.ajax({
+          method: "POST",
+          url: "nuevaDependencia",
+          data: {nombre: nombre, aforo: aforo}
+        }).done(function (data){
+          $('#ModalDependencias').modal('toggle');
+          window.location.reload();
+        });
+      }
+
       $(document).ready(function() {
           var table= $('#example').DataTable();
 
@@ -955,7 +1002,7 @@
             var data = table.row($tr).data();
             console.log(data);
 
-            $('#nueva_dependencia').val(data[3]);
+            // $('#nueva_dependencia').val(data[3]);
 
 
             $('#ModalEvento').modal('show');
