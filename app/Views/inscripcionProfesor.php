@@ -9,7 +9,7 @@
       href="assets/images/favicon.svg"
       type="image/x-icon"
     />
-    <title>Alumno</title>
+    <title>PlainAdmin Demo | Bootstrap 5 Admin Template</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="<?= base_url("assets/login/css/bootstrap.css");?>" />
@@ -35,14 +35,14 @@
       }
 
     </style>
-
+    
   </head>
   <body>
 
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="alumno">
+        <a href="profesor">
           <img src="assets/images/logo/logo1.png" alt="logo" />
         </a>
       </div>
@@ -165,7 +165,7 @@
             </ul>
           </li>
           <span class="divider"><hr /></span>
-
+          
           <li class="nav-item">
             <a href="notification.html">
               <span class="icon">
@@ -357,7 +357,7 @@
                     class="dropdown-menu dropdown-menu-end"
                     aria-labelledby="profile"
                   >
-                    <li>
+                  <li>
                       <a href="#0">
                         <i class="lni lni-user"></i> Perfil
                       </a>
@@ -385,16 +385,20 @@
         </div>
       </header>
       <!-- ========== header end ========== -->
+      
 
       <!-- ========== section start ========== -->
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
+      <section class="section">
+        
+      <!-- ======= select style start ======= -->
+
         <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
+            
+        <div class="title-wrapper pt-30">
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Módulos</h2>
+                  <h2><?php echo $modulo['nombre']." - ".$modulo['seccion']?></h2>
                 </div>
               </div>
               <!-- end col -->
@@ -402,6 +406,9 @@
                 <div class="breadcrumb-wrapper mb-30">
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#0">Inscripción de módulo</a>
+                      </li>
                       <li class="breadcrumb-item">
                         <a href="#0">Dashboard</a>
                       </li>
@@ -416,321 +423,73 @@
             </div>
             <!-- end row -->
           </div>
-          <!-- ========== title-wrapper end ========== -->
-          <div class="container">
-            <div class="row row-eq-height">
-              
 
-
-                  <?php
-                    
-                    if (isset($modulos)){
-                      
-                      foreach ($modulos as $key => $value) {
-
-                      ?>
-                      
-                      <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="icon-card mb-30 box">
-                          <div class="icon purple">
-                            <i class="lni lni-cart-full"></i>
-                          </div>
-                              <div class="content">
-                                <h6 class="mb-10"><?php echo $value['area']; ?></h6>
-                                <h3 class="text-bold mb-10"><?php echo $value['nombre']." - ".$value['seccion']; ?></h3>
-                                <p class="text-sm text-success">
-                                  Profesor:
-                                </p>
-                                <p class="text-sm">
-                                  Rodrigo Pavez
-                                </p>
-                                </div>
-                              </div>
-                          <!-- End Icon Cart ESTE -->
-                        </div>
+            <div class="card-style mb-30">
+                  <h6 class="mb-25">Inscribir</h6>
+                  <div class="select-style-1">
+                    <label>Sala</label>
+                    <div class="select-position">
+                      <select id="sala">
+                        <option value="">Seleccionar sala</option>
+                        <?php
                         
-                        <?php //echo $value['seccion']; ?>
+                        if (isset($dependencias)){
+                      
+                          foreach ($dependencias as $dependencias) {
                         
-                      <?php
+                        ?>
+                        <option value="<?php echo $dependencias->id;?>"><?php echo $dependencias->nombre;?></option>
 
-                      }
-
-                    }
-                    
-                  ?>
-                  
-              <!-- End Col -->
-            </div>
-          </div>
-          <!-- End Row -->
-          <div class="row">
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-          <div class="row">
-            <div class="col-lg-5">
-              <div class="card-style calendar-card mb-30">
-                <div id="calendar-mini"></div>
-              </div>
-            </div>
-            <!-- End Col -->
-            <div class="col-lg-7">
-              <div class="card-style mb-30">
-                <div
-                  class="
-                    title
-                    d-flex
-                    flex-wrap
-                    align-items-center
-                    justify-content-between
-                  "
-                >
-                  <div class="left">
-                    <h6 class="text-medium mb-30">Clases</h6>
-                  </div>
-                  <div class="right">
-                    <div class="select-style-1">
-                      <div class="select-position select-sm">
-                        <select class="light-bg">
-                          <option value="">Todos</option>
-                          <option value="">Plan común</option>
-                          <option value="">Escuela</option>
-                        </select>
-                      </div>
+                        <?php
+                        
+                          }
+                      
+                        }
+                        
+                        ?>
+                      </select>
                     </div>
-                    <!-- end select -->
                   </div>
-                </div>
-                <!-- End Title -->
-                <div class="table-responsive">
-                  <table class="table top-selling-table">
-                    <thead>
-                      <tr>
-                        <th>
-                          <h6 class="text-sm text-medium">Módulos</h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Fecha <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Hora <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Sala <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Estado <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th>
-                          <h6 class="text-sm text-medium text-end">
-                            Acciones <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Tecnologías Web</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Inscrito</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                  <div class="input-style-1">
+                    <label>Fecha</label>
+                    <input type="date" id="fecha"/>
+                  </div>
+                  <div class="select-style-1">
+                    <label>Bloques</label>
+                    <div class="select-position">
+                      <select id="bloque">
+                        <option value="">Seleccionar bloque</option>
+                        <?php
+                        
+                        if (isset($bloques)){
                       
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Formulación Proyecto de Titulación</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">19-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">08:30</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">32c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Inscrito</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                          foreach ($bloques as $bloque) {
+                        
+                        ?>
+                        <option value="<?php echo $bloque->id;?>"><?php echo $bloque->nombre;?></option>
 
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Sistemas Distribuidos</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">15:30</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Por inscribir</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Inscribir</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                        <?php
+                        
+                          }
                       
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Tecnologías Web</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">34c</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Por inscribir</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Inscribir</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- End Table -->
-                </div>
-              </div>
+                        }
+                        
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+                  <button
+                    id="menu-toggle"
+                    class="main-btn primary-btn btn-hover"
+                    type="submit"
+                    onclick="inscribir()"
+                  >
+                    Inscribir
+                  </button>
             </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
+
         </div>
-        <!-- end container -->
+
       </section>
       <!-- ========== section end ========== -->
 
@@ -740,6 +499,16 @@
           <div class="row">
             <div class="col-md-6 order-last order-md-first">
               <div class="copyright text-center text-md-start">
+                <p class="text-sm">
+                  Designed and Developed by
+                  <a
+                    href="https://plainadmin.com"
+                    rel="nofollow"
+                    target="_blank"
+                  >
+                    PlainAdmin
+                  </a>
+                </p>
               </div>
             </div>
             <!-- end col-->
@@ -774,8 +543,26 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
+    <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
 
     <script>
+
+    
+
+  function inscribir() {
+    let modulo = <?php echo $modulo['id']?>;
+    let fecha = $("#fecha").val();
+    let sala = $("#sala").val();
+    let bloque = $("#bloque").val();
+        $.ajax({
+          method: "POST",
+          url: "inscribirEvento",
+          data: {modulo: modulo, sala: sala, fecha: fecha, bloque: bloque}
+        }).done(function (data){
+          alert(data);
+        });
+  }
+
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },

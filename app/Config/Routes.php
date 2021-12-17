@@ -35,14 +35,16 @@ $routes->get('/', 'Home::index');
 $routes->get('perfil', 'Example::pfp');
 $routes->get('modificar', 'Example::modificar');
 $routes->get('alumno', 'Login::alumno');
-$routes->get('profesor', 'Router::profesor');
+$routes->get('profesor', 'Login::profesor');
 $routes->get('administrador', 'Router::administrador');
 $routes->get('encargado', 'Router::encargado');
 $routes->post('login', 'Login::login');
 $routes->get('logout', 'Login::logout');
 $routes->get('test', 'Login::test');
 
-
+// Módulos profesor
+$routes->post('profesor/inscribir', 'Profesor::inscribirModulos');
+$routes->post('profesor/inscribirEvento', 'Profesor::inscribirEvento');
 
 /* --------------------------------------------------------------------
  * Rutas de ModuloController

@@ -9,7 +9,7 @@
       href="assets/images/favicon.svg"
       type="image/x-icon"
     />
-    <title>PlainAdmin Demo | Bootstrap 5 Admin Template</title>
+    <title>Profesor</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="<?= base_url("assets/login/css/bootstrap.css");?>" />
@@ -18,6 +18,24 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
+
+    <style>
+      .row-eq-height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+      }
+
+      .box {
+        transition: box-shadow .3s;        
+      }
+      .box:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2); 
+      }
+
+    </style>
+    
   </head>
   <body>
 
@@ -376,7 +394,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Módulos</h2>
+                  <h2>Mis módulos</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -399,83 +417,58 @@
             <!-- end row -->
           </div>
           <!-- ========== title-wrapper end ========== -->
-          <div class="row">
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon purple">
-                  <i class="lni lni-cart-full"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Web</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
+          <div class="container">
+            <div class="row row-eq-height">
+              
+
+
+                  <?php
+                    
+                    if (isset($modulos)){
+                      
+                      foreach ($modulos as $key => $value) {
+
+                      ?>
+                      
+                      <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30 box">
+                          <div class="icon purple">
+                            <i class="lni lni-cart-full"></i>
+                          </div>
+                              <div class="content">
+                              <form method='post' action="<?php echo base_url("public/profesor/inscribir");?>">
+                                <h6 class="mb-10"><?php echo $value['area']; ?></h6>
+                                <h3 class="text-bold mb-10"><?php echo $value['nombre']." - ".$value['seccion']; ?></h3>
+                                <input class="form-control" name="modulo" value="<?php echo $value['id']; ?>" hidden>
+                                <button
+                                  id="menu-toggle"
+                                  class="main-btn primary-btn btn-hover"
+                                  type="submit"
+                                >
+                                  Inscribir
+                                </button>
+                                <!-- <p class="text-sm text-success">
+                                  Profesor:
+                                </p> -->
+                                <!-- <p class="text-sm">
+                                  Rodrigo Pavez
+                                </p> -->
+                              </form>
+                              </div>
+                            </div>
+                          <!-- End Icon Cart ESTE -->
+                        </div>
+                        
+                      <?php
+
+                      }
+
+                    }
+                    
+                  ?>
+                  
+              <!-- End Col -->
             </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon success">
-                  <i class="lni lni-dollar"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Sistemas Distribuidos</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon primary">
-                  <i class="lni lni-credit-cards"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Formulación Proyecto de Titulación</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Renzo Angles
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon orange">
-                  <i class="lni lni-user"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">CIENCIAS DE LA COMPUTACION</h6>
-                  <h3 class="text-bold mb-10">Tecnologías Móviles</h3>
-                  <p class="text-sm text-success">
-                    Profesor:
-                  </p>
-                  <p class="text-sm">
-                    Rodrigo Pavez
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
           </div>
           <!-- End Row -->
           <div class="row">
@@ -799,8 +792,10 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
+    <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
 
     <script>
+
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },
