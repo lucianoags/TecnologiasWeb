@@ -416,16 +416,16 @@
                                     <?php echo $value['aforo'];?>
                                   </td>
                                   <td>
-                                  <?php if ($value['estado']=="Aprobado"){ ?>
+                                  <?php if ($value['estado']==1){ ?>
                                     <span class="status-btn btn-success"><?php
                                       echo "Aprobado";
-                                    }elseif ($value['estado']=="Pendiente") {?>
+                                    }elseif ($value['estado']==0) {?>
                                       <span class="status-btn btn-warning"><?php
                                       echo "Pendiente";
-                                    }elseif ($value['estado']=="Rechazado") {?>
+                                    }elseif ($value['estado']==2) {?>
                                       <span class="status-btn danger-btn"><?php
                                       echo "Rechazado";
-                                    }elseif ($value['estado']=="Cursado") {?>
+                                    }elseif ($value['estado']==3) {?>
                                       <span class="status-btn danger-btn"><?php
                                       echo "Cursado";
                                     }?></span>
@@ -448,12 +448,12 @@
               
                                           <a href=#0 class="text-gray cambiar" onclick="cambiarSalaID(<?php echo $value['id'];?>)">Cambiar sala</a>
                                         </li>
-                                      <?php if ($value['estado']=="Aprobado"){ ?>
+                                      <?php if ($value['estado']==1){ ?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
                                         </li>
-                                      <?php  } elseif ($value['estado'] == "Rechazado") {?>
+                                      <?php  } elseif ($value['estado'] == 2) {?>
                                         <li class="dropdown-item">
                                           <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
                                           <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
