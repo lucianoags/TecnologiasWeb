@@ -43,7 +43,7 @@ $routes->post('profesor/inscribirEvento', 'Profesor::inscribirEvento');
 
 // Módulos Encargado
 $routes->post('nuevaDependencia', 'Profesor::nuevaDependencia');
-
+$routes->post('modificarDependenciaEvento', 'EventoController::modificarDependenciaEvento');
 
 /* --------------------------------------------------------------------
  * Rutas de Login
