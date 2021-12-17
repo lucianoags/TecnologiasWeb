@@ -549,12 +549,12 @@
                               <?php if ($value['estado']==1){ ?>
                                 <li class="dropdown-item">
                                   <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                  <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                  <a href=#0 class="text-gray evento-anular" id=<?php echo $value['modulo'];?>  >Anular</a>
                                 </li>
                               <?php  } else {?>
                                 <li class="dropdown-item">
-                                  <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                  <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Inscribir</a>
+                                  <!-- <a href="encargado/" class="text-gray evento-anular">Anular</a> -->
+                                  <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['modulo'];?>  >Inscribir</a>
                                 </li>
                               <?php }?>
                             </ul>

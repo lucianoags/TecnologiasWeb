@@ -251,8 +251,12 @@ class Login extends BaseController{
 			$id_modulos[] = $value['modulo'];
 		}
 
+		// Módulos que el alumno tiene inscritos
 		$data['modulos'] = $moduloModel->getModulosAlumno($id_modulos);
+		// Los eventos disponibles por módulo
 		$data['eventos'] = $ModelAlumno->getEventos(session('id'));
+		// Estado del alumno en cada evento
+
 
 
 		return view('alumno', $data);

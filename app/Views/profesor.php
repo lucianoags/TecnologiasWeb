@@ -524,7 +524,7 @@
                           <div class="product">
                             <div class="image">
                               <img
-                                src="assets/images/products/product-mini-1.jpg"
+                                src="<?= base_url("assets/images/products/product-mini-1.jpg");?>"
                                 alt=""
                               />
                             </div>
