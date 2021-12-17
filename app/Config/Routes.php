@@ -35,9 +35,14 @@ $routes->get('/', 'Home::index');
 $routes->get('alumno', 'Login::alumno');
 $routes->get('perfil', 'Example::pfp');
 $routes->get('modificar', 'Example::modificar');
-$routes->get('profesor', 'Router::profesor');
-$routes->get('test', 'Login::test');
+$routes->get('profesor', 'Login::profesor');
 
+// Módulos profesor
+$routes->post('profesor/inscribir', 'Profesor::inscribirModulos');
+$routes->post('profesor/inscribirEvento', 'Profesor::inscribirEvento');
+
+// Módulos Encargado
+$routes->post('nuevaDependencia', 'Profesor::nuevaDependencia');
 
 
 /* --------------------------------------------------------------------

@@ -343,7 +343,7 @@
           <!-- End Row -->
           <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <div class="card-style mb-30">
                 <div
                   class="
@@ -417,16 +417,19 @@
                                     <?php echo $value['aforo'];?>
                                   </td>
                                   <td>
-                                  <?php if ($value['estado']==1){ ?>
+                                  <?php if ($value['estado']=="Aprobado"){ ?>
                                     <span class="status-btn success-btn"><?php
                                       echo "Aprobado";
-                                    }elseif  ($value['estado']==2) {?>
-                                      <span class="status-btn" style="background: #ff9f9f; color: #ff1f1f"><?php
-                                      echo "Rechazado";
-                                    }else {?>
-                                      <span class="status-btn warning-btn"> <?php
+                                    }elseif ($value['estado']=="Pendiente") {?>
+                                      <span class="status-btn btn-warning"><?php
                                       echo "Pendiente";
-                                    } ?> </span>
+                                    }elseif ($value['estado']=="Rechazado") {?>
+                                      <span class="status-btn danger-btn"><?php
+                                      echo "Rechazado";
+                                    }elseif ($value['estado']=="Cursado") {?>
+                                      <span class="status-btn danger-btn"><?php
+                                      echo "Cursado";
+                                    }?></span>
                                   </td>
                                   <td>
                                     <div class="action justify-content-end">
@@ -504,7 +507,7 @@
           <!-- End Row -->
           <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <div class="card-style mb-30">
                 <div
                   class="
@@ -805,7 +808,7 @@
 
       <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" method="POST" id="createDependencia">
+          <!-- <form action="" method="POST" id="createDependencia"> -->
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
@@ -823,10 +826,10 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary" >Guardar</button>
+                <button type="submit" class="btn btn-primary" onclick="nuevaDependencia()" >Guardar</button>
               </div>
             </div>
-          </form>
+          <!-- </form> -->
         </div>
       </div>
 
@@ -901,6 +904,20 @@
 
 
     <script>
+
+      function nuevaDependencia() {
+        let nombre = $('#nombre_sala').val();
+        let aforo = $('#aforo').val();
+        console.log("Datos: " + nombre + " - " + aforo);
+        $.ajax({
+          method: "POST",
+          url: "nuevaDependencia",
+          data: {nombre: nombre, aforo: aforo}
+        }).done(function (data){
+          $('#ModalDependencias').modal('toggle');
+          window.location.reload();
+        });
+      }
 
       $(document).ready(function() {
           var table= $('#example').DataTable();

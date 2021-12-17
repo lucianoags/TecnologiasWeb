@@ -272,6 +272,13 @@ class Login extends BaseController{
 		return view('administrador', $data);
 	}
 
+	public function profesor(){
+		$moduloModel = new ModuloModel();
+		$data_modulos_profesor = $moduloModel->where('profesor', session('id'))->findAll();
+		$data['modulos'] = $data_modulos_profesor;
+		return view('profesor', $data);
+	}
+
 	public function index(){
 		helper(['form']);
 		$data['title'] = 'Login';
