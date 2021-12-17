@@ -396,9 +396,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php                        
+                    <?php
                           if (isset($modulos)){
-                            
                             foreach ($modulos as $key => $value) {
                               ?>
                                 <tr>
@@ -667,7 +666,7 @@
                         <th class="min-width">
                             Sede 
                         </th>
-                        <th class="min-width">                        
+                        <th class="min-width">
                             Carrera <i class="lni lni-arrows-vertical"></i>
                         </th>
                         <th>
@@ -678,10 +677,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <?php                        
-                          if (isset($dependencias)){
-                            
-                            foreach ($dependencias as $key => $value) {
+                        <?php
+                          if (isset($alumnos)){
+                            foreach ($alumnos as $key => $value) {
 
                               ?>
                                 <tr>
@@ -692,13 +690,13 @@
                                     <?php echo $value['nombre'];?>
                                   </td>
                                   <td>
-                                    <?php echo $value['aforo'];?>
+                                    <?php echo $value['apellido'];?>
                                   </td>
                                   <td>
-                                    <?php echo $value['aforo'];?>
+                                    <?php echo $value['sede'];?>
                                   </td>
                                   <td>
-                                    <?php echo $value['aforo'];?>
+                                    <?php echo $value['carrera'];?>
                                   </td>
                                   <td>
                                     <div class="action justify-content-end">
