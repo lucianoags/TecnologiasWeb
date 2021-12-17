@@ -801,7 +801,7 @@
 
           //eliminar
           table.on('click', '.delete', function() {
-
+            alert("asd");
             $tr = $(this).closest('tr');
             if ($($tr).hasClass('child')) {
                 $tr = $tr.prev('.parent');
@@ -810,11 +810,13 @@
             var data = table.row($tr).data();
 
 
-            $('#delDependencia').attr('action', '/aquivalaruta/'+data[0]);
+            $('#delDependencia').attr('action', '/eliminarDependencia/'+data[0]);
             $('#DelDependencias').modal('show');
 
           }  );
       } );
+
+
       $(document).ready(function() {
           $('#example2').DataTable();
       } );

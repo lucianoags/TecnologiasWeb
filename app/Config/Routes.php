@@ -62,6 +62,11 @@ $routes->get('encargado', 'Login::encargado');
 $routes->post('anularEvento', 'EventoController::anularEvento');
 //$routes->get('encargado/{id}', 'EventoController::anularEvento');
 
+/* --------------------------------------------------------------------
+ * Rutas de DependenciaController
+ * --------------------------------------------------------------------
+ */
+$routes->get('eliminarDependencia/{id}', 'DependenciaController::eliminarDependencia');
 
 /*
  * --------------------------------------------------------------------
