@@ -10,7 +10,6 @@ class DependenciaModel extends Model
     protected $primarykey = 'id';
     protected $allowedFields = ['aforo','nombre'];
        
-
     public function getDependencias(){
         $query = $this->db->query("Select * from dependencia");
         $result = $query->getResult('array');
@@ -23,5 +22,15 @@ class DependenciaModel extends Model
         return redirect('encargado');
     }
 
+    public function modificarDependencia($id, $nombre, $aforo){
+        $query = $this->db->query("
+        UPDATE dependencia
+        SET aforo ='".$aforo."', nombre='".$nombre."'
+        WHERE id= ".$id);
+        //$result = $query->getResult('array');
+        //return $result;
+    }
+
 }
 ?>
+    

@@ -35,10 +35,15 @@ $routes->get('/', 'Home::index');
 $routes->get('alumno', 'Login::alumno');
 $routes->get('perfil', 'Example::pfp');
 $routes->get('modificar', 'Example::modificar');
-$routes->get('profesor', 'Router::profesor');
-$routes->get('test', 'Login::test');
+$routes->get('profesor', 'Login::profesor');
 
+// Módulos profesor
+$routes->post('profesor/inscribir', 'Profesor::inscribirModulos');
+$routes->post('profesor/inscribirEvento', 'Profesor::inscribirEvento');
 
+// Módulos Encargado
+$routes->post('nuevaDependencia', 'Profesor::nuevaDependencia');
+$routes->post('modificarDependenciaEvento', 'EventoController::modificarDependenciaEvento');
 
 /* --------------------------------------------------------------------
  * Rutas de Login
@@ -67,7 +72,8 @@ $routes->post('aprobarEvento', 'EventoController::aprobarEvento');
  * Rutas de DependenciaController
  * --------------------------------------------------------------------
  */
-$routes->post('encargado', 'DependenciaController::eliminarDependencia');
+$routes->post('eliminarDependencia', 'DependenciaController::eliminarDependencia');
+$routes->post('modificarDependencia', 'DependenciaController::modificarDependencia');
 
 /*
  * --------------------------------------------------------------------

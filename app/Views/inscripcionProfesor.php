@@ -18,15 +18,31 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+
+    <style>
+      .row-eq-height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+      }
+
+      .box {
+        transition: box-shadow .3s;        
+      }
+      .box:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2); 
+      }
+
+    </style>
+    
   </head>
   <body>
 
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="alumno">
+        <a href="profesor">
           <img src="assets/images/logo/logo1.png" alt="logo" />
         </a>
       </div>
@@ -53,6 +69,46 @@
             <ul id="ddmenu_1" class="collapse show dropdown-nav">
               <li>
                 <a href="index.html" class="active"> Gestor de clases </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item-has-children">
+            <a
+              href="#0"
+              class="collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#ddmenu_2"
+              aria-controls="ddmenu_2"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.8334 1.83325H5.50008C5.01385 1.83325 4.54754 2.02641 4.20372 2.37022C3.8599 2.71404 3.66675 3.18036 3.66675 3.66659V18.3333C3.66675 18.8195 3.8599 19.2858 4.20372 19.6296C4.54754 19.9734 5.01385 20.1666 5.50008 20.1666H16.5001C16.9863 20.1666 17.4526 19.9734 17.7964 19.6296C18.1403 19.2858 18.3334 18.8195 18.3334 18.3333V7.33325L12.8334 1.83325ZM16.5001 18.3333H5.50008V3.66659H11.9167V8.24992H16.5001V18.3333Z"
+                  />
+                </svg>
+              </span>
+              <span class="text">Módulos</span>
+            </a>
+            <ul id="ddmenu_2" class="collapse dropdown-nav">
+              <li>
+                <a href="settings.html"> Tecnologías Web </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> Sistemas Distribuidos </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> Formulación Proyecto de Titulación </a>
+              </li>
+              <li>
+                <a href="blank-page.html"> Tecnologías Móviles </a>
               </li>
             </ul>
           </li>
@@ -110,6 +166,24 @@
           </li>
           <span class="divider"><hr /></span>
           
+          <li class="nav-item">
+            <a href="notification.html">
+              <span class="icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.16667 19.25H12.8333C12.8333 20.2584 12.0083 21.0834 11 21.0834C9.99167 21.0834 9.16667 20.2584 9.16667 19.25ZM19.25 17.4167V18.3334H2.75V17.4167L4.58333 15.5834V10.0834C4.58333 7.24171 6.41667 4.76671 9.16667 3.94171V3.66671C9.16667 2.65837 9.99167 1.83337 11 1.83337C12.0083 1.83337 12.8333 2.65837 12.8333 3.66671V3.94171C15.5833 4.76671 17.4167 7.24171 17.4167 10.0834V15.5834L19.25 17.4167ZM15.5833 10.0834C15.5833 7.51671 13.5667 5.50004 11 5.50004C8.43333 5.50004 6.41667 7.51671 6.41667 10.0834V16.5H15.5833V10.0834Z"
+                  />
+                </svg>
+              </span>
+              <span class="text">Notificaciones</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </aside>
@@ -283,16 +357,24 @@
                     class="dropdown-menu dropdown-menu-end"
                     aria-labelledby="profile"
                   >
-                    <li>
-                      <a href="perfil">
-                        <i class="lni lni-user"></i> Ver perfil
+                  <li>
+                      <a href="#0">
+                        <i class="lni lni-user"></i> Perfil
                       </a>
+                    </li>
+                    <li>
+                      <a href="#0">
+                        <i class="lni lni-alarm"></i> Notificaciones
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#0"> <i class="lni lni-inbox"></i> Mensajes </a>
                     </li>
                     <li>
                       <a href="#0"> <i class="lni lni-cog"></i> Configuración </a>
                     </li>
                     <li>
-                      <a href="logout"> <i class="lni lni-exit"></i> Cerrar Sesión </a>
+                      <a href="<?= base_url("public/logout");?>"> <i class="lni lni-exit"></i> Salir </a>
                     </li>
                   </ul>
                 </div>
@@ -303,16 +385,20 @@
         </div>
       </header>
       <!-- ========== header end ========== -->
+      
 
       <!-- ========== section start ========== -->
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
+      <section class="section">
+        
+      <!-- ======= select style start ======= -->
+
         <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
+            
+        <div class="title-wrapper pt-30">
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Eventos</h2>
+                  <h2><?php echo $modulo['nombre']." - ".$modulo['seccion']?></h2>
                 </div>
               </div>
               <!-- end col -->
@@ -320,6 +406,9 @@
                 <div class="breadcrumb-wrapper mb-30">
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#0">Inscripción de módulo</a>
+                      </li>
                       <li class="breadcrumb-item">
                         <a href="#0">Dashboard</a>
                       </li>
@@ -334,416 +423,75 @@
             </div>
             <!-- end row -->
           </div>
-          <!-- ========== title-wrapper end ========== -->
-          <div class="row" >
-          </div>
-          <!-- End Row -->
-          <div class="row">
-          </div>
-          <!-- End Row -->
-          <div class="row">
 
-            <div class="col-lg-12">
-              <div class="card-style mb-30">
-                <div
-                  class="
-                    title
-                    d-flex
-                    flex-wrap
-                    align-items-center
-                    justify-content-between
-                  "
-                >
-                </div>
-                <!-- End Title -->
-                <div class="table-responsive">
-                  <table class="table top-selling-table" id="example2">
-                    <thead>
-                      <tr>
-                        <th>
-                          <h6 class="text-sm text-medium">Eventos</h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Fecha <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Hora <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Sala <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Aforo <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Estado <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th>
-                          <h6 class="text-sm text-medium text-end">
-                            Acciones <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php                        
-                          if (isset($modulos)){
-                            
-                            foreach ($modulos as $key => $value) {
-                              ?>
-                                <tr>
-                                  <td>
-                                    <?php echo $value['nombre_modulo'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['fecha'];?>
-                                  <td>
-                                   <?php echo $value['bloque'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['sala'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['aforo'];?>
-                                  </td>
-                                  <td>
-                                  <?php if ($value['estado']=="Aprobado"){ ?>
-                                    <span class="status-btn btn-success"><?php
-                                      echo "Aprobado";
-                                    }elseif ($value['estado']=="Pendiente") {?>
-                                      <span class="status-btn btn-warning"><?php
-                                      echo "Pendiente";
-                                    }elseif ($value['estado']=="Rechazado") {?>
-                                      <span class="status-btn danger-btn"><?php
-                                      echo "Rechazado";
-                                    }elseif ($value['estado']=="Cursado") {?>
-                                      <span class="status-btn danger-btn"><?php
-                                      echo "Cursado";
-                                    }?></span>
-                                  </td>
-                                  <td>
-                                    <div class="action justify-content-end">
-                                      <button
-                                        class="more-btn ml-10 dropdown-toggle"
-                                        id="moreAction1"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                      >
-                                        <i class="lni lni-more-alt"></i>
-                                      </button>
-                                      <ul
-                                        class="dropdown-menu dropdown-menu-end"
-                                        aria-labelledby="moreAction1"
-                                      >
-                                      <li class="dropdown-item">
-              
-                                          <a href=#0 class="text-gray cambiar" onclick="cambiarSalaID(<?php echo $value['id'];?>)">Cambiar sala</a>
-                                        </li>
-                                      <?php if ($value['estado']=="Aprobado"){ ?>
-                                        <li class="dropdown-item">
-                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
-                                        </li>
-                                      <?php  } elseif ($value['estado'] == "Rechazado") {?>
-                                        <li class="dropdown-item">
-                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                          <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
-                                        </li>
-                                      <?php } 
-                                      else { ?>
-                                        <li class="dropdown-item">
-                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
-                                          <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
-                                        </li>
-                                      <?php } ?>
-                                      </ul>
-                                    </div>
-                                  </td>
-                                </tr>
-                              <?php
-                            }
+            <div class="card-style mb-30">
+                  <h6 class="mb-25">Inscribir</h6>
+                  <div class="select-style-1">
+                    <label>Sala</label>
+                    <div class="select-position">
+                      <select id="sala">
+                        <option value="">Seleccionar sala</option>
+                        <?php
+                        
+                        if (isset($dependencias)){
+                      
+                          foreach ($dependencias as $dependencias) {
+                        
+                        ?>
+                        <option value="<?php echo $dependencias['id'];?>"><?php echo $dependencias['nombre'];?></option>
+
+                        <?php
+                        
                           }
-                      ?>
-                    </tbody>
-                  </table>
-                  <!-- End Table -->
-                </div>
-              </div>
+                      
+                        }
+                        
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="input-style-1">
+                    <label>Fecha</label>
+                    <input type="date" id="fecha"/>
+                  </div>
+                  <div class="select-style-1">
+                    <label>Bloques</label>
+                    <div class="select-position">
+                      <select id="bloque">
+                        <option value="">Seleccionar bloque</option>
+                        <?php
+                        
+                        if (isset($bloques)){
+                      
+                          foreach ($bloques as $bloque) {
+                        
+                        ?>
+                        <option value="<?php echo $bloque->id;?>"><?php echo $bloque->nombre;?></option>
+
+                        <?php
+                        
+                          }
+                      
+                        }
+                        
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+                  <button
+                    id="menu-toggle"
+                    class="main-btn primary-btn btn-hover"
+                    type="submit"
+                    onclick="inscribir()"
+                  >
+                    Inscribir
+                  </button>
             </div>
-            <!-- End Col -->
-          </div>
-          
-          <!-- End Row -->
+
         </div>
-        <!-- end container -->
+
       </section>
       <!-- ========== section end ========== -->
-
-
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
-        <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <div class="title mb-30">
-                  <h2>Dependencias</h2>
-                </div>
-              </div>
-              <!-- end col -->
-            </div>
-            <!-- end row -->
-          </div>
-          <!-- ========== title-wrapper end ========== -->
-          <div class="row" >
-          </div>
-          <!-- End Row -->
-          <div class="row">
-          </div>
-          <!-- End Row -->
-          <div class="row">
-
-            <div class="col-lg-12">
-              <div class="card-style mb-30">
-                <div
-                  class="
-                    title
-                    d-flex
-                    flex-wrap
-                    align-items-center
-                    justify-content-between
-                  "
-                >
-                  <div style="margin-left: auto">
-                    <button class="btn btn-primary" style="margin-bottom: 10px" data-bs-toggle="modal" data-bs-target="#ModalDependencias"> Añadir Dependencia </button>    
-                  </div>
-                </div>
-                <!-- End Title -->
-                <div class="table-responsive">
-                  <table class="table top-selling-table" id="example">
-                    <thead>
-                      <tr>
-                        <th>
-                          <h6 class="text-sm text-medium">ID</h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Nombre Sala <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th class="min-width">
-                          <h6 class="text-sm text-medium">
-                            Aforo <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                        <th>
-                          <h6 class="text-sm text-medium text-end">
-                            Acciones <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                          if (isset($dependencias)){
-                            foreach ($dependencias as $key => $value) {
-
-                              ?>
-                                <tr>
-                                  <td>
-                                      <?php echo $value['id'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['nombre'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['aforo'];?>
-                                  </td>
-                                  <td>
-                                    <div class="action justify-content-end">
-                                      <button
-                                        class="more-btn ml-10 dropdown-toggle"
-                                        id="moreAction1"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                      >
-                                        <i class="lni lni-more-alt"></i>
-                                      </button>
-                                      <ul
-                                        class="dropdown-menu dropdown-menu-end"
-                                        aria-labelledby="moreAction1"
-                                      >
-                                        <li class="dropdown-item">
-                                          <a href="#0" class="text-gray edit"  id=<?php echo $value['id'];?> >Modificar</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                          <a href="#0" class="text-gray dependencia-eliminar" id=<?php echo $value['id'];?> >Eliminar</a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </td>
-                                </tr>
-                              <?php
-                            }
-                          }
-                      ?>
-                    </tbody>
-                  </table>
-                  <!-- End Table -->
-                </div>
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          
-          <!-- End Row -->
-        </div>
-        <!-- end container -->
-      </section>
-
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
-        <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <div class="title mb-30">
-                  <h2>Estudiantes</h2>
-                </div>
-              </div>
-              <!-- end col -->
-            </div>
-            <!-- end row -->
-          </div>
-          <!-- ========== title-wrapper end ========== -->
-          <div class="row" >
-          </div>
-          <!-- End Row -->
-          <div class="row">
-          </div>
-          <!-- End Row -->
-          <div class="row">
-
-            <div class="col-lg-12">
-              <div class="card-style mb-30">
-                <div
-                  class="
-                    title
-                    d-flex
-                    flex-wrap
-                    align-items-center
-                    justify-content-between
-                  "
-                >
-                </div>
-                <!-- End Title -->
-                <div class="table-responsive">
-                  <table class="table top-selling-table" id="estudiantes">
-                    <thead>
-                      <tr>
-                        <th>
-                          ID
-                        </th>
-                        <th class="min-width">
-                            Nombre 
-                        </th>
-                        <th class="min-width">
-                            Apellido 
-                        </th>
-                        <th class="min-width">
-                            Sede 
-                        </th>
-                        <th class="min-width">                        
-                            Carrera <i class="lni lni-arrows-vertical"></i>
-                        </th>
-                        <th>
-                          <h6 class="text-sm text-medium text-end">
-                            Acciones <i class="lni lni-arrows-vertical"></i>
-                          </h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <?php                        
-                          if (isset($dependencias)){
-                            
-                            foreach ($dependencias as $key => $value) {
-
-                              ?>
-                                <tr>
-                                  <td>
-                                      <?php echo $value['id'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['nombre'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['aforo'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['aforo'];?>
-                                  </td>
-                                  <td>
-                                    <?php echo $value['aforo'];?>
-                                  </td>
-                                  <td>
-                                    <div class="action justify-content-end">
-                                      <button
-                                        class="more-btn ml-10 dropdown-toggle"
-                                        id="moreAction1"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                      >
-                                        <i class="lni lni-more-alt"></i>
-                                      </button>
-                                      <ul
-                                        class="dropdown-menu dropdown-menu-end"
-                                        aria-labelledby="moreAction1"
-                                      >
-                                        <li class="dropdown-item">
-                                          <a href="#0" class="text-gray edit">Modificar</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                          <a href="#0" class="text-gray delete">Eliminar</a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </td>
-                                </tr>
-                              <?php
-                            }
-                          }
-                        
-                      ?>
-
-                      
-                    </tbody>
-                  </table>
-                  <!-- End Table -->
-                </div>
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          
-          <!-- End Row -->
-        </div>
-        <!-- end container -->
-      </section>
 
       <!-- ========== footer start =========== -->
       <footer class="footer">
@@ -752,8 +500,14 @@
             <div class="col-md-6 order-last order-md-first">
               <div class="copyright text-center text-md-start">
                 <p class="text-sm">
-                  Desarrollado por Felipe Fuenzalida, Luciano García y Rubén Ramírez
-                  
+                  Designed and Developed by
+                  <a
+                    href="https://plainadmin.com"
+                    rel="nofollow"
+                    target="_blank"
+                  >
+                    PlainAdmin
+                  </a>
                 </p>
               </div>
             </div>
@@ -766,6 +520,8 @@
                   justify-content-center justify-content-md-end
                 "
               >
+                <a href="#0" class="text-sm">Term & Conditions</a>
+                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
               </div>
             </div>
           </div>
@@ -774,126 +530,6 @@
         <!-- end container -->
       </footer>
       <!-- ========== footer end =========== -->
-
-
-
-
-
-      <div class="modal fade" id="ModalEvento" tabindex="-1" aria-labelledby="ModalEventoLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="ModalEventoLabel">Cambiar Sala</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="mb-3">
-                    <label for="nombre_sala" class="col-form-label">Nombre Sala</label>
-                    <select class="form-select" aria-label="Default select example" id="nueva_dependencia">
-                    <?php                        
-                          if (isset($dependencias)){
-                            
-                            foreach ($dependencias as $key => $value) {
-
-                    ?>
-                      <option value=" <?php echo $value['id'];?>"><?php echo $value['nombre'];?></option>
-                    <?php
-                            }
-                          }
-                        
-                    ?>
-                    </select>
-                    <input type="text" id="cambiar-sala-input" hidden>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary" onclick="cambiarSala()">Guardar</button>
-              </div>
-            </div>
-        </div>
-      </div>
-
-
-      <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <!-- <form action="" method="POST" id="createDependencia"> -->
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="mb-3">
-                    <label for="nombre_sala" class="col-form-label">Nombre Sala</label>
-                    <input type="text" class="form-control" id="nombre_sala">
-                  </div>
-                  <div class="mb-3">
-                    <label for="aforo" class="col-form-label">Aforo permitido</label>
-                    <input type="text" class="form-control" id="aforo" style="width: 100px">
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary" onclick="nuevaDependencia()" >Guardar</button>
-              </div>
-            </div>
-          <!-- </form> -->
-        </div>
-      </div>
-
-      <div class="modal fade" id="EditDependencias" tabindex="-1" aria-labelledby="EditDependenciasLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <form action="/encargado" method="post" id="editDependencia">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="EditDependenciasLabel">Modificar Dependencia</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="mb-3">
-                    <label for="nombre_sala" class="col-form-label">Nombre Sala</label>
-                    <input type="text" class="form-control" id="nombre_sala_mod">
-                  </div>
-                  <div class="mb-3">
-                    <label for="aforo" class="col-form-label">Aforo permitido</label>
-                    <input type="text" class="form-control" id="aforo_mod" style="width: 100px">
-                  </div>
-                  <input type="text" class="form-control" id="id-seleccionado" style="width: 100px" hidden>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary" onclick="modificarDependencia()">Guardar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="modal fade" id="DelDependencias" tabindex="-1" aria-labelledby="DelDependenciasLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <form action="/encargado/" method="post" id="delDependencia">
-
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="DelDependenciasLabel">Eliminar Dependencia</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  ¿Está seguro de que desea eliminar ésta dependencia?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    
-  
-
     </main>
     <!-- ======== main-wrapper end =========== -->
 
@@ -908,170 +544,24 @@
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
     <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-
 
     <script>
 
-      function cambiarSalaID(e){
-        let id = $('#cambiar-sala-input').val(e);
-      }
+    
 
-      function cambiarSala(){
-        let id = $('#cambiar-sala-input').val();
-        let sala = $('#nueva_dependencia').val();
-        console.log(id+sala);
+  function inscribir() {
+    let modulo = <?php echo $modulo['id']?>;
+    let fecha = $("#fecha").val();
+    let sala = $("#sala").val();
+    let bloque = $("#bloque").val();
         $.ajax({
           method: "POST",
-          url: "modificarDependenciaEvento",
-          data: {id: id, sala: sala}
+          url: "inscribirEvento",
+          data: {modulo: modulo, sala: sala, fecha: fecha, bloque: bloque}
         }).done(function (data){
-          // $('#ModalDependencias').modal('toggle');
-          console.log(data);
-          window.location.reload();
+          alert(data);
         });
-      }
-
-      function nuevaDependencia() {
-        let nombre = $('#nombre_sala').val();
-        let aforo = $('#aforo').val();
-        console.log("Datos: " + nombre + " - " + aforo);
-        $.ajax({
-          method: "POST",
-          url: "nuevaDependencia",
-          data: {nombre: nombre, aforo: aforo}
-        }).done(function (data){
-          $('#ModalDependencias').modal('toggle');
-          window.location.reload();
-        });
-      }
-
-      $(document).ready(function() {
-          var table= $('#example').DataTable();
-
-          //modificar
-          table.on('click', '.edit', function() {
-
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-            let id = this.id;
-            $("#id-seleccionado").val(id);
-            var data = table.row($tr).data();
-
-            //$('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
-            $('#EditDependencias').modal('show');
-
-          });
-
-
-          //eliminar
-          table.on('click', '.delete', function() {
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-            var data = table.row($tr).data();
-
-
-           // $('#delDependencia').attr('action', '/eliminarDependencia/'+data[0]);
-            $('#DelDependencias').modal('show');
-            
-
-          }  );
-      } );
-
-
-      $(document).ready(function() {
-          var table= $('#example2').DataTable();
-
-
-          //modificar
-          table.on('click', '.cambiar', function() {
-
-            $tr = $(this).closest('tr');
-            if ($($tr).hasClass('child')) {
-                $tr = $tr.prev('.parent');
-            }
-
-
-
-            var data = table.row($tr).data();
-            console.log(data);
-
-            // $('#nueva_dependencia').val(data[3]);
-
-
-            $('#ModalEvento').modal('show');
-
-          });
-
-      } );
-
-      function modificarDependencia() {
-          let nombre = $('#nombre_sala_mod').val();
-          let aforo = $('#aforo_mod').val();
-          let id = $('#id-seleccionado').val();
-          console.log("Datos: " + nombre + " - " + aforo + " - " + id);
-          $.ajax({
-              method: "POST",
-              url: "modificarDependencia",
-              data: {nombre: nombre, aforo: aforo, id:id}
-          }).done(function (data){
-            $('#EditDependencias').modal('toggle');
-            window.location.reload();
-          });
-      }
-
-      $(document).ready(function(){
-        $(document).on('click','.evento-anular', function (){
-          $.ajax({
-            method: "POST",
-            url: "anularEvento",
-            data: {id: this.id}
-          }).done(function (data){
-            window.location.reload();
-          });
-        });
-
-        $(document).on('click','.evento-aprobar', function (){
-          $.ajax({
-            method: "POST",
-            url: "aprobarEvento",
-            data: {id: this.id}
-          }).done(function (data){
-            window.location.reload();
-          });
-        });
-      });
-
-      $(document).ready(function(){
-        $(document).on('click','.dependencia-eliminar', function (){
-          $.ajax({
-            method: "POST",
-            url: "eliminarDependencia",
-            data: {id: this.id}
-          }).done(function (data){
-            window.location.reload();
-          });
-        });
-      });
-
-
-
-      var ModalDependencias = document.getElementById('ModalDependencias')
-        ModalDependencias.addEventListener('show.bs.modal', function (event) {
-          // Button that triggered the modal
-          var button = event.relatedTarget
-          // Extract info from data-bs-* attributes
-          var recipient = button.getAttribute('data-bs-whatever')
-
-      })
+  }
 
       // ======== jvectormap activation
       var markers = [

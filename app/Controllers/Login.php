@@ -238,6 +238,8 @@ class Login extends BaseController{
 	public function alumno(){
 		$moduloModelAlumno = new ModuloEstudianteModel();
 		$moduloModel = new ModuloModel();
+		$ModelAlumno = new AlumnoModel();
+
 
 		$data_modulos_alumno = $moduloModelAlumno->where('estudiante', session('id'))->findAll();
 		//$data_modulos_alumno = $moduloModelAlumno->getModulosAlumno($data_alumno['id']);
@@ -250,6 +252,8 @@ class Login extends BaseController{
 		}
 
 		$data['modulos'] = $moduloModel->getModulosAlumno($id_modulos);
+		$data['eventos'] = $ModelAlumno->getEventos(session('id'));
+
 
 		return view('alumno', $data);
 	}
@@ -270,6 +274,13 @@ class Login extends BaseController{
 		$data['modulos'] = $moduloModel->getModulosAdministrador();
 		$data['profesores'] = $tablaProfesor->getProfesoresAdministrador();
 		return view('administrador', $data);
+	}
+
+	public function profesor(){
+		$moduloModel = new ModuloModel();
+		$data_modulos_profesor = $moduloModel->where('profesor', session('id'))->findAll();
+		$data['modulos'] = $data_modulos_profesor;
+		return view('profesor', $data);
 	}
 
 	public function index(){

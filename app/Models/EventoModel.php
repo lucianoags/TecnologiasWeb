@@ -31,5 +31,10 @@ class EventoModel extends Model
         //return $result;
     }
 
+    public function modificarSala($id, $sala){
+        $query = $this->db->query("UPDATE evento SET dependencia = ".$sala." WHERE id = ".$id.";");
+        return $query;
+    }
+
 }
 ?>
