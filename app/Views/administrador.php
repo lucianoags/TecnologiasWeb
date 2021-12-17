@@ -388,7 +388,7 @@
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table">
+                  <table class="table top-selling-table" id="eventos_tabla">
                     <thead>
                       <tr>
                         <th>
@@ -464,10 +464,10 @@
                               aria-labelledby="moreAction1"
                             >
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
+                                <a href="#0" class="text-gray edit_evento">Modificar</a>
                               </li>
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
+                                <a href="#0" class="text-gray delete_evento">Eliminar</a>
                               </li>
                             </ul>
                           </div>
@@ -538,7 +538,7 @@
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table">
+                  <table class="table top-selling-table" id="profesores_tabla">
                     <thead>
                       <tr>
                         <th>
@@ -617,11 +617,8 @@
                                       class="dropdown-menu dropdown-menu-end"
                                       aria-labelledby="moreAction1"
                                     >
-                                    <li class="dropdown-item">
-                                        <a href="#0" class="text-gray">Modificar</a>
-                                      </li>
                                       <li class="dropdown-item">
-                                        <a href="#0" class="text-gray">Eliminar</a>
+                                        <a href="#0" class="text-gray delete_profesor">Eliminar</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -689,97 +686,186 @@
      <!-- Modal -->
       <div class="modal fade" id="ModalModulos" tabindex="-1" aria-labelledby="ModalModulosLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="ModalModulosLabel">Añadir Módulo</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <form action="">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalModulosLabel">Añadir Módulo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_modulo" class="col-form-label">Nombre del Módulo</label>
+                    <input type="text" class="form-control" id="nombre_modulo">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seccion" class="col-form-label">Seccion</label>
+                    <input type="text" class="form-control" id="seccion">
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Sede</label>
+                    <select class="form-select" aria-label="Default select example" id="sede">
+                      <option value="1" selected>Curicó</option>
+                      <option value="2">Talca</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Carrera</label>
+                    <select class="form-select" aria-label="Default select example" id="carrera">
+                      <option value="1" selected>Ingeniería Civil en Computación</option>
+                      <option value="2">Carrera 2</option>
+                      <option value="3">Carrera 3</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Area</label>
+                    <select class="form-select" aria-label="Default select example" id="area">
+                      <option value="Plan Común" selected>Plan Común</option>
+                      <option value="Ciencias de la Computación">Ciencias de la Computación</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
             </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="nombre_modulo" class="col-form-label">Nombre del Módulo</label>
-                  <input type="text" class="form-control" id="nombre_modulo">
-                </div>
-                <div class="mb-3">
-                  <label for="seccion" class="col-form-label">Seccion</label>
-                  <input type="text" class="form-control" id="seccion">
-                </div>
-                <div class="mb-3">
-                  <label class="col-form-label">Sede</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option value="1" selected>Curicó</option>
-                    <option value="2">Talca</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label class="col-form-label">Carrera</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option value="1" selected>Ingeniería Civil en Computación</option>
-                    <option value="2">Carrera 2</option>
-                    <option value="3">Carrera 3</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label class="col-form-label">Area</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option value="Plan Común" selected>Plan Común</option>
-                    <option value="Ciencias de la Computación">Ciencias de la Computación</option>
-                  </select>
-                </div>
-              </form>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="EditModulos" tabindex="-1" aria-labelledby="EditModulosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="EditModulosLabel">Modificar Módulo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_modulo_edit" class="col-form-label">Nombre del Módulo</label>
+                    <input type="text" class="form-control" id="nombre_modulo_edit">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seccion_edit" class="col-form-label">Seccion</label>
+                    <input type="text" class="form-control" id="seccion_edit">
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Sede</label>
+                    <select class="form-select" aria-label="Default select example" id="sede_edit">
+                      <option value="1" selected>Curicó</option>
+                      <option value="2">Talca</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Carrera</label>
+                    <select class="form-select" aria-label="Default select example" id="carrera_edit">
+                      <option value="1" selected>Ingeniería Civil en Computación</option>
+                      <option value="2">Carrera 2</option>
+                      <option value="3">Carrera 3</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Area</label>
+                    <select class="form-select" aria-label="Default select example" id="area_edit">
+                      <option value="Plan Común" selected>Plan Común</option>
+                      <option value="Ciencias de la Computación">Ciencias de la Computación</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Guardar</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="DelEventos" tabindex="-1" aria-labelledby="DelEventosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="" id="delEvento">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="DelEventosLabel">Eliminar Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  ¿Está seguro de que desea eliminar a éste evento?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn" style="background: red; color: white">Eliminar</button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
       <div class="modal fade" id="ModalProfesores" tabindex="-1" aria-labelledby="ModalProfesoresLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="ModalProfesoresLabel">Añadir Profesor</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <form action="">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalProfesoresLabel">Añadir Profesor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_profesor" class="col-form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="apellidop_profesor" class="col-form-label">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="apellidop_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="apellidom_profesor" class="col-form-label">Apellido Materno</label>
+                    <input type="text" class="form-control" id="apellidom_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="correo_profesor" class="col-form-label">Correo</label>
+                    <input type="text" class="form-control" id="correo_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="password_profesor" class="col-form-label">Contraseña</label>
+                    <input type="text" class="form-control" id="password_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Carrera</label>
+                    <select class="form-select" aria-label="Default select example">
+                      <option value="1" selected>Ingeniería Civil en Computación</option>
+                      <option value="2">Carrera 2</option>
+                      <option value="3">Carrera 3</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
             </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="nombre_profesor" class="col-form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre_profesor">
-                </div>
-                <div class="mb-3">
-                  <label for="apellidop_profesor" class="col-form-label">Apellido Paterno</label>
-                  <input type="text" class="form-control" id="apellidop_profesor">
-                </div>
-                <div class="mb-3">
-                  <label for="apellidom_profesor" class="col-form-label">Apellido Materno</label>
-                  <input type="text" class="form-control" id="apellidom_profesor">
-                </div>
-                <div class="mb-3">
-                  <label for="correo_profesor" class="col-form-label">Correo</label>
-                  <input type="text" class="form-control" id="correo_profesor">
-                </div>
-                <div class="mb-3">
-                  <label for="password_profesor" class="col-form-label">Contraseña</label>
-                  <input type="text" class="form-control" id="password_profesor">
-                </div>
-                <div class="mb-3">
-                  <label class="col-form-label">Carrera</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option value="1" selected>Ingeniería Civil en Computación</option>
-                    <option value="2">Carrera 2</option>
-                    <option value="3">Carrera 3</option>
-                  </select>
-                </div>
-              </form>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="DelProfesores" tabindex="-1" aria-labelledby="DelProfesoresLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="" id="delProfesor">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="DelProfesoresLabel">Eliminar Profesor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  ¿Está seguro de que desea eliminar a éste profesor del sistema?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn" style="background: red; color: white">Eliminar</button>
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </main>
@@ -797,6 +883,70 @@
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
 
     <script>
+
+
+      $(document).ready(function() {
+          var table= $('#eventos_tabla').DataTable();
+
+          //modificar
+          table.on('click', '.edit', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+
+            var data = table.row($tr).data();
+            console.log(data);
+
+            $('#nombre_modulo_edit').val(data[1]);
+            $('#seccion_edit').val(data[2]);
+            $('#sede_edit').val(data[3]);
+            $('#carrera_edit').val(data[4]);
+            $('#area_edit').val(data[5]);
+
+            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
+            $('#EditDependencias').modal('show');
+
+          });
+
+
+          //eliminar
+          table.on('click', '.delete_evento', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+            var data = table.row($tr).data();
+
+
+            $('#delEvento').attr('action', '/aquivalaruta/'+data[0]);
+            $('#DelEventos').modal('show');
+
+          }  );
+      } );
+      $(document).ready(function() {
+          var table= $('#profesores_tabla').DataTable();
+
+          //eliminar
+          table.on('click', '.delete_profesor', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+            var data = table.row($tr).data();
+
+
+            $('#delProfesor').attr('action', '/aquivalaruta/'+data[0]);
+            $('#DelProfesores').modal('show');
+
+          }  );
+      } );
 
 
       var ModalModulos = document.getElementById('ModalModulos')
