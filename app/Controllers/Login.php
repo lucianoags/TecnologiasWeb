@@ -256,9 +256,9 @@ class Login extends BaseController{
 
 	public function encargado(){
 
-	//	$tablaModulo = new ModuloModel();
+		$tablaModulo = new ModuloModel();
 		$tablaDependencia = new DependenciaModel();
-	//	$data['modulos'] = $tablaModulo->getModulosEncargado();
+		$data['modulos'] = $tablaModulo->getModulosEventos();
 		$data['dependencias'] = $tablaDependencia->getDependencias();
 		return view('encargado', $data);
 	}
@@ -269,7 +269,7 @@ class Login extends BaseController{
 		$tablaProfesor = new ProfesorModel();
 		$data['modulos'] = $moduloModel->getModulosAdministrador();
 		$data['profesores'] = $tablaProfesor->getProfesoresAdministrador();
-		return view('encargado', $data);
+		return view('administrador', $data);
 	}
 
 	public function index(){

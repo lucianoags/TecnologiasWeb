@@ -54,6 +54,21 @@ $routes->get('alumno', 'Login::alumno');
 $routes->get('administrador', 'Login::administrador');
 $routes->get('encargado', 'Login::encargado');
  
+/* --------------------------------------------------------------------
+ * Rutas de EventoController
+ * --------------------------------------------------------------------
+ */
+
+$routes->post('anularEvento', 'EventoController::anularEvento');
+$routes->post('aprobarEvento', 'EventoController::aprobarEvento');
+//$routes->get('encargado/{id}', 'EventoController::anularEvento');
+
+/* --------------------------------------------------------------------
+ * Rutas de DependenciaController
+ * --------------------------------------------------------------------
+ */
+$routes->post('encargado', 'DependenciaController::eliminarDependencia');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

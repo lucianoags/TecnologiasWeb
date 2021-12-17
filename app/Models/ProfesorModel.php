@@ -12,7 +12,7 @@ class ProfesorModel extends Model
 
     public function getProfesoresAdministrador(){
         $query = $this->db->query("
-        SELECT profesor.nombre as nombre_profesor, profesor.apellido_1, profesor.correo, carrera.nombre as nombre_carrera FROM profesor
+        SELECT profesor.nombre as nombre_profesor, profesor.apellido_1, profesor.correo, carrera.nombre as nombre_carrera, profesor.password as password FROM profesor
         LEFT JOIN
         carrera 
         ON profesor.carrera = carrera.id

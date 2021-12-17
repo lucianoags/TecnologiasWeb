@@ -338,7 +338,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Módulos</h2>
+                  <h2>Eventos</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -426,48 +426,80 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>                       
-                            Tecnologías Web
-                        </td>
-                        <td>
-                          18-10-2021
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">16</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">15</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Aprobado</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  
+                    <?php                        
+                          if (isset($modulos)){
+                            
+                            foreach ($modulos as $key => $value) {
+                              ?>
+                                <tr>
+                                  <td>
+                                    <div class="product">
+                                      <div class="image">
+                                        <img
+                                          src="assets/images/products/product-mini-1.jpg"
+                                          alt=""
+                                        />
+                                      </div>
+                                      <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['fecha'];?></p>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn "><?php echo $value['bloque'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['sala'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['aforo'];?></span>
+                                  </td>
+                                  <td>
+                                  <?php if ($value['estado']==1){ ?>
+                                    <span class="status-btn success-btn"><?php
+                                      echo "Aprobado";
+                                    }elseif  ($value['estado']==2) {?>
+                                      <span class="status-btn" style="background: #ff9f9f; color: #ff1f1f"><?php
+                                      echo "Rechazado";
+                                    }else {?>
+                                      <span class="status-btn warning-btn"> <?php
+                                      echo "Pendiente";
+                                    } ?> </span>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                      <?php if ($value['estado']==1){ ?>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                        </li>
+                                      <?php  } else {?>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-aprobar" id=<?php echo $value['id'];?>  >Aprobar</a>
+                                        </li>
+                                      <?php }?>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                      ?>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -548,40 +580,52 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>               
-                            445
-                        </td>
-                        <td>
-                          C2
-                        </td>
-                        <td>
-                          40
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray edit">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray delete" data-bs-toggle="modal" data-bs-target="#DelDependencias">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                        <?php                        
+                          if (isset($dependencias)){
+                            
+                            foreach ($dependencias as $key => $value) {
+
+                              ?>
+                                <tr>
+                                  <td>
+                                      <?php echo $value['id'];?>
+                                  </td>
+                                  <td>
+                                    <?php echo $value['nombre'];?>
+                                  </td>
+                                  <td>
+                                    <?php echo $value['aforo'];?>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray edit">Modificar</a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray delete">Eliminar</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                        
+                      ?>
+
                       
                     </tbody>
                   </table>
@@ -639,7 +683,7 @@
 
       <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="createDependencia">
+          <form action="" method="POST" id="createDependencia">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
@@ -666,7 +710,7 @@
 
       <div class="modal fade" id="EditDependencias" tabindex="-1" aria-labelledby="EditDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="editDependencia">
+          <form action="/encargado" method="post" id="editDependencia">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="EditDependenciasLabel">Modificar Dependencia</h5>
@@ -693,7 +737,8 @@
 
       <div class="modal fade" id="DelDependencias" tabindex="-1" aria-labelledby="DelDependenciasLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <form action="" id="delDependencia">
+          <form action="/encargado/" method="post" id="delDependencia">
+
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="DelDependenciasLabel">Eliminar Dependencia</h5>
@@ -704,7 +749,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn" style="background: red; color: white">Eliminar</button>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
               </div>
             </div>
           </form>
@@ -726,6 +771,7 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
+    <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
@@ -751,7 +797,6 @@
             $('#nombre_sala_mod').val(data[1]);
             $('#aforo_mod').val(data[2]);
 
-            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
             $('#EditDependencias').modal('show');
 
           });
@@ -759,23 +804,42 @@
 
           //eliminar
           table.on('click', '.delete', function() {
-
             $tr = $(this).closest('tr');
             if ($($tr).hasClass('child')) {
                 $tr = $tr.prev('.parent');
             }
 
-            var data = table.row($tr).data();
-
-
-            $('#delDependencia').attr('action', '/aquivalaruta/'+data[0]);
             $('#DelDependencias').modal('show');
 
           }  );
       } );
+
+
       $(document).ready(function() {
           $('#example2').DataTable();
       } );
+
+      $(document).ready(function(){
+        $(document).on('click','.evento-anular', function (){
+          $.ajax({
+            method: "POST",
+            url: "anularEvento",
+            data: {id: this.id}
+          }).done(function (data){
+            window.location.reload();
+          });
+        });
+
+        $(document).on('click','.evento-aprobar', function (){
+          $.ajax({
+            method: "POST",
+            url: "aprobarEvento",
+            data: {id: this.id}
+          }).done(function (data){
+            window.location.reload();
+          });
+        });
+      });
 
       var ModalDependencias = document.getElementById('ModalDependencias')
         ModalDependencias.addEventListener('show.bs.modal', function (event) {
@@ -786,14 +850,6 @@
 
       })
 
-      var DelDependencias = document.getElementById('DelDependencias')
-        DelDependencias.addEventListener('show.bs.modal', function (event) {
-          // Button that triggered the modal
-          var button = event.relatedTarget
-          // Extract info from data-bs-* attributes
-          var recipient = button.getAttribute('data-bs-whatever')
-
-      })
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },
