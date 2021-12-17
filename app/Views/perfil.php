@@ -33,7 +33,7 @@
 <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
         <a href="">
-          <img src="assets/images/logo/logo1.png" alt="logo" />
+        <img src="<?= base_url("assets/images/logo/meanoto.png");?>" style="width: 90%;" alt="logo" />
         </a>
       </div>
       <nav class="sidebar-nav">
