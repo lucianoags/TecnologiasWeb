@@ -387,7 +387,7 @@
       <!-- ========== header end ========== -->
 
       <!-- ========== section start ========== -->
-      <section class="section" onload="<?= base_url("/public/getTarjetas");?>">
+      <section class="section">
         <div class="container-fluid">
           <!-- ========== title-wrapper start ========== -->
           <div class="title-wrapper pt-30">

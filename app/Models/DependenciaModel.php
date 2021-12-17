@@ -11,11 +11,17 @@ class DependenciaModel extends Model
     protected $allowedFields = ['aforo','nombre'];
        
 
-    public function getDependencias(){
-        $query = $this->db->query("Select * from dependencia");
-        $result = $query->getResult();
         return $result;
+    }
+
+    public function eliminarDependencia($id){
+        $query = $this->db->query("DELETE FROM dependencia WHERE id=".$id);
+        //$result = $query->getResult('array');
+        //return $result;
     }
 
 }
 ?>
+    public function getDependencias(){
+        $query = $this->db->query("Select * from dependencia");
+        $result = $query->getResult('array');

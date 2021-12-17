@@ -34,25 +34,34 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('perfil', 'Example::pfp');
 $routes->get('modificar', 'Example::modificar');
-$routes->get('alumno', 'Login::alumno');
 $routes->get('profesor', 'Login::profesor');
 $routes->get('administrador', 'Router::administrador');
 $routes->get('encargado', 'Router::encargado');
+$routes->get('alumno', 'Login::alumno');
 $routes->post('login', 'Login::login');
 $routes->get('logout', 'Login::logout');
-$routes->get('test', 'Login::test');
 
 // Módulos profesor
 $routes->post('profesor/inscribir', 'Profesor::inscribirModulos');
 $routes->post('profesor/inscribirEvento', 'Profesor::inscribirEvento');
 
+$routes->get('administrador', 'Login::administrador');
+$routes->get('encargado', 'Login::encargado');
+ 
 /* --------------------------------------------------------------------
- * Rutas de ModuloController
+ * Rutas de EventoController
  * --------------------------------------------------------------------
  */
 
- $routes->get('getTarjetas','ModuloController::getTarjetas');
- 
+$routes->post('anularEvento', 'EventoController::anularEvento');
+//$routes->get('encargado/{id}', 'EventoController::anularEvento');
+
+/* --------------------------------------------------------------------
+ * Rutas de DependenciaController
+ * --------------------------------------------------------------------
+ */
+$routes->get('eliminarDependencia/{id}', 'DependenciaController::eliminarDependencia');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

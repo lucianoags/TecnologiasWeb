@@ -24,7 +24,7 @@
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="alumno">
+        <a href="administrador">
           <img src="assets/images/logo/logo1.png" alt="logo" />
         </a>
       </div>
@@ -382,13 +382,13 @@
                     <h6 class="text-medium mb-30">Clases</h6>
                   </div>
                   <div style="right">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Módulo </button>    
+                    <button type="button" class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalModulos"> Añadir Módulo </button>    
                   </div>
         
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table">
+                  <table class="table top-selling-table" id="eventos_tabla">
                     <thead>
                       <tr>
                         <th>
@@ -417,56 +417,37 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>                      
-                            <p class="text-sm">Tecnologías Web</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Ingeniería Civil en Computación</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">Curicó</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">No</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                    <?php
+                    
+                    if (isset($modulos)){
                       
-					  <tr>
-                        <td>                      
-                            <p class="text-sm">Formulación Proyecto de Titulación</p>
+                      foreach ($modulos as $key => $value) {
+
+                      ?>
+
+
+                      <tr>
+                        <td>
+                            <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
                         </td>
                         <td>
-                          <p class="text-sm">Ingeniería Civil en Computación1</p>
+                          <p class="text-sm"><?php if ($value['nombre_carrera']==NULL) {
+                            echo 'Plan Común';
+                          }
+                          else {
+                            echo $value['nombre_carrera'];
+                          }?></p>
                         </td>
                         <td>
-                          <span class="status-btn ">Curicó</span>
+                          <span class="status-btn "><?php echo $value['nombre_sede'];?></span>
                         </td>
                         <td>
-                          <span class="status-btn">No</span>
+                          <span class="status-btn"><?php if ($value['plan_comun']=='1') {
+                            echo 'Si';
+                          }
+                          else {
+                            echo 'No';
+                          }?></span>
                         </td>
                         <td>
                           <div class="action justify-content-end">
@@ -483,15 +464,24 @@
                               aria-labelledby="moreAction1"
                             >
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
+                                <a href="#0" class="text-gray edit_evento">Modificar</a>
                               </li>
                               <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
+                                <a href="#0" class="text-gray delete_evento">Eliminar</a>
                               </li>
                             </ul>
                           </div>
                         </td>
                       </tr>
+
+
+                      <?php
+
+                      }
+
+                    }
+                    
+                  ?>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -543,12 +533,12 @@
                   "
                 >
                   <div style="margin-left: auto">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Profesor </button>    
+                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px" data-bs-toggle="modal" data-bs-target="#ModalProfesores"> Añadir Profesor </button>    
                   </div>
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table">
+                  <table class="table top-selling-table" id="profesores_tabla">
                     <thead>
                       <tr>
                         <th>
@@ -586,94 +576,61 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <p class="text-sm">Magdalena</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Rodriguez</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">mrodriguez@utalca.c</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Psicología</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">2</p>
-                        </td>
-                        <td>
-                          <p class="text-sm"></p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                     <tbody>
+                        <?php
                       
-					          <tr>
-                        <td>               
-                            <p class="text-sm">Sergio</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Navarro</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">snavarro@utalca.cl</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">Ingeniería Civil en Computación</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">2</p>
-                        </td>
-                        <td>
-                          <p class="text-sm">1234</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                          if (isset($profesores)){
+                          
+                            foreach ($profesores as $key => $value) {
+
+                            ?>
+                              <tr>
+                                <td>
+                                    <p class="text-sm"><?php echo $value['nombre_profesor'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"><?php echo $value['apellido_1'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"><?php echo $value['correo'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"><?php echo $value['nombre_carrera'];?></p>
+                                </td>
+                                <td>
+                                  <p class="text-sm">2</p>
+                                </td>
+                                <td>
+                                  <p class="text-sm"></p>
+                                </td>
+                                <td>
+                                  <div class="action justify-content-end">
+                                    <button
+                                      class="more-btn ml-10 dropdown-toggle"
+                                      id="moreAction1"
+                                      data-bs-toggle="dropdown"
+                                      aria-expanded="false"
+                                    >
+                                      <i class="lni lni-more-alt"></i>
+                                    </button>
+                                    <ul
+                                      class="dropdown-menu dropdown-menu-end"
+                                      aria-labelledby="moreAction1"
+                                    >
+                                      <li class="dropdown-item">
+                                        <a href="#0" class="text-gray delete_profesor">Eliminar</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                            <?php
+
+                          }
+
+                        }
+                        
+                      ?>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -725,6 +682,192 @@
         <!-- end container -->
       </footer>
       <!-- ========== footer end =========== -->
+
+     <!-- Modal -->
+      <div class="modal fade" id="ModalModulos" tabindex="-1" aria-labelledby="ModalModulosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalModulosLabel">Añadir Módulo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_modulo" class="col-form-label">Nombre del Módulo</label>
+                    <input type="text" class="form-control" id="nombre_modulo">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seccion" class="col-form-label">Seccion</label>
+                    <input type="text" class="form-control" id="seccion">
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Sede</label>
+                    <select class="form-select" aria-label="Default select example" id="sede">
+                      <option value="1" selected>Curicó</option>
+                      <option value="2">Talca</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Carrera</label>
+                    <select class="form-select" aria-label="Default select example" id="carrera">
+                      <option value="1" selected>Ingeniería Civil en Computación</option>
+                      <option value="2">Carrera 2</option>
+                      <option value="3">Carrera 3</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Area</label>
+                    <select class="form-select" aria-label="Default select example" id="area">
+                      <option value="Plan Común" selected>Plan Común</option>
+                      <option value="Ciencias de la Computación">Ciencias de la Computación</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="EditModulos" tabindex="-1" aria-labelledby="EditModulosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="EditModulosLabel">Modificar Módulo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_modulo_edit" class="col-form-label">Nombre del Módulo</label>
+                    <input type="text" class="form-control" id="nombre_modulo_edit">
+                  </div>
+                  <div class="mb-3">
+                    <label for="seccion_edit" class="col-form-label">Seccion</label>
+                    <input type="text" class="form-control" id="seccion_edit">
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Sede</label>
+                    <select class="form-select" aria-label="Default select example" id="sede_edit">
+                      <option value="1" selected>Curicó</option>
+                      <option value="2">Talca</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Carrera</label>
+                    <select class="form-select" aria-label="Default select example" id="carrera_edit">
+                      <option value="1" selected>Ingeniería Civil en Computación</option>
+                      <option value="2">Carrera 2</option>
+                      <option value="3">Carrera 3</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Area</label>
+                    <select class="form-select" aria-label="Default select example" id="area_edit">
+                      <option value="Plan Común" selected>Plan Común</option>
+                      <option value="Ciencias de la Computación">Ciencias de la Computación</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="DelEventos" tabindex="-1" aria-labelledby="DelEventosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="" id="delEvento">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="DelEventosLabel">Eliminar Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  ¿Está seguro de que desea eliminar a éste evento?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn" style="background: red; color: white">Eliminar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="ModalProfesores" tabindex="-1" aria-labelledby="ModalProfesoresLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalProfesoresLabel">Añadir Profesor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_profesor" class="col-form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="apellidop_profesor" class="col-form-label">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="apellidop_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="apellidom_profesor" class="col-form-label">Apellido Materno</label>
+                    <input type="text" class="form-control" id="apellidom_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="correo_profesor" class="col-form-label">Correo</label>
+                    <input type="text" class="form-control" id="correo_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="password_profesor" class="col-form-label">Contraseña</label>
+                    <input type="text" class="form-control" id="password_profesor">
+                  </div>
+                  <div class="mb-3">
+                    <label class="col-form-label">Carrera</label>
+                    <select class="form-select" aria-label="Default select example">
+                      <option value="1" selected>Ingeniería Civil en Computación</option>
+                      <option value="2">Carrera 2</option>
+                      <option value="3">Carrera 3</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="DelProfesores" tabindex="-1" aria-labelledby="DelProfesoresLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="" id="delProfesor">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="DelProfesoresLabel">Eliminar Profesor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  ¿Está seguro de que desea eliminar a éste profesor del sistema?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn" style="background: red; color: white">Eliminar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
     <!-- ======== main-wrapper end =========== -->
 
@@ -740,6 +883,90 @@
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
 
     <script>
+
+
+      $(document).ready(function() {
+          var table= $('#eventos_tabla').DataTable();
+
+          //modificar
+          table.on('click', '.edit', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+
+            var data = table.row($tr).data();
+            console.log(data);
+
+            $('#nombre_modulo_edit').val(data[1]);
+            $('#seccion_edit').val(data[2]);
+            $('#sede_edit').val(data[3]);
+            $('#carrera_edit').val(data[4]);
+            $('#area_edit').val(data[5]);
+
+            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
+            $('#EditDependencias').modal('show');
+
+          });
+
+
+          //eliminar
+          table.on('click', '.delete_evento', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+            var data = table.row($tr).data();
+
+
+            $('#delEvento').attr('action', '/aquivalaruta/'+data[0]);
+            $('#DelEventos').modal('show');
+
+          }  );
+      } );
+      $(document).ready(function() {
+          var table= $('#profesores_tabla').DataTable();
+
+          //eliminar
+          table.on('click', '.delete_profesor', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+            var data = table.row($tr).data();
+
+
+            $('#delProfesor').attr('action', '/aquivalaruta/'+data[0]);
+            $('#DelProfesores').modal('show');
+
+          }  );
+      } );
+
+
+      var ModalModulos = document.getElementById('ModalModulos')
+      ModalModulos.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-whatever')
+
+      })
+
+      var ModalProfesores = document.getElementById('ModalProfesores')
+      ModalProfesores.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-whatever')
+
+      })
+
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },
@@ -1265,6 +1492,7 @@
         },
       });
       // =========== chart four end
+      
     </script>
   </body>
 </html>

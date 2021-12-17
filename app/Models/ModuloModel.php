@@ -45,5 +45,42 @@ class ModuloModel extends Model
         $result = $query->getResult('array');
         return $result;
     }
+
+    public function getAllModulos(){
+        $query = $this->db->query("Select * from modulo");
+        $result = $query->getResult('array');
+        return $result;
+    }
+
+    public function getModulosAdministrador(){
+        $query = $this->db->query("
+        Select m.nombre as nombre_modulo, c.nombre as nombre_carrera, s.nombre as nombre_sede, m.plan_comun
+        from modulo as m
+        LEFT JOIN
+        carrera as c
+        ON m.carrera = c.id
+        LEFT JOIN
+        sede AS s
+        ON m.sede = s.id
+        ");
+        $result = $query->getResult('array');
+        return $result;
+
+    }
+
+    public function getModulosEventos(){ #Modulos de encargado
+        $query = $this->db->query("
+        SELECT e.id as id, m.nombre as nombre_modulo, e.fecha as fecha, e.bloque as bloque, d.nombre as sala,  d.aforo as aforo, e.estado as estado
+        FROM evento as e
+        LEFT JOIN
+        dependencia as d
+        ON e.dependencia = d.id
+        LEFT JOIN
+        modulo as m
+        ON e.modulo = m.id
+        ");
+        $result = $query->getResult('array');
+        return $result;
+    }
 }
 ?>

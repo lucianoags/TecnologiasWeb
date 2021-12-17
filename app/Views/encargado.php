@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/fullcalendar.css");?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/main.css");?>" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
   </head>
   <body>
 
@@ -336,7 +338,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Módulos</h2>
+                  <h2>Eventos</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -385,11 +387,11 @@
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table">
+                  <table class="table top-selling-table" id="example2">
                     <thead>
                       <tr>
                         <th>
-                          <h6 class="text-sm text-medium">Módulos</h6>
+                          <h6 class="text-sm text-medium">Eventos</h6>
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
@@ -403,12 +405,12 @@
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
-                            ID Dependencia <i class="lni lni-arrows-vertical"></i>
+                            Sala <i class="lni lni-arrows-vertical"></i>
                           </h6>
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
-                            Cupo <i class="lni lni-arrows-vertical"></i>
+                            Aforo <i class="lni lni-arrows-vertical"></i>
                           </h6>
                         </th>
                         <th class="min-width">
@@ -424,103 +426,77 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Tecnologías Web</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">18-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">16:40</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">16</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">15</span>
-                        </td>
-                        <td>
-                          <span class="status-btn success-btn">Aprobado</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">Formulación Proyecto de Titulación</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">19-10-2021</p>
-                        </td>
-                        <td>
-                          <span class="status-btn ">08:30</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">332</span>
-                        </td>
-                        <td>
-                          <span class="status-btn">20</span>
-                        </td>
-                        <td>
-                          <span class="status-btn warning-btn">Pendiente</span>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Anular</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                    <?php                        
+                          if (isset($modulos)){
+                            
+                            foreach ($modulos as $key => $value) {
+                              ?>
+                                <tr>
+                                  <td>
+                                    <div class="product">
+                                      <div class="image">
+                                        <img
+                                          src="assets/images/products/product-mini-1.jpg"
+                                          alt=""
+                                        />
+                                      </div>
+                                      <p class="text-sm"><?php echo $value['nombre_modulo'];?></p>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <p class="text-sm"><?php echo $value['fecha'];?></p>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn "><?php echo $value['bloque'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['sala'];?></span>
+                                  </td>
+                                  <td>
+                                    <span class="status-btn"><?php echo $value['aforo'];?></span>
+                                  </td>
+                                  <td>
+                                  <?php if ($value['estado']==1){ ?>
+                                    <span class="status-btn success-btn"><?php
+                                      echo "Aprobado";
+                                    }else {?>
+                                      <span class="status-btn danger-btn"><?php
+                                      echo "Rechazado";
+                                    }?></span>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                      <?php if ($value['estado']==1){ ?>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Anular</a>
+                                        </li>
+                                      <?php  } else {?>
+                                        <li class="dropdown-item">
+                                          <!-- <a href="encargado/<?php $value['id'];?>" class="text-gray evento-anular">Anular</a> -->
+                                          <a href=#0 class="text-gray evento-anular" id=<?php echo $value['id'];?>  >Aprobar</a>
+                                        </li>
+                                      <?php }?>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                      ?>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -572,16 +548,21 @@
                   "
                 >
                   <div style="margin-left: auto">
-                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px"> Añadir Dependencia </button>    
+                    <button class="primary-btn btn-hover" style="width: 200px; height: 25px; border:none; border-radius: 10px; margin-bottom: 10px" data-bs-toggle="modal" data-bs-target="#ModalDependencias"> Añadir Dependencia </button>    
                   </div>
                 </div>
                 <!-- End Title -->
                 <div class="table-responsive">
-                  <table class="table top-selling-table">
+                  <table class="table top-selling-table" id="example">
                     <thead>
                       <tr>
                         <th>
                           <h6 class="text-sm text-medium">ID</h6>
+                        </th>
+                        <th class="min-width">
+                          <h6 class="text-sm text-medium">
+                            Nombre Sala <i class="lni lni-arrows-vertical"></i>
+                          </h6>
                         </th>
                         <th class="min-width">
                           <h6 class="text-sm text-medium">
@@ -596,165 +577,53 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">445</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">40</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">332</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">25</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                        <?php                        
+                          if (isset($dependencias)){
+                            
+                            foreach ($dependencias as $key => $value) {
 
-                      <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">16</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">35</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                              ?>
+                                <tr>
+                                  <td>
+                                      <?php echo $value['id'];?>
+                                  </td>
+                                  <td>
+                                    <?php echo $value['nombre'];?>
+                                  </td>
+                                  <td>
+                                    <?php echo $value['aforo'];?>
+                                  </td>
+                                  <td>
+                                    <div class="action justify-content-end">
+                                      <button
+                                        class="more-btn ml-10 dropdown-toggle"
+                                        id="moreAction1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="lni lni-more-alt"></i>
+                                      </button>
+                                      <ul
+                                        class="dropdown-menu dropdown-menu-end"
+                                        aria-labelledby="moreAction1"
+                                      >
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray edit">Modificar</a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                          <a href="#0" class="text-gray delete">Eliminar</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                        
+                      ?>
+
                       
-					  <tr>
-                        <td>
-                          <div class="product">
-                            <div class="image">
-                              <img
-                                src="assets/images/products/product-mini-1.jpg"
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-sm">34</p>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm">40</p>
-                        </td>
-                        <td>
-                          <div class="action justify-content-end">
-                            <button
-                              class="more-btn ml-10 dropdown-toggle"
-                              id="moreAction1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <i class="lni lni-more-alt"></i>
-                            </button>
-                            <ul
-                              class="dropdown-menu dropdown-menu-end"
-                              aria-labelledby="moreAction1"
-                            >
-                            <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Modificar</a>
-                              </li>
-                              <li class="dropdown-item">
-                                <a href="#0" class="text-gray">Eliminar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
                   <!-- End Table -->
@@ -806,6 +675,85 @@
         <!-- end container -->
       </footer>
       <!-- ========== footer end =========== -->
+
+
+
+      <div class="modal fade" id="ModalDependencias" tabindex="-1" aria-labelledby="ModalDependenciasLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="" method="POST" id="createDependencia">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalDependenciasLabel">Añadir Dependencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_sala" class="col-form-label">Nombre Sala</label>
+                    <input type="text" class="form-control" id="nombre_sala">
+                  </div>
+                  <div class="mb-3">
+                    <label for="aforo" class="col-form-label">Aforo permitido</label>
+                    <input type="text" class="form-control" id="aforo" style="width: 100px">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="EditDependencias" tabindex="-1" aria-labelledby="EditDependenciasLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="" id="editDependencia">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="EditDependenciasLabel">Modificar Dependencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="nombre_sala" class="col-form-label">Nombre Sala</label>
+                    <input type="text" class="form-control" id="nombre_sala_mod">
+                  </div>
+                  <div class="mb-3">
+                    <label for="aforo" class="col-form-label">Aforo permitido</label>
+                    <input type="text" class="form-control" id="aforo_mod" style="width: 100px">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="DelDependencias" tabindex="-1" aria-labelledby="DelDependenciasLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="" id="delDependencia">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="DelDependenciasLabel">Eliminar Dependencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  ¿Está seguro de que desea eliminar ésta dependencia?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger">Eliminar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+  
+
     </main>
     <!-- ======== main-wrapper end =========== -->
 
@@ -819,8 +767,90 @@
     <script src="<?= base_url("assets/js/world-merc.js") ?> "></script>
     <script src="<?= base_url("assets/js/polyfill.js") ?> "></script>
     <script src="<?= base_url("assets/js/main.js") ?> "></script>
+    <script src="<?= base_url("assets/js/jquery.js") ?> "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
 
     <script>
+
+      $(document).ready(function() {
+          var table= $('#example').DataTable();
+
+          //modificar
+          table.on('click', '.edit', function() {
+
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+
+            var data = table.row($tr).data();
+            console.log(data);
+
+            $('#nombre_sala_mod').val(data[1]);
+            $('#aforo_mod').val(data[2]);
+
+            $('#editDependencia').attr('action', '/aquivalaruta/'+data[0]);
+            $('#EditDependencias').modal('show');
+
+          });
+
+
+          //eliminar
+          table.on('click', '.delete', function() {
+            alert("asd");
+            $tr = $(this).closest('tr');
+            if ($($tr).hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
+
+            var data = table.row($tr).data();
+
+
+            $('#delDependencia').attr('action', '/eliminarDependencia/'+data[0]);
+            $('#DelDependencias').modal('show');
+
+          }  );
+      } );
+
+
+      $(document).ready(function() {
+          $('#example2').DataTable();
+      } );
+
+      $(document).ready(function(){
+        $(document).on('click','.evento-anular', function (){
+          $.ajax({
+            method: "POST",
+            url: "anularEvento",
+            data: {id: this.id}
+          }).done(function (data){
+            window.location.reload();
+            alert(data);
+          });
+        });
+      });
+
+      var ModalDependencias = document.getElementById('ModalDependencias')
+        ModalDependencias.addEventListener('show.bs.modal', function (event) {
+          // Button that triggered the modal
+          var button = event.relatedTarget
+          // Extract info from data-bs-* attributes
+          var recipient = button.getAttribute('data-bs-whatever')
+
+      })
+
+      var DelDependencias = document.getElementById('DelDependencias')
+        DelDependencias.addEventListener('show.bs.modal', function (event) {
+          // Button that triggered the modal
+          var button = event.relatedTarget
+          // Extract info from data-bs-* attributes
+          var recipient = button.getAttribute('data-bs-whatever')
+
+      })
       // ======== jvectormap activation
       var markers = [
         { name: "Egypt", coords: [26.8206, 30.8025] },
