@@ -438,7 +438,7 @@
                           foreach ($dependencias as $dependencias) {
                         
                         ?>
-                        <option value="<?php echo $dependencias->id;?>"><?php echo $dependencias->nombre;?></option>
+                        <option value="<?php echo $dependencias['id'];?>"><?php echo $dependencias['nombre'];?></option>
 
                         <?php
                         

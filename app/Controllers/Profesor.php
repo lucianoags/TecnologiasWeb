@@ -75,4 +75,16 @@ class Profesor extends BaseController{
         
     }
 
+    public function nuevaDependencia(){
+        $request = $this->request; 
+        $nombre = $request->getVar('nombre');
+        $aforo = $request->getVar('sala');
+
+        $data = ['nombre' => $nombre, 'sala'  => $aforo,];
+        $dependenciaModel = new DependenciaModel();
+        $dependenciaModel->insert($data);
+
+        echo "Fin";
+    }
+
 }

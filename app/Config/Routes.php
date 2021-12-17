@@ -32,19 +32,30 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('alumno', 'Login::alumno');
 $routes->get('perfil', 'Example::pfp');
 $routes->get('modificar', 'Example::modificar');
 $routes->get('profesor', 'Login::profesor');
-$routes->get('administrador', 'Router::administrador');
-$routes->get('encargado', 'Router::encargado');
-$routes->get('alumno', 'Login::alumno');
-$routes->post('login', 'Login::login');
-$routes->get('logout', 'Login::logout');
 
 // Módulos profesor
 $routes->post('profesor/inscribir', 'Profesor::inscribirModulos');
 $routes->post('profesor/inscribirEvento', 'Profesor::inscribirEvento');
 
+// Módulos Encargado
+$routes->post('nuevaDependencia', 'Profesor::nuevaDependencia');
+
+
+/* --------------------------------------------------------------------
+ * Rutas de Login
+ * --------------------------------------------------------------------
+ */
+
+$routes->post('login', 'Login::login');
+$routes->get('logout', 'Login::logout');
+
+                //-xXx_Redirects_xXx-//
+
+$routes->get('alumno', 'Login::alumno');
 $routes->get('administrador', 'Login::administrador');
 $routes->get('encargado', 'Login::encargado');
  
